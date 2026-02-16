@@ -1,0 +1,668 @@
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[07:40:39] password = ""  (string)
+[07:40:39] filterscripts = ""  (string)
+[07:40:39] 
+[07:40:39] Server Plugins
+[07:40:39] --------------
+[07:40:39]  Loading plugin: streamer
+[07:40:39] 
+
+*** Streamer Plugin v2.9.6 by Incognito loaded ***
+
+[07:40:39]   Loaded.
+[07:40:39]  Loading plugin: pawncmd
+[07:40:39] [Pawn.CMD] plugin v3.4.0 loading...
+[07:40:39] [Pawn.CMD] 
+
+    | Pawn.CMD 3.4.0 | 2016 - 2023
+    |--------------------------------
+    | Author and maintainer: katursis
+
+
+    | Compiled: Feb 12 2023 at 18:12:31
+    |--------------------------------------------------------------
+    | Repository: https://github.com/katursis/Pawn.CMD
+
+[07:40:39]   Loaded.
+[07:40:39]  Loading plugin: sscanf
+[07:40:39] 
+[07:40:39]  ===============================
+[07:40:39] 
+[07:40:39]       sscanf plugin loaded.     
+[07:40:39] 
+[07:40:39]          Version: 2.13.8
+[07:40:39] 
+[07:40:39]    (c) 2022 Alex "Y_Less" Cole  
+[07:40:39] 
+[07:40:39]  ===============================
+[07:40:39] 
+[07:40:39]   Loaded.
+[07:40:39]  Loading plugin: mysql
+[07:40:40]  >> plugin.mysql: R41-4 successfully loaded.
+[07:40:40]   Loaded.
+[07:40:40]  Loading plugin: samp_bcrypt
+[07:40:40] [SampBcrypt] [info]: Version: 0.4.1
+[07:40:40]   Loaded.
+[07:40:40]  Loading plugin: pawnregex
+[07:40:40] [Pawn.Regex] plugin v1.2.3 loading...
+[07:40:40] [Pawn.Regex] 
+
+    | Pawn.Regex 1.2.3 | 2016 - 2021
+    |--------------------------------
+    | Author and maintainer: katursis
+
+
+    | Compiled: Sep 26 2021 at 11:59:38
+    |--------------------------------------------------------------
+    | Repository: https://github.com/katursis/Pawn.Regex
+
+[07:40:40]   Loaded.
+[07:40:40]  Loaded 6 plugins.
+
+[07:40:40] 
+[07:40:40] Filterscripts
+[07:40:40] ---------------
+[07:40:40]   Loaded 0 filterscripts.
+
+[07:40:40]  
+[07:40:40]  
+[07:40:40]          ==============================================================
+[07:40:40]          |                                                            |
+[07:40:40]          |                                                            |
+[07:40:40]          |    YYYYYYY       YYYYYYY    SSSSSSSSSSSSSSS  IIIIIIIIII    |
+[07:40:40]          |    Y:::::Y       Y:::::Y  SS:::::::::::::::S I::::::::I    |
+[07:40:40]          |    Y:::::Y       Y:::::Y S:::::SSSSSS::::::S I::::::::I    |
+[07:40:40]          |    Y::::::Y     Y::::::Y S:::::S     SSSSSSS II::::::II    |
+[07:40:40]          |    YYY:::::Y   Y:::::YYY S:::::S               I::::I      |
+[07:40:40]          |       Y:::::Y Y:::::Y    S:::::S               I::::I      |
+[07:40:40]          |        Y:::::Y:::::Y      S::::SSSS            I::::I      |
+[07:40:40]          |         Y:::::::::Y        SS::::::SSSSS       I::::I      |
+[07:40:40]          |          Y:::::::Y           SSS::::::::SS     I::::I      |
+[07:40:40]          |           Y:::::Y               SSSSSS::::S    I::::I      |
+[07:40:40]          |           Y:::::Y                    S:::::S   I::::I      |
+[07:40:40]          |           Y:::::Y                    S:::::S   I::::I      |
+[07:40:40]          |           Y:::::Y        SSSSSSS     S:::::S II::::::II    |
+[07:40:40]          |        YYYY:::::YYYY     S::::::SSSSSS:::::S I::::::::I    |
+[07:40:40]          |        Y:::::::::::Y     S:::::::::::::::SS  I::::::::I    |
+[07:40:40]          |        YYYYYYYYYYYYY      SSSSSSSSSSSSSSS    IIIIIIIIII    |
+[07:40:40]          |                                                            |
+[07:40:40]          |                                                            |
+[07:40:40]          |                      (c) 2021 MPL v1.1                     |
+[07:40:40]          |            Alex "Y_Less" Cole and contributors.            |
+[07:40:40]          |                                                            |
+[07:40:40]          |                                                            |
+[07:40:40]          ==============================================================
+[07:40:40]  
+[07:40:40]  
+[07:40:40]  ========================================== 
+[07:40:40]  |                                        | 
+[07:40:40]  |   Generating code, this may take a     | 
+[07:40:40]  |  little bit of time.  Note that this   | 
+[07:40:40]  |  code generation works best with the   | 
+[07:40:40]  |     JIT plugin, which you are not      | 
+[07:40:40]  |     currently using.  Get it here:     | 
+[07:40:40]  |                                        | 
+[07:40:40]  |       https://git.io/jit-plugin        | 
+[07:40:40]  |                                        | 
+[07:40:40]  |             Please wait...             | 
+[07:40:40]  |                                        | 
+[07:40:40]  |             Done in 9ms!               | 
+[07:40:40]  |                                        | 
+[07:40:40]  ========================================== 
+[07:40:40]   Filterscript '../scriptfiles/callbackfix.amx' loaded.
+[07:40:40]  |                                        | 
+[07:40:40]  | Server:      0.3.7-R2 (W)              | 
+[07:40:40]  | Started:     16 Feb 2026 - 07:40:40    | 
+[07:40:40]  |                                        | 
+[07:40:40]  | Compiler:    3.10.10 (Windows)         | 
+[07:40:40]  | Includes:    0.3.7                     | 
+[07:40:40]  | Codepage:    <none>                    | 
+[07:40:40]  | Built:       15 Nov 2025 - 11:09:23    | 
+[07:40:40]  |                                        | 
+[07:40:40]  | YSI:         v05.10.0006               | 
+[07:40:40]  | Master:      -1                        | 
+[07:40:40]  |                                        | 
+[07:40:40]  | JIT:         <none>                    | 
+[07:40:40]  | Crashdetect: <none>                    | 
+[07:40:40]  |                                        | 
+[07:40:40]  ========================================== 
+[07:40:40]  |                                        | 
+[07:40:40]  | Unable to check the latest YSI version | 
+[07:40:40]  | - please watch the forums and github:  | 
+[07:40:40]  |                                        | 
+[07:40:40]  |          https://git.io/5.x            | 
+[07:40:40]  |                                        | 
+[07:40:40]  ========================================== 
+[07:40:40]  
+[07:40:40]  
+[07:40:40] Village Story Roleplay v1.0.4
+[07:40:40] Loading gamemode...
+[07:40:41] [ERROR] MySQL connection failed! Server shutting down...
+[07:40:41] Number of vehicle models: 0
+[07:40:41] --- Server Shutting Down.
+[07:40:41] [Server] Saving all player data...
+[07:40:41] [Server] Gamemode exited successfully
+[07:40:41] 
+
+*** Streamer Plugin v2.9.6 by Incognito unloaded ***
+
+[07:40:41] [Pawn.CMD] plugin unloaded
+[07:40:41] 
+[07:40:41]  ===============================
+[07:40:41] 
+[07:40:41]      sscanf plugin unloaded.    
+[07:40:41] 
+[07:40:41]  ===============================
+[07:40:41] 
+[07:40:41] plugin.mysql: Unloading plugin...
+[07:40:41] plugin.mysql: Plugin unloaded.
+[07:40:41] [Pawn.Regex] plugin unloaded
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[07:42:23] password = ""  (string)
+[07:42:23] filterscripts = ""  (string)
+[07:42:23] 
+[07:42:23] Server Plugins
+[07:42:23] --------------
+[07:42:23]  Loading plugin: streamer
+[07:42:23] 
+
+*** Streamer Plugin v2.9.6 by Incognito loaded ***
+
+[07:42:23]   Loaded.
+[07:42:23]  Loading plugin: pawncmd
+[07:42:23] [Pawn.CMD] plugin v3.4.0 loading...
+[07:42:23] [Pawn.CMD] 
+
+    | Pawn.CMD 3.4.0 | 2016 - 2023
+    |--------------------------------
+    | Author and maintainer: katursis
+
+
+    | Compiled: Feb 12 2023 at 18:12:31
+    |--------------------------------------------------------------
+    | Repository: https://github.com/katursis/Pawn.CMD
+
+[07:42:23]   Loaded.
+[07:42:23]  Loading plugin: sscanf
+[07:42:23] 
+[07:42:23]  ===============================
+[07:42:23] 
+[07:42:23]       sscanf plugin loaded.     
+[07:42:23] 
+[07:42:23]          Version: 2.13.8
+[07:42:23] 
+[07:42:23]    (c) 2022 Alex "Y_Less" Cole  
+[07:42:23] 
+[07:42:23]  ===============================
+[07:42:23] 
+[07:42:23]   Loaded.
+[07:42:23]  Loading plugin: mysql
+[07:42:23]  >> plugin.mysql: R41-4 successfully loaded.
+[07:42:23]   Loaded.
+[07:42:23]  Loading plugin: samp_bcrypt
+[07:42:23] [SampBcrypt] [info]: Version: 0.4.1
+[07:42:23]   Loaded.
+[07:42:23]  Loading plugin: pawnregex
+[07:42:23] [Pawn.Regex] plugin v1.2.3 loading...
+[07:42:23] [Pawn.Regex] 
+
+    | Pawn.Regex 1.2.3 | 2016 - 2021
+    |--------------------------------
+    | Author and maintainer: katursis
+
+
+    | Compiled: Sep 26 2021 at 11:59:38
+    |--------------------------------------------------------------
+    | Repository: https://github.com/katursis/Pawn.Regex
+
+[07:42:23]   Loaded.
+[07:42:23]  Loaded 6 plugins.
+
+[07:42:24] 
+[07:42:24] Filterscripts
+[07:42:24] ---------------
+[07:42:24]   Loaded 0 filterscripts.
+
+[07:42:24]  
+[07:42:24]  
+[07:42:24]          ==============================================================
+[07:42:24]          |                                                            |
+[07:42:24]          |                                                            |
+[07:42:24]          |    YYYYYYY       YYYYYYY    SSSSSSSSSSSSSSS  IIIIIIIIII    |
+[07:42:24]          |    Y:::::Y       Y:::::Y  SS:::::::::::::::S I::::::::I    |
+[07:42:24]          |    Y:::::Y       Y:::::Y S:::::SSSSSS::::::S I::::::::I    |
+[07:42:24]          |    Y::::::Y     Y::::::Y S:::::S     SSSSSSS II::::::II    |
+[07:42:24]          |    YYY:::::Y   Y:::::YYY S:::::S               I::::I      |
+[07:42:24]          |       Y:::::Y Y:::::Y    S:::::S               I::::I      |
+[07:42:24]          |        Y:::::Y:::::Y      S::::SSSS            I::::I      |
+[07:42:24]          |         Y:::::::::Y        SS::::::SSSSS       I::::I      |
+[07:42:24]          |          Y:::::::Y           SSS::::::::SS     I::::I      |
+[07:42:24]          |           Y:::::Y               SSSSSS::::S    I::::I      |
+[07:42:24]          |           Y:::::Y                    S:::::S   I::::I      |
+[07:42:24]          |           Y:::::Y                    S:::::S   I::::I      |
+[07:42:24]          |           Y:::::Y        SSSSSSS     S:::::S II::::::II    |
+[07:42:24]          |        YYYY:::::YYYY     S::::::SSSSSS:::::S I::::::::I    |
+[07:42:24]          |        Y:::::::::::Y     S:::::::::::::::SS  I::::::::I    |
+[07:42:24]          |        YYYYYYYYYYYYY      SSSSSSSSSSSSSSS    IIIIIIIIII    |
+[07:42:24]          |                                                            |
+[07:42:24]          |                                                            |
+[07:42:24]          |                      (c) 2021 MPL v1.1                     |
+[07:42:24]          |            Alex "Y_Less" Cole and contributors.            |
+[07:42:24]          |                                                            |
+[07:42:24]          |                                                            |
+[07:42:24]          ==============================================================
+[07:42:24]  
+[07:42:24]  
+[07:42:24]  ========================================== 
+[07:42:24]  |                                        | 
+[07:42:24]  |   Generating code, this may take a     | 
+[07:42:24]  |  little bit of time.  Note that this   | 
+[07:42:24]  |  code generation works best with the   | 
+[07:42:24]  |     JIT plugin, which you are not      | 
+[07:42:24]  |     currently using.  Get it here:     | 
+[07:42:24]  |                                        | 
+[07:42:24]  |       https://git.io/jit-plugin        | 
+[07:42:24]  |                                        | 
+[07:42:24]  |             Please wait...             | 
+[07:42:24]  |                                        | 
+[07:42:24]  |             Done in 40ms!              | 
+[07:42:24]  |                                        | 
+[07:42:24]  ========================================== 
+[07:42:24]   Filterscript '../scriptfiles/callbackfix.amx' loaded.
+[07:42:24]  |                                        | 
+[07:42:24]  | Server:      0.3.7-R2 (W)              | 
+[07:42:24]  | Started:     16 Feb 2026 - 07:42:24    | 
+[07:42:24]  |                                        | 
+[07:42:24]  | Compiler:    3.10.10 (Windows)         | 
+[07:42:24]  | Includes:    0.3.7                     | 
+[07:42:24]  | Codepage:    <none>                    | 
+[07:42:24]  | Built:       15 Nov 2025 - 11:09:23    | 
+[07:42:24]  |                                        | 
+[07:42:24]  | YSI:         v05.10.0006               | 
+[07:42:24]  | Master:      -1                        | 
+[07:42:24]  |                                        | 
+[07:42:24]  | JIT:         <none>                    | 
+[07:42:24]  | Crashdetect: <none>                    | 
+[07:42:24]  |                                        | 
+[07:42:24]  ========================================== 
+[07:42:24]  |                                        | 
+[07:42:24]  | Unable to check the latest YSI version | 
+[07:42:24]  | - please watch the forums and github:  | 
+[07:42:24]  |                                        | 
+[07:42:24]  |          https://git.io/5.x            | 
+[07:42:24]  |                                        | 
+[07:42:24]  ========================================== 
+[07:42:24]  
+[07:42:24]  
+[07:42:24] Village Story Roleplay v1.0.4
+[07:42:24] Loading gamemode...
+[07:42:24] [ERROR] MySQL connection failed! Server shutting down...
+[07:42:24] Number of vehicle models: 0
+[07:42:24] --- Server Shutting Down.
+[07:42:24] [Server] Saving all player data...
+[07:42:24] [Server] Gamemode exited successfully
+[07:42:24] 
+
+*** Streamer Plugin v2.9.6 by Incognito unloaded ***
+
+[07:42:24] [Pawn.CMD] plugin unloaded
+[07:42:24] 
+[07:42:24]  ===============================
+[07:42:24] 
+[07:42:24]      sscanf plugin unloaded.    
+[07:42:24] 
+[07:42:24]  ===============================
+[07:42:24] 
+[07:42:24] plugin.mysql: Unloading plugin...
+[07:42:24] plugin.mysql: Plugin unloaded.
+[07:42:24] [Pawn.Regex] plugin unloaded
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[07:44:07] password = ""  (string)
+[07:44:07] filterscripts = ""  (string)
+[07:44:07] 
+[07:44:07] Server Plugins
+[07:44:07] --------------
+[07:44:07]  Loading plugin: streamer
+[07:44:07] 
+
+*** Streamer Plugin v2.9.6 by Incognito loaded ***
+
+[07:44:07]   Loaded.
+[07:44:07]  Loading plugin: pawncmd
+[07:44:07] [Pawn.CMD] plugin v3.4.0 loading...
+[07:44:07] [Pawn.CMD] 
+
+    | Pawn.CMD 3.4.0 | 2016 - 2023
+    |--------------------------------
+    | Author and maintainer: katursis
+
+
+    | Compiled: Feb 12 2023 at 18:12:31
+    |--------------------------------------------------------------
+    | Repository: https://github.com/katursis/Pawn.CMD
+
+[07:44:07]   Loaded.
+[07:44:07]  Loading plugin: sscanf
+[07:44:07] 
+[07:44:07]  ===============================
+[07:44:07] 
+[07:44:07]       sscanf plugin loaded.     
+[07:44:07] 
+[07:44:07]          Version: 2.13.8
+[07:44:07] 
+[07:44:07]    (c) 2022 Alex "Y_Less" Cole  
+[07:44:07] 
+[07:44:07]  ===============================
+[07:44:07] 
+[07:44:07]   Loaded.
+[07:44:07]  Loading plugin: mysql
+[07:44:07]  >> plugin.mysql: R41-4 successfully loaded.
+[07:44:07]   Loaded.
+[07:44:07]  Loading plugin: samp_bcrypt
+[07:44:07] [SampBcrypt] [info]: Version: 0.4.1
+[07:44:07]   Loaded.
+[07:44:07]  Loading plugin: pawnregex
+[07:44:07] [Pawn.Regex] plugin v1.2.3 loading...
+[07:44:07] [Pawn.Regex] 
+
+    | Pawn.Regex 1.2.3 | 2016 - 2021
+    |--------------------------------
+    | Author and maintainer: katursis
+
+
+    | Compiled: Sep 26 2021 at 11:59:38
+    |--------------------------------------------------------------
+    | Repository: https://github.com/katursis/Pawn.Regex
+
+[07:44:07]   Loaded.
+[07:44:07]  Loaded 6 plugins.
+
+[07:44:07] 
+[07:44:07] Filterscripts
+[07:44:07] ---------------
+[07:44:07]   Loaded 0 filterscripts.
+
+[07:44:08]  
+[07:44:08]  
+[07:44:08]          ==============================================================
+[07:44:08]          |                                                            |
+[07:44:08]          |                                                            |
+[07:44:08]          |    YYYYYYY       YYYYYYY    SSSSSSSSSSSSSSS  IIIIIIIIII    |
+[07:44:08]          |    Y:::::Y       Y:::::Y  SS:::::::::::::::S I::::::::I    |
+[07:44:08]          |    Y:::::Y       Y:::::Y S:::::SSSSSS::::::S I::::::::I    |
+[07:44:08]          |    Y::::::Y     Y::::::Y S:::::S     SSSSSSS II::::::II    |
+[07:44:08]          |    YYY:::::Y   Y:::::YYY S:::::S               I::::I      |
+[07:44:08]          |       Y:::::Y Y:::::Y    S:::::S               I::::I      |
+[07:44:08]          |        Y:::::Y:::::Y      S::::SSSS            I::::I      |
+[07:44:08]          |         Y:::::::::Y        SS::::::SSSSS       I::::I      |
+[07:44:08]          |          Y:::::::Y           SSS::::::::SS     I::::I      |
+[07:44:08]          |           Y:::::Y               SSSSSS::::S    I::::I      |
+[07:44:08]          |           Y:::::Y                    S:::::S   I::::I      |
+[07:44:08]          |           Y:::::Y                    S:::::S   I::::I      |
+[07:44:08]          |           Y:::::Y        SSSSSSS     S:::::S II::::::II    |
+[07:44:08]          |        YYYY:::::YYYY     S::::::SSSSSS:::::S I::::::::I    |
+[07:44:08]          |        Y:::::::::::Y     S:::::::::::::::SS  I::::::::I    |
+[07:44:08]          |        YYYYYYYYYYYYY      SSSSSSSSSSSSSSS    IIIIIIIIII    |
+[07:44:08]          |                                                            |
+[07:44:08]          |                                                            |
+[07:44:08]          |                      (c) 2021 MPL v1.1                     |
+[07:44:08]          |            Alex "Y_Less" Cole and contributors.            |
+[07:44:08]          |                                                            |
+[07:44:08]          |                                                            |
+[07:44:08]          ==============================================================
+[07:44:08]  
+[07:44:08]  
+[07:44:08]  ========================================== 
+[07:44:08]  |                                        | 
+[07:44:08]  |   Generating code, this may take a     | 
+[07:44:08]  |  little bit of time.  Note that this   | 
+[07:44:08]  |  code generation works best with the   | 
+[07:44:08]  |     JIT plugin, which you are not      | 
+[07:44:08]  |     currently using.  Get it here:     | 
+[07:44:08]  |                                        | 
+[07:44:08]  |       https://git.io/jit-plugin        | 
+[07:44:08]  |                                        | 
+[07:44:08]  |             Please wait...             | 
+[07:44:08]  |                                        | 
+[07:44:08]  |             Done in 9ms!               | 
+[07:44:08]  |                                        | 
+[07:44:08]  ========================================== 
+[07:44:08]   Filterscript '../scriptfiles/callbackfix.amx' loaded.
+[07:44:08]  |                                        | 
+[07:44:08]  | Server:      0.3.7-R2 (W)              | 
+[07:44:08]  | Started:     16 Feb 2026 - 07:44:08    | 
+[07:44:08]  |                                        | 
+[07:44:08]  | Compiler:    3.10.10 (Windows)         | 
+[07:44:08]  | Includes:    0.3.7                     | 
+[07:44:08]  | Codepage:    <none>                    | 
+[07:44:08]  | Built:       15 Nov 2025 - 11:09:23    | 
+[07:44:08]  |                                        | 
+[07:44:08]  | YSI:         v05.10.0006               | 
+[07:44:08]  | Master:      -1                        | 
+[07:44:08]  |                                        | 
+[07:44:08]  | JIT:         <none>                    | 
+[07:44:08]  | Crashdetect: <none>                    | 
+[07:44:08]  |                                        | 
+[07:44:08]  ========================================== 
+[07:44:08]  |                                        | 
+[07:44:08]  | Unable to check the latest YSI version | 
+[07:44:08]  | - please watch the forums and github:  | 
+[07:44:08]  |                                        | 
+[07:44:08]  |          https://git.io/5.x            | 
+[07:44:08]  |                                        | 
+[07:44:08]  ========================================== 
+[07:44:08]  
+[07:44:08]  
+[07:44:08] Village Story Roleplay v1.0.4
+[07:44:08] Loading gamemode...
+[07:44:08] [ERROR] MySQL connection failed! Server shutting down...
+[07:44:08] Number of vehicle models: 0
+[07:44:08] --- Server Shutting Down.
+[07:44:08] [Server] Saving all player data...
+[07:44:08] [Server] Gamemode exited successfully
+[07:44:08] 
+
+*** Streamer Plugin v2.9.6 by Incognito unloaded ***
+
+[07:44:08] [Pawn.CMD] plugin unloaded
+[07:44:08] 
+[07:44:08]  ===============================
+[07:44:08] 
+[07:44:08]      sscanf plugin unloaded.    
+[07:44:08] 
+[07:44:08]  ===============================
+[07:44:08] 
+[07:44:08] plugin.mysql: Unloading plugin...
+[07:44:08] plugin.mysql: Plugin unloaded.
+[07:44:08] [Pawn.Regex] plugin unloaded
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[07:44:28] password = ""  (string)
+[07:44:28] filterscripts = ""  (string)
+[07:44:28] 
+[07:44:28] Server Plugins
+[07:44:28] --------------
+[07:44:28]  Loading plugin: streamer
+[07:44:28] 
+
+*** Streamer Plugin v2.9.6 by Incognito loaded ***
+
+[07:44:28]   Loaded.
+[07:44:28]  Loading plugin: pawncmd
+[07:44:28] [Pawn.CMD] plugin v3.4.0 loading...
+[07:44:28] [Pawn.CMD] 
+
+    | Pawn.CMD 3.4.0 | 2016 - 2023
+    |--------------------------------
+    | Author and maintainer: katursis
+
+
+    | Compiled: Feb 12 2023 at 18:12:31
+    |--------------------------------------------------------------
+    | Repository: https://github.com/katursis/Pawn.CMD
+
+[07:44:28]   Loaded.
+[07:44:28]  Loading plugin: sscanf
+[07:44:28] 
+[07:44:28]  ===============================
+[07:44:28] 
+[07:44:28]       sscanf plugin loaded.     
+[07:44:28] 
+[07:44:28]          Version: 2.13.8
+[07:44:28] 
+[07:44:28]    (c) 2022 Alex "Y_Less" Cole  
+[07:44:28] 
+[07:44:28]  ===============================
+[07:44:28] 
+[07:44:28]   Loaded.
+[07:44:28]  Loading plugin: mysql
+[07:44:28]  >> plugin.mysql: R41-4 successfully loaded.
+[07:44:28]   Loaded.
+[07:44:28]  Loading plugin: samp_bcrypt
+[07:44:28] [SampBcrypt] [info]: Version: 0.4.1
+[07:44:28]   Loaded.
+[07:44:28]  Loading plugin: pawnregex
+[07:44:28] [Pawn.Regex] plugin v1.2.3 loading...
+[07:44:28] [Pawn.Regex] 
+
+    | Pawn.Regex 1.2.3 | 2016 - 2021
+    |--------------------------------
+    | Author and maintainer: katursis
+
+
+    | Compiled: Sep 26 2021 at 11:59:38
+    |--------------------------------------------------------------
+    | Repository: https://github.com/katursis/Pawn.Regex
+
+[07:44:28]   Loaded.
+[07:44:28]  Loaded 6 plugins.
+
+[07:44:28] 
+[07:44:28] Filterscripts
+[07:44:28] ---------------
+[07:44:28]   Loaded 0 filterscripts.
+
+[07:44:28]  
+[07:44:28]  
+[07:44:28]          ==============================================================
+[07:44:28]          |                                                            |
+[07:44:28]          |                                                            |
+[07:44:28]          |    YYYYYYY       YYYYYYY    SSSSSSSSSSSSSSS  IIIIIIIIII    |
+[07:44:28]          |    Y:::::Y       Y:::::Y  SS:::::::::::::::S I::::::::I    |
+[07:44:28]          |    Y:::::Y       Y:::::Y S:::::SSSSSS::::::S I::::::::I    |
+[07:44:28]          |    Y::::::Y     Y::::::Y S:::::S     SSSSSSS II::::::II    |
+[07:44:28]          |    YYY:::::Y   Y:::::YYY S:::::S               I::::I      |
+[07:44:28]          |       Y:::::Y Y:::::Y    S:::::S               I::::I      |
+[07:44:28]          |        Y:::::Y:::::Y      S::::SSSS            I::::I      |
+[07:44:28]          |         Y:::::::::Y        SS::::::SSSSS       I::::I      |
+[07:44:28]          |          Y:::::::Y           SSS::::::::SS     I::::I      |
+[07:44:28]          |           Y:::::Y               SSSSSS::::S    I::::I      |
+[07:44:28]          |           Y:::::Y                    S:::::S   I::::I      |
+[07:44:28]          |           Y:::::Y                    S:::::S   I::::I      |
+[07:44:28]          |           Y:::::Y        SSSSSSS     S:::::S II::::::II    |
+[07:44:28]          |        YYYY:::::YYYY     S::::::SSSSSS:::::S I::::::::I    |
+[07:44:28]          |        Y:::::::::::Y     S:::::::::::::::SS  I::::::::I    |
+[07:44:28]          |        YYYYYYYYYYYYY      SSSSSSSSSSSSSSS    IIIIIIIIII    |
+[07:44:28]          |                                                            |
+[07:44:28]          |                                                            |
+[07:44:28]          |                      (c) 2021 MPL v1.1                     |
+[07:44:28]          |            Alex "Y_Less" Cole and contributors.            |
+[07:44:28]          |                                                            |
+[07:44:28]          |                                                            |
+[07:44:28]          ==============================================================
+[07:44:28]  
+[07:44:28]  
+[07:44:28]  ========================================== 
+[07:44:28]  |                                        | 
+[07:44:28]  |   Generating code, this may take a     | 
+[07:44:28]  |  little bit of time.  Note that this   | 
+[07:44:28]  |  code generation works best with the   | 
+[07:44:28]  |     JIT plugin, which you are not      | 
+[07:44:28]  |     currently using.  Get it here:     | 
+[07:44:28]  |                                        | 
+[07:44:28]  |       https://git.io/jit-plugin        | 
+[07:44:28]  |                                        | 
+[07:44:28]  |             Please wait...             | 
+[07:44:28]  |                                        | 
+[07:44:28]  |             Done in 9ms!               | 
+[07:44:28]  |                                        | 
+[07:44:28]  ========================================== 
+[07:44:28]   Filterscript '../scriptfiles/callbackfix.amx' loaded.
+[07:44:28]  |                                        | 
+[07:44:28]  | Server:      0.3.7-R2 (W)              | 
+[07:44:28]  | Started:     16 Feb 2026 - 07:44:28    | 
+[07:44:28]  |                                        | 
+[07:44:28]  | Compiler:    3.10.10 (Windows)         | 
+[07:44:28]  | Includes:    0.3.7                     | 
+[07:44:28]  | Codepage:    <none>                    | 
+[07:44:28]  | Built:       15 Nov 2025 - 11:09:23    | 
+[07:44:28]  |                                        | 
+[07:44:28]  | YSI:         v05.10.0006               | 
+[07:44:28]  | Master:      -1                        | 
+[07:44:28]  |                                        | 
+[07:44:28]  | JIT:         <none>                    | 
+[07:44:28]  | Crashdetect: <none>                    | 
+[07:44:28]  |                                        | 
+[07:44:28]  ========================================== 
+[07:44:28]  |                                        | 
+[07:44:28]  | Unable to check the latest YSI version | 
+[07:44:28]  | - please watch the forums and github:  | 
+[07:44:28]  |                                        | 
+[07:44:28]  |          https://git.io/5.x            | 
+[07:44:28]  |                                        | 
+[07:44:28]  ========================================== 
+[07:44:28]  
+[07:44:28]  
+[07:44:28] Village Story Roleplay v1.0.4
+[07:44:28] Loading gamemode...
+[07:44:28] [ERROR] MySQL connection failed! Server shutting down...
+[07:44:28] Number of vehicle models: 0
+[07:44:28] --- Server Shutting Down.
+[07:44:28] [Server] Saving all player data...
+[07:44:28] [Server] Gamemode exited successfully
+[07:44:28] 
+
+*** Streamer Plugin v2.9.6 by Incognito unloaded ***
+
+[07:44:28] [Pawn.CMD] plugin unloaded
+[07:44:28] 
+[07:44:28]  ===============================
+[07:44:28] 
+[07:44:28]      sscanf plugin unloaded.    
+[07:44:28] 
+[07:44:28]  ===============================
+[07:44:28] 
+[07:44:28] plugin.mysql: Unloading plugin...
+[07:44:28] plugin.mysql: Plugin unloaded.
+[07:44:28] [Pawn.Regex] plugin unloaded
