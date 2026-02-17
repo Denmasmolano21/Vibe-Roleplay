@@ -1,0 +1,21 @@
+[10:59:45] Long callback execution detected (hang or performance issue)
+[10:59:45] AMX backtrace:
+[10:59:45] #0 0002690c in Iter_Remove_InternalC (&count=@027085b4 0, array[]=@02707610 "", size=1001, value=0) at D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_timers\..\..\YSI_Data\y_foreach\y_foreach_impl.inc:955
+[10:59:45] #1 00028500 in public ScriptInit_OnPlayerDisconnect (0, 1) at D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_timers\..\..\YSI_Data\y_foreach\y_foreach_iterators.inc:774
+[10:59:45] #2 00009ed8 in public Android_OnPlayerDisconnect (playerid=0, reason=1) at D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\..\YSI_Core\y_core\../y_utils/y_utils_ip.inc:115
+[10:59:45] #3 000079e8 in public SSCANF_OnPlayerDisconnect (0, 1) at D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\..\YSI_Core\y_core\..\..\YSI_Players\y_android\y_android_entry.inc:148
+[10:59:45] #4 00000c7c in public OnPlayerDisconnect (playerid=0, reason=1) at D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\sscanf2.inc:1154
+[10:59:51] Server received interrupt signal
+[10:59:51] Native backtrace:
+[10:59:51] #0 773a94dc in ?? () in C:\WINDOWS\SYSTEM32\ntdll.dll
+[10:59:51] #1 76d413b0 in ?? () in C:\WINDOWS\System32\KERNELBASE.dll
+[10:59:51] #2 76d4134f in ?? () in C:\WINDOWS\System32\KERNELBASE.dll
+[10:59:51] #3 0048d53c in ?? () in samp-server.exe
+[10:59:51] #4 0049b531 in ?? () in samp-server.exe
+[10:59:51] #5 0049b541 in ?? () in samp-server.exe
+[10:59:51] Long callback execution detected (hang or performance issue)
+[10:59:51] AMX backtrace:
+[10:59:51] #0 00006bc8 in AMX_GetEntryPrefix (E_AMX_TABLE:table=0, idx=83, &buffer=@0277bd60 0, pattern=1601784128) at D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\..\YSI_Core\y_core\y_amx_impl.inc:1165
+[10:59:51] #1 00006d20 in AMX_GetPointerPrefix (E_AMX_TABLE:table=0, idx=0, &buffer=@0277bd80 0, pattern=1601784128) at D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\..\YSI_Core\y_core\y_amx_impl.inc:2016
+[10:59:51] #2 0000a8bc in ScriptInit_PreExitFuncs_ () at D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\..\YSI_Core\y_core\y_core_entry.inc:606
+[10:59:51] #3 00003c60 in public OnGameModeExit () at D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\..\YSI_Core\y_core\y_scriptinit_impl.inc:1971
