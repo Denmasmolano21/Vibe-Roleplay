@@ -1,238 +1,261 @@
-/*
- * hud.pwn — Player textdraws (HUD)
- * textdraw-streamer.inc meredefine CreatePlayerTextDraw → CreateDynamicPlayerTextDraw
- * Jadi pakai API standar SA-MP — otomatis dynamic
- * Depends on: data.pwn
- */
+// ui/hud.pwn — Per-player HUD textdraws
+//
+// Layout (kiri bawah):
+//   [Lapar] ████████░░  <- hunger bar
+//   [Haus ] ███████░░░  <- thirst bar
+//
+// Speedometer (kanan bawah, hanya saat di kendaraan):
+//   120 km/h
+//
+// Depends on: core/enums.pwn, core/config.pwn, player/data.pwn
 
 #if defined _HUD_PWN
     #endinput
 #endif
 #define _HUD_PWN
 
-// ─── Handle per player ────────────────────────────────────────────────────────
-static PlayerText:ptd_BgNama    [MAX_PLAYERS] = {PlayerText:INVALID_TEXT_DRAW, ...};
-static PlayerText:ptd_Nama      [MAX_PLAYERS] = {PlayerText:INVALID_TEXT_DRAW, ...};
-static PlayerText:ptd_BgMakan   [MAX_PLAYERS] = {PlayerText:INVALID_TEXT_DRAW, ...};
-static PlayerText:ptd_BgMinum   [MAX_PLAYERS] = {PlayerText:INVALID_TEXT_DRAW, ...};
-static PlayerText:ptd_BarMakan  [MAX_PLAYERS] = {PlayerText:INVALID_TEXT_DRAW, ...};
-static PlayerText:ptd_BarMinum  [MAX_PLAYERS] = {PlayerText:INVALID_TEXT_DRAW, ...};
-static PlayerText:ptd_BgSpedo   [MAX_PLAYERS] = {PlayerText:INVALID_TEXT_DRAW, ...};
-static PlayerText:ptd_Speed     [MAX_PLAYERS] = {PlayerText:INVALID_TEXT_DRAW, ...};
-static PlayerText:ptd_SpeedMph  [MAX_PLAYERS] = {PlayerText:INVALID_TEXT_DRAW, ...};
-static PlayerText:ptd_Fuel      [MAX_PLAYERS] = {PlayerText:INVALID_TEXT_DRAW, ...};
-static PlayerText:ptd_Hp        [MAX_PLAYERS] = {PlayerText:INVALID_TEXT_DRAW, ...};
-static PlayerText:ptd_Lock      [MAX_PLAYERS] = {PlayerText:INVALID_TEXT_DRAW, ...};
+// =============================================================================
+// POSISI — koordinat SA-MP textdraw (640x480 virtual screen)
+// =============================================================================
+#define HUD_HUNGER_X        (5.0)
+#define HUD_HUNGER_Y        (388.0)
+#define HUD_HUNGER_W        (60.0)
+#define HUD_HUNGER_H        (4.0)
 
-// ─── Buat semua HUD untuk satu player ────────────────────────────────────────
-stock HUD_Create(playerid) {
-    // BG Nama
-    ptd_BgNama[playerid] = CreatePlayerTextDraw(playerid, 498.0, 107.0, "LD_SPAC:white");
-    PlayerTextDrawTextSize      (playerid, ptd_BgNama[playerid], 110.0, 21.0);
-    PlayerTextDrawAlignment     (playerid, ptd_BgNama[playerid], 1);
-    PlayerTextDrawColor         (playerid, ptd_BgNama[playerid], 200);
-    PlayerTextDrawSetShadow     (playerid, ptd_BgNama[playerid], 0);
-    PlayerTextDrawSetOutline    (playerid, ptd_BgNama[playerid], 0);
-    PlayerTextDrawBackgroundColor(playerid, ptd_BgNama[playerid], 255);
-    PlayerTextDrawFont          (playerid, ptd_BgNama[playerid], 4);
-    PlayerTextDrawSetProportional(playerid, ptd_BgNama[playerid], 1);
+#define HUD_THIRST_X        (5.0)
+#define HUD_THIRST_Y        (396.0)
+#define HUD_THIRST_W        (60.0)
+#define HUD_THIRST_H        (4.0)
 
-    // Nama Player
-    ptd_Nama[playerid] = CreatePlayerTextDraw(playerid, 521.0, 109.0,
-        g_Player[playerid][p_Name]);
-    PlayerTextDrawLetterSize    (playerid, ptd_Nama[playerid], 0.349, 1.498);
-    PlayerTextDrawAlignment     (playerid, ptd_Nama[playerid], 1);
-    PlayerTextDrawColor         (playerid, ptd_Nama[playerid], -56);
-    PlayerTextDrawSetShadow     (playerid, ptd_Nama[playerid], 1);
-    PlayerTextDrawSetOutline    (playerid, ptd_Nama[playerid], 1);
-    PlayerTextDrawBackgroundColor(playerid, ptd_Nama[playerid], 150);
-    PlayerTextDrawFont          (playerid, ptd_Nama[playerid], 0);
-    PlayerTextDrawSetProportional(playerid, ptd_Nama[playerid], 1);
+#define HUD_LABEL_X         (5.0)
+#define HUD_LABEL_HUNGER_Y  (383.0)
+#define HUD_LABEL_THIRST_Y  (391.0)
 
-    // BG Makan
-    ptd_BgMakan[playerid] = CreatePlayerTextDraw(playerid, 498.0, 130.0, "LD_SPAC:white");
-    PlayerTextDrawTextSize      (playerid, ptd_BgMakan[playerid], 52.0, 17.0);
-    PlayerTextDrawAlignment     (playerid, ptd_BgMakan[playerid], 1);
-    PlayerTextDrawColor         (playerid, ptd_BgMakan[playerid], 200);
-    PlayerTextDrawSetShadow     (playerid, ptd_BgMakan[playerid], 0);
-    PlayerTextDrawSetOutline    (playerid, ptd_BgMakan[playerid], 0);
-    PlayerTextDrawBackgroundColor(playerid, ptd_BgMakan[playerid], 255);
-    PlayerTextDrawFont          (playerid, ptd_BgMakan[playerid], 4);
-    PlayerTextDrawSetProportional(playerid, ptd_BgMakan[playerid], 1);
+#define HUD_SPEED_X         (547.0)
+#define HUD_SPEED_Y         (382.0)
 
-    // Bar Makan
-    ptd_BarMakan[playerid] = CreatePlayerTextDraw(playerid, 522.0, 133.0, "100");
-    PlayerTextDrawLetterSize    (playerid, ptd_BarMakan[playerid], 0.200, 1.098);
-    PlayerTextDrawAlignment     (playerid, ptd_BarMakan[playerid], 1);
-    PlayerTextDrawColor         (playerid, ptd_BarMakan[playerid], -56);
-    PlayerTextDrawSetShadow     (playerid, ptd_BarMakan[playerid], 0);
-    PlayerTextDrawSetOutline    (playerid, ptd_BarMakan[playerid], -1);
-    PlayerTextDrawBackgroundColor(playerid, ptd_BarMakan[playerid], 255);
-    PlayerTextDrawFont          (playerid, ptd_BarMakan[playerid], 1);
-    PlayerTextDrawSetProportional(playerid, ptd_BarMakan[playerid], 1);
+// =============================================================================
+// HANDLE ARRAY — satu set per player
+// Dideklarasikan sebagai enum untuk type safety, tapi di-loop pakai index int
+// =============================================================================
+enum E_HUD_TD {
+    td_HungerBg,
+    td_HungerFill,
+    td_ThirstBg,
+    td_ThirstFill,
+    td_LabelHunger,
+    td_LabelThirst,
+    td_SpeedBg,
+    td_SpeedValue,
+    td_SpeedUnit
+};
+#define HUD_TD_COUNT (9)   // harus sama dengan jumlah field E_HUD_TD
 
-    // BG Minum
-    ptd_BgMinum[playerid] = CreatePlayerTextDraw(playerid, 555.0, 130.0, "LD_SPAC:white");
-    PlayerTextDrawTextSize      (playerid, ptd_BgMinum[playerid], 53.0, 17.0);
-    PlayerTextDrawAlignment     (playerid, ptd_BgMinum[playerid], 1);
-    PlayerTextDrawColor         (playerid, ptd_BgMinum[playerid], 200);
-    PlayerTextDrawSetShadow     (playerid, ptd_BgMinum[playerid], 0);
-    PlayerTextDrawSetOutline    (playerid, ptd_BgMinum[playerid], 0);
-    PlayerTextDrawBackgroundColor(playerid, ptd_BgMinum[playerid], 255);
-    PlayerTextDrawFont          (playerid, ptd_BgMinum[playerid], 4);
-    PlayerTextDrawSetProportional(playerid, ptd_BgMinum[playerid], 1);
+new PlayerText:g_HUD[MAX_PLAYERS][E_HUD_TD];
 
-    // Bar Minum
-    ptd_BarMinum[playerid] = CreatePlayerTextDraw(playerid, 579.0, 133.0, "100");
-    PlayerTextDrawLetterSize    (playerid, ptd_BarMinum[playerid], 0.200, 1.098);
-    PlayerTextDrawAlignment     (playerid, ptd_BarMinum[playerid], 1);
-    PlayerTextDrawColor         (playerid, ptd_BarMinum[playerid], -56);
-    PlayerTextDrawSetShadow     (playerid, ptd_BarMinum[playerid], 0);
-    PlayerTextDrawSetOutline    (playerid, ptd_BarMinum[playerid], -1);
-    PlayerTextDrawBackgroundColor(playerid, ptd_BarMinum[playerid], 255);
-    PlayerTextDrawFont          (playerid, ptd_BarMinum[playerid], 1);
-    PlayerTextDrawSetProportional(playerid, ptd_BarMinum[playerid], 1);
-
-    // BG Speedometer
-    ptd_BgSpedo[playerid] = CreatePlayerTextDraw(playerid, 517.0, 343.0, "LD_SPAC:white");
-    PlayerTextDrawTextSize      (playerid, ptd_BgSpedo[playerid], 89.0, 87.0);
-    PlayerTextDrawAlignment     (playerid, ptd_BgSpedo[playerid], 1);
-    PlayerTextDrawColor         (playerid, ptd_BgSpedo[playerid], 200);
-    PlayerTextDrawSetShadow     (playerid, ptd_BgSpedo[playerid], 0);
-    PlayerTextDrawSetOutline    (playerid, ptd_BgSpedo[playerid], 0);
-    PlayerTextDrawBackgroundColor(playerid, ptd_BgSpedo[playerid], 255);
-    PlayerTextDrawFont          (playerid, ptd_BgSpedo[playerid], 4);
-    PlayerTextDrawSetProportional(playerid, ptd_BgSpedo[playerid], 1);
-
-    // Speed value
-    ptd_Speed[playerid] = CreatePlayerTextDraw(playerid, 556.0, 348.0, "0");
-    PlayerTextDrawLetterSize    (playerid, ptd_Speed[playerid], 0.229, 1.297);
-    PlayerTextDrawAlignment     (playerid, ptd_Speed[playerid], 1);
-    PlayerTextDrawColor         (playerid, ptd_Speed[playerid], -1);
-    PlayerTextDrawSetShadow     (playerid, ptd_Speed[playerid], 1);
-    PlayerTextDrawSetOutline    (playerid, ptd_Speed[playerid], 1);
-    PlayerTextDrawBackgroundColor(playerid, ptd_Speed[playerid], 150);
-    PlayerTextDrawFont          (playerid, ptd_Speed[playerid], 1);
-    PlayerTextDrawSetProportional(playerid, ptd_Speed[playerid], 1);
-
-    // Speed unit
-    ptd_SpeedMph[playerid] = CreatePlayerTextDraw(playerid, 576.0, 348.0, "Km/h");
-    PlayerTextDrawLetterSize    (playerid, ptd_SpeedMph[playerid], 0.229, 1.297);
-    PlayerTextDrawAlignment     (playerid, ptd_SpeedMph[playerid], 1);
-    PlayerTextDrawColor         (playerid, ptd_SpeedMph[playerid], -1);
-    PlayerTextDrawSetShadow     (playerid, ptd_SpeedMph[playerid], 1);
-    PlayerTextDrawSetOutline    (playerid, ptd_SpeedMph[playerid], 1);
-    PlayerTextDrawBackgroundColor(playerid, ptd_SpeedMph[playerid], 150);
-    PlayerTextDrawFont          (playerid, ptd_SpeedMph[playerid], 1);
-    PlayerTextDrawSetProportional(playerid, ptd_SpeedMph[playerid], 1);
-
-    // Fuel
-    ptd_Fuel[playerid] = CreatePlayerTextDraw(playerid, 556.0, 368.0, "100");
-    PlayerTextDrawLetterSize    (playerid, ptd_Fuel[playerid], 0.229, 1.297);
-    PlayerTextDrawAlignment     (playerid, ptd_Fuel[playerid], 1);
-    PlayerTextDrawColor         (playerid, ptd_Fuel[playerid], -1);
-    PlayerTextDrawSetShadow     (playerid, ptd_Fuel[playerid], 1);
-    PlayerTextDrawSetOutline    (playerid, ptd_Fuel[playerid], 1);
-    PlayerTextDrawBackgroundColor(playerid, ptd_Fuel[playerid], 150);
-    PlayerTextDrawFont          (playerid, ptd_Fuel[playerid], 1);
-    PlayerTextDrawSetProportional(playerid, ptd_Fuel[playerid], 1);
-
-    // HP
-    ptd_Hp[playerid] = CreatePlayerTextDraw(playerid, 556.0, 390.0, "100");
-    PlayerTextDrawLetterSize    (playerid, ptd_Hp[playerid], 0.229, 1.297);
-    PlayerTextDrawAlignment     (playerid, ptd_Hp[playerid], 1);
-    PlayerTextDrawColor         (playerid, ptd_Hp[playerid], -1);
-    PlayerTextDrawSetShadow     (playerid, ptd_Hp[playerid], 1);
-    PlayerTextDrawSetOutline    (playerid, ptd_Hp[playerid], 1);
-    PlayerTextDrawBackgroundColor(playerid, ptd_Hp[playerid], 150);
-    PlayerTextDrawFont          (playerid, ptd_Hp[playerid], 1);
-    PlayerTextDrawSetProportional(playerid, ptd_Hp[playerid], 1);
-
-    // Lock status
-    ptd_Lock[playerid] = CreatePlayerTextDraw(playerid, 556.0, 411.0, "LOCKED");
-    PlayerTextDrawLetterSize    (playerid, ptd_Lock[playerid], 0.229, 1.297);
-    PlayerTextDrawAlignment     (playerid, ptd_Lock[playerid], 1);
-    PlayerTextDrawColor         (playerid, ptd_Lock[playerid], 1018393087);
-    PlayerTextDrawSetShadow     (playerid, ptd_Lock[playerid], 1);
-    PlayerTextDrawSetOutline    (playerid, ptd_Lock[playerid], 1);
-    PlayerTextDrawBackgroundColor(playerid, ptd_Lock[playerid], 150);
-    PlayerTextDrawFont          (playerid, ptd_Lock[playerid], 1);
-    PlayerTextDrawSetProportional(playerid, ptd_Lock[playerid], 1);
+// =============================================================================
+// HUD_INIT_HANDLES — set semua handle ke INVALID saat awal
+// Dipanggil dari Player_Reset atau OnGameModeInit
+// =============================================================================
+stock HUD_InitHandles(playerid) {
+    // Loop pakai index integer biasa — TIDAK cast ke E_HUD_TD
+    // karena Pawn tidak support E_HUD_TD:i saat indexing array
+    g_HUD[playerid][td_HungerBg]    = INVALID_TEXT_DRAW;
+    g_HUD[playerid][td_HungerFill]  = INVALID_TEXT_DRAW;
+    g_HUD[playerid][td_ThirstBg]    = INVALID_TEXT_DRAW;
+    g_HUD[playerid][td_ThirstFill]  = INVALID_TEXT_DRAW;
+    g_HUD[playerid][td_LabelHunger] = INVALID_TEXT_DRAW;
+    g_HUD[playerid][td_LabelThirst] = INVALID_TEXT_DRAW;
+    g_HUD[playerid][td_SpeedBg]     = INVALID_TEXT_DRAW;
+    g_HUD[playerid][td_SpeedValue]  = INVALID_TEXT_DRAW;
+    g_HUD[playerid][td_SpeedUnit]   = INVALID_TEXT_DRAW;
 }
 
-// ─── Show ─────────────────────────────────────────────────────────────────────
+// =============================================================================
+// HUD_CREATE — buat semua textdraw saat player spawn
+// =============================================================================
+stock HUD_Create(playerid) {
+    // ── Hunger background
+    g_HUD[playerid][td_HungerBg] = CreatePlayerTextDraw(playerid,
+        HUD_HUNGER_X, HUD_HUNGER_Y, "LD_SPAC:white");
+    PlayerTextDrawTextSize  (playerid, g_HUD[playerid][td_HungerBg], HUD_HUNGER_W, HUD_HUNGER_H);
+    PlayerTextDrawColor     (playerid, g_HUD[playerid][td_HungerBg], 0x33333388);
+    PlayerTextDrawFont      (playerid, g_HUD[playerid][td_HungerBg], TEXT_DRAW_FONT_SPRITE_DRAW);
+    PlayerTextDrawUseBox    (playerid, g_HUD[playerid][td_HungerBg], true);
+
+    // ── Hunger fill
+    g_HUD[playerid][td_HungerFill] = CreatePlayerTextDraw(playerid,
+        HUD_HUNGER_X, HUD_HUNGER_Y, "LD_SPAC:white");
+    PlayerTextDrawTextSize  (playerid, g_HUD[playerid][td_HungerFill], HUD_HUNGER_W, HUD_HUNGER_H);
+    PlayerTextDrawColor     (playerid, g_HUD[playerid][td_HungerFill], 0xE88B2CFF);
+    PlayerTextDrawFont      (playerid, g_HUD[playerid][td_HungerFill], TEXT_DRAW_FONT_SPRITE_DRAW);
+    PlayerTextDrawUseBox    (playerid, g_HUD[playerid][td_HungerFill], true);
+
+    // ── Thirst background
+    g_HUD[playerid][td_ThirstBg] = CreatePlayerTextDraw(playerid,
+        HUD_THIRST_X, HUD_THIRST_Y, "LD_SPAC:white");
+    PlayerTextDrawTextSize  (playerid, g_HUD[playerid][td_ThirstBg], HUD_THIRST_W, HUD_THIRST_H);
+    PlayerTextDrawColor     (playerid, g_HUD[playerid][td_ThirstBg], 0x33333388);
+    PlayerTextDrawFont      (playerid, g_HUD[playerid][td_ThirstBg], TEXT_DRAW_FONT_SPRITE_DRAW);
+    PlayerTextDrawUseBox    (playerid, g_HUD[playerid][td_ThirstBg], true);
+
+    // ── Thirst fill
+    g_HUD[playerid][td_ThirstFill] = CreatePlayerTextDraw(playerid,
+        HUD_THIRST_X, HUD_THIRST_Y, "LD_SPAC:white");
+    PlayerTextDrawTextSize  (playerid, g_HUD[playerid][td_ThirstFill], HUD_THIRST_W, HUD_THIRST_H);
+    PlayerTextDrawColor     (playerid, g_HUD[playerid][td_ThirstFill], 0x2CA8E8FF);
+    PlayerTextDrawFont      (playerid, g_HUD[playerid][td_ThirstFill], TEXT_DRAW_FONT_SPRITE_DRAW);
+    PlayerTextDrawUseBox    (playerid, g_HUD[playerid][td_ThirstFill], true);
+
+    // ── Label Lapar
+    g_HUD[playerid][td_LabelHunger] = CreatePlayerTextDraw(playerid,
+        HUD_LABEL_X, HUD_LABEL_HUNGER_Y, "Lapar");
+    PlayerTextDrawFont      (playerid, g_HUD[playerid][td_LabelHunger], TEXT_DRAW_FONT_1);
+    PlayerTextDrawLetterSize(playerid, g_HUD[playerid][td_LabelHunger], 0.15, 0.7);
+    PlayerTextDrawColor     (playerid, g_HUD[playerid][td_LabelHunger], 0xE88B2CFF);
+    PlayerTextDrawSetShadow (playerid, g_HUD[playerid][td_LabelHunger], 0);
+    PlayerTextDrawSetOutline(playerid, g_HUD[playerid][td_LabelHunger], 1);
+
+    // ── Label Haus
+    g_HUD[playerid][td_LabelThirst] = CreatePlayerTextDraw(playerid,
+        HUD_LABEL_X, HUD_LABEL_THIRST_Y, "Haus");
+    PlayerTextDrawFont      (playerid, g_HUD[playerid][td_LabelThirst], TEXT_DRAW_FONT_1);
+    PlayerTextDrawLetterSize(playerid, g_HUD[playerid][td_LabelThirst], 0.15, 0.7);
+    PlayerTextDrawColor     (playerid, g_HUD[playerid][td_LabelThirst], 0x2CA8E8FF);
+    PlayerTextDrawSetShadow (playerid, g_HUD[playerid][td_LabelThirst], 0);
+    PlayerTextDrawSetOutline(playerid, g_HUD[playerid][td_LabelThirst], 1);
+
+    // ── Speed background
+    g_HUD[playerid][td_SpeedBg] = CreatePlayerTextDraw(playerid,
+        HUD_SPEED_X - 2.0, HUD_SPEED_Y - 2.0, "LD_SPAC:white");
+    PlayerTextDrawTextSize  (playerid, g_HUD[playerid][td_SpeedBg], 88.0, 20.0);
+    PlayerTextDrawColor     (playerid, g_HUD[playerid][td_SpeedBg], 0x00000066);
+    PlayerTextDrawFont      (playerid, g_HUD[playerid][td_SpeedBg], TEXT_DRAW_FONT_SPRITE_DRAW);
+    PlayerTextDrawUseBox    (playerid, g_HUD[playerid][td_SpeedBg], true);
+
+    // ── Speed angka
+    g_HUD[playerid][td_SpeedValue] = CreatePlayerTextDraw(playerid,
+        HUD_SPEED_X, HUD_SPEED_Y, "0");
+    PlayerTextDrawFont      (playerid, g_HUD[playerid][td_SpeedValue], TEXT_DRAW_FONT_2);
+    PlayerTextDrawLetterSize(playerid, g_HUD[playerid][td_SpeedValue], 0.35, 1.5);
+    PlayerTextDrawColor     (playerid, g_HUD[playerid][td_SpeedValue], 0xFFFFFFFF);
+    PlayerTextDrawSetShadow (playerid, g_HUD[playerid][td_SpeedValue], 0);
+    PlayerTextDrawSetOutline(playerid, g_HUD[playerid][td_SpeedValue], 1);
+    PlayerTextDrawAlignment (playerid, g_HUD[playerid][td_SpeedValue], TEXT_DRAW_ALIGN_RIGHT);
+
+    // ── Speed unit
+    g_HUD[playerid][td_SpeedUnit] = CreatePlayerTextDraw(playerid,
+        HUD_SPEED_X, HUD_SPEED_Y + 11.0, "km/h");
+    PlayerTextDrawFont      (playerid, g_HUD[playerid][td_SpeedUnit], TEXT_DRAW_FONT_1);
+    PlayerTextDrawLetterSize(playerid, g_HUD[playerid][td_SpeedUnit], 0.15, 0.7);
+    PlayerTextDrawColor     (playerid, g_HUD[playerid][td_SpeedUnit], 0xAAAAAAAA);
+    PlayerTextDrawSetShadow (playerid, g_HUD[playerid][td_SpeedUnit], 0);
+    PlayerTextDrawSetOutline(playerid, g_HUD[playerid][td_SpeedUnit], 1);
+    PlayerTextDrawAlignment (playerid, g_HUD[playerid][td_SpeedUnit], TEXT_DRAW_ALIGN_RIGHT);
+}
+
+// =============================================================================
+// HUD_SHOW
+// =============================================================================
 stock HUD_Show(playerid) {
     HUD_Create(playerid);
+    HUD_SetHunger(playerid, g_Player[playerid][p_Hunger]);
+    HUD_SetThirst(playerid, g_Player[playerid][p_Thirst]);
 
-    PlayerTextDrawShow(playerid, ptd_BgNama[playerid]);
-    PlayerTextDrawShow(playerid, ptd_Nama[playerid]);
-    PlayerTextDrawShow(playerid, ptd_BgMakan[playerid]);
-    PlayerTextDrawShow(playerid, ptd_BarMakan[playerid]);
-    PlayerTextDrawShow(playerid, ptd_BgMinum[playerid]);
-    PlayerTextDrawShow(playerid, ptd_BarMinum[playerid]);
-    // Speedometer hidden by default — muncul saat masuk kendaraan
+    PlayerTextDrawShow(playerid, g_HUD[playerid][td_HungerBg]);
+    PlayerTextDrawShow(playerid, g_HUD[playerid][td_HungerFill]);
+    PlayerTextDrawShow(playerid, g_HUD[playerid][td_ThirstBg]);
+    PlayerTextDrawShow(playerid, g_HUD[playerid][td_ThirstFill]);
+    PlayerTextDrawShow(playerid, g_HUD[playerid][td_LabelHunger]);
+    PlayerTextDrawShow(playerid, g_HUD[playerid][td_LabelThirst]);
+
+    PlayerTextDrawHide(playerid, g_HUD[playerid][td_SpeedBg]);
+    PlayerTextDrawHide(playerid, g_HUD[playerid][td_SpeedValue]);
+    PlayerTextDrawHide(playerid, g_HUD[playerid][td_SpeedUnit]);
 }
 
-// ─── Destroy ──────────────────────────────────────────────────────────────────
+// =============================================================================
+// HUD_DESTROY — safe: cek INVALID sebelum destroy, pakai index langsung
+// =============================================================================
 stock HUD_Destroy(playerid) {
-    PlayerTextDrawDestroy(playerid, ptd_BgNama[playerid]);
-    PlayerTextDrawDestroy(playerid, ptd_Nama[playerid]);
-    PlayerTextDrawDestroy(playerid, ptd_BgMakan[playerid]);
-    PlayerTextDrawDestroy(playerid, ptd_BarMakan[playerid]);
-    PlayerTextDrawDestroy(playerid, ptd_BgMinum[playerid]);
-    PlayerTextDrawDestroy(playerid, ptd_BarMinum[playerid]);
-    PlayerTextDrawDestroy(playerid, ptd_BgSpedo[playerid]);
-    PlayerTextDrawDestroy(playerid, ptd_Speed[playerid]);
-    PlayerTextDrawDestroy(playerid, ptd_SpeedMph[playerid]);
-    PlayerTextDrawDestroy(playerid, ptd_Fuel[playerid]);
-    PlayerTextDrawDestroy(playerid, ptd_Hp[playerid]);
-    PlayerTextDrawDestroy(playerid, ptd_Lock[playerid]);
+    // Manual per-field — Pawn tidak support enum cast saat array index
+    #define _HUD_SAFE_DESTROY(%1) \
+        if (g_HUD[playerid][%1] != PlayerText:INVALID_TEXT_DRAW) { \
+            PlayerTextDrawDestroy(playerid, g_HUD[playerid][%1]); \
+            g_HUD[playerid][%1] = PlayerText:INVALID_TEXT_DRAW; \
+        }
+
+    _HUD_SAFE_DESTROY(td_HungerBg)
+    _HUD_SAFE_DESTROY(td_HungerFill)
+    _HUD_SAFE_DESTROY(td_ThirstBg)
+    _HUD_SAFE_DESTROY(td_ThirstFill)
+    _HUD_SAFE_DESTROY(td_LabelHunger)
+    _HUD_SAFE_DESTROY(td_LabelThirst)
+    _HUD_SAFE_DESTROY(td_SpeedBg)
+    _HUD_SAFE_DESTROY(td_SpeedValue)
+    _HUD_SAFE_DESTROY(td_SpeedUnit)
+
+    #undef _HUD_SAFE_DESTROY
 }
 
-// ─── Update speedometer ───────────────────────────────────────────────────────
+// =============================================================================
+// HUD_SETHUNGER — update lebar bar proporsional + warna berubah
+// =============================================================================
+stock HUD_SetHunger(playerid, value) {
+    if (g_HUD[playerid][td_HungerFill] == PlayerText:INVALID_TEXT_DRAW) return;
+
+    new Float:w = (Float:value / Float:NEEDS_MAX) * HUD_HUNGER_W;
+    if (w < 0.5) w = 0.5; // minimum agar tidak invisible
+
+    new color;
+    if      (value > NEEDS_WARN_LEVEL) color = 0xE88B2CFF;
+    else if (value > NEEDS_CRIT_LEVEL) color = 0xFFCC00FF;
+    else                               color = 0xFF4444FF;
+
+    PlayerTextDrawTextSize(playerid, g_HUD[playerid][td_HungerFill], w, HUD_HUNGER_H);
+    PlayerTextDrawColor   (playerid, g_HUD[playerid][td_HungerFill], color);
+    PlayerTextDrawShow    (playerid, g_HUD[playerid][td_HungerFill]);
+}
+
+// =============================================================================
+// HUD_SETTHIRST
+// =============================================================================
+stock HUD_SetThirst(playerid, value) {
+    if (g_HUD[playerid][td_ThirstFill] == PlayerText:INVALID_TEXT_DRAW) return;
+
+    new Float:w = (Float:value / Float:NEEDS_MAX) * HUD_THIRST_W;
+    if (w < 0.5) w = 0.5;
+
+    new color;
+    if      (value > NEEDS_WARN_LEVEL) color = 0x2CA8E8FF;
+    else if (value > NEEDS_CRIT_LEVEL) color = 0xFFCC00FF;
+    else                               color = 0xFF4444FF;
+
+    PlayerTextDrawTextSize(playerid, g_HUD[playerid][td_ThirstFill], w, HUD_THIRST_H);
+    PlayerTextDrawColor   (playerid, g_HUD[playerid][td_ThirstFill], color);
+    PlayerTextDrawShow    (playerid, g_HUD[playerid][td_ThirstFill]);
+}
+
+// =============================================================================
+// HUD_UPDATEVEHICLE — dipanggil tiap Timer_HUD
+// =============================================================================
 stock HUD_UpdateVehicle(playerid) {
     if (!IsPlayerInAnyVehicle(playerid)) {
-        PlayerTextDrawHide(playerid, ptd_BgSpedo[playerid]);
-        PlayerTextDrawHide(playerid, ptd_Speed[playerid]);
-        PlayerTextDrawHide(playerid, ptd_SpeedMph[playerid]);
-        PlayerTextDrawHide(playerid, ptd_Fuel[playerid]);
-        PlayerTextDrawHide(playerid, ptd_Hp[playerid]);
-        PlayerTextDrawHide(playerid, ptd_Lock[playerid]);
+        PlayerTextDrawHide(playerid, g_HUD[playerid][td_SpeedBg]);
+        PlayerTextDrawHide(playerid, g_HUD[playerid][td_SpeedValue]);
+        PlayerTextDrawHide(playerid, g_HUD[playerid][td_SpeedUnit]);
         return;
     }
 
-    new vid = GetPlayerVehicleID(playerid);
     new Float:vx, Float:vy, Float:vz;
-    GetVehicleVelocity(vid, vx, vy, vz);
+    GetVehicleVelocity(GetPlayerVehicleID(playerid), vx, vy, vz);
+    new speed = floatround(Util_VehicleSpeed(vx, vy, vz));
 
-    new spd = floatround(floatsqroot(vx*vx + vy*vy + vz*vz) * 180.0);
-    new Float:hp;
-    GetVehicleHealth(vid, hp);
-
-    new str[16];
-    format(str, sizeof(str), "%d", spd);
-    PlayerTextDrawSetString(playerid, ptd_Speed[playerid], str);
-
-    format(str, sizeof(str), "%d", floatround(hp / 10.0));
-    PlayerTextDrawSetString(playerid, ptd_Hp[playerid], str);
-
-    PlayerTextDrawShow(playerid, ptd_BgSpedo[playerid]);
-    PlayerTextDrawShow(playerid, ptd_Speed[playerid]);
-    PlayerTextDrawShow(playerid, ptd_SpeedMph[playerid]);
-    PlayerTextDrawShow(playerid, ptd_Fuel[playerid]);
-    PlayerTextDrawShow(playerid, ptd_Hp[playerid]);
-    PlayerTextDrawShow(playerid, ptd_Lock[playerid]);
-}
-
-// ─── Update hunger/thirst ─────────────────────────────────────────────────────
-stock HUD_SetHunger(playerid, value) {
     new str[8];
-    format(str, sizeof(str), "%d", value);
-    PlayerTextDrawSetString(playerid, ptd_BarMakan[playerid], str);
-}
+    format(str, sizeof(str), "%d", speed);
+    PlayerTextDrawSetString(playerid, g_HUD[playerid][td_SpeedValue], str);
 
-stock HUD_SetThirst(playerid, value) {
-    new str[8];
-    format(str, sizeof(str), "%d", value);
-    PlayerTextDrawSetString(playerid, ptd_BarMinum[playerid], str);
+    PlayerTextDrawShow(playerid, g_HUD[playerid][td_SpeedBg]);
+    PlayerTextDrawShow(playerid, g_HUD[playerid][td_SpeedValue]);
+    PlayerTextDrawShow(playerid, g_HUD[playerid][td_SpeedUnit]);
 }

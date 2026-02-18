@@ -1,24 +1,27 @@
 /*
- * gamemode.pwn — Entry point utama Vibe Roleplay
+ * gamemode.pwn — Entry point Vibe Roleplay
  *
- * ATURAN INCLUDE ORDER:
- *   Tier 0 : Plugin includes (a_samp, a_mysql, dst)
- *   Tier 1 : Pawn.CMD — hook OnGameModeInit via ALS internal
- *   Tier 2 : y_hooks — SETELAH Pawn.CMD supaya bisa chain
- *   Tier 3+ : Modul kita, urutan dependency ketat
+ * INCLUDE ORDER (strict dependency):
+ *   Tier 0  : Plugin includes
+ *   Tier 1  : Pawn.CMD (sebelum y_hooks — ALS chain)
+ *   Tier 2  : YSI — y_hooks, y_timers, y_iterate
+ *   Tier 3  : core/      — config, enums
+ *   Tier 4  : utils/     — math, string, time, validator
+ *   Tier 5  : database/  — connection, migrations
+ *   Tier 6  : player/data.pwn  (WAJIB sebelum semua pakai g_Player[])
+ *   Tier 7  : ui/        — textdraw_manager, hud
+ *   Tier 8  : database/query_builder
+ *   Tier 9  : player/    — spawning, death, anti_cheat, session
+ *   Tier 10 : ui/dialog_router
+ *   Tier 11 : systems/   — survival
+ *   Tier 12 : commands/  — SEMUA CMD di sini, zero CMD di file lain
  *
- * KENAPA TIDAK ADA public OnGameModeInit():
- *   Pawn.CMD.inc sudah define public OnGameModeInit() sendiri
- *   dan redefine macro-nya ke PawnCmd_OnGameModeInit.
- *   y_hooks lalu chain "hook OnGameModeInit()" kita ke sana.
- *   Jangan pernah tulis public OnGameModeInit() secara manual.
+ * Full Voice Server — tidak ada chat system
  */
 
 #pragma tabsize 0
 
-// =============================================================================
-// TIER 0 — Plugin & library includes
-// =============================================================================
+// ─── Tier 0: Plugins ──────────────────────────────────────────────────────────
 #include <a_samp>
 #include <a_mysql>
 #include <sscanf2>
@@ -37,88 +40,68 @@
 #include <YSI_Coding\y_timers>
 #include <YSI_Data\y_iterate>
 
-// =============================================================================
-// TIER 1 — Core (tanpa dependensi)
-// =============================================================================
+// ─── Tier 1: Core ─────────────────────────────────────────────────────────────
 #include "core\config.pwn"
 #include "core\enums.pwn"
 
-// =============================================================================
-// TIER 2 — Pure utilities (tidak ada state global)
-// =============================================================================
+// ─── Tier 2: Utils ────────────────────────────────────────────────────────────
 #include "utils\math.pwn"
 #include "utils\string.pwn"
 #include "utils\time.pwn"
 #include "utils\validator.pwn"
 
-// =============================================================================
-// TIER 3 — Database connection
-// =============================================================================
+// ─── Tier 3: Database ─────────────────────────────────────────────────────────
 #include "database\connection.pwn"
 #include "database\migrations.pwn"
 
-// =============================================================================
-// TIER 4 — Player data container
-//          HARUS sebelum query_builder (QB pakai g_Player[])
-//          HARUS sebelum semua player/*.pwn dan ui/*.pwn
-// =============================================================================
+// ─── Tier 4: Player data ──────────────────────────────────────────────────────
 #include "player\data.pwn"
 
-// =============================================================================
-// TIER 5 — UI
-//          textdraw-streamer sudah di-include di Tier 0
-// =============================================================================
+// ─── Tier 5: UI ───────────────────────────────────────────────────────────────
 #include "ui\textdraw_manager.pwn"
 #include "ui\hud.pwn"
 
-// =============================================================================
-// TIER 6 — Database queries
-//          Setelah data.pwn karena pakai g_Player[]
-// =============================================================================
+// ─── Tier 6: DB queries + dialog launchers ────────────────────────────────────
 #include "database\query_builder.pwn"
 
-// =============================================================================
-// TIER 7 — Player logic
-// =============================================================================
+// ─── Tier 7: Player logic ─────────────────────────────────────────────────────
 #include "player\spawning.pwn"
+#include "player\death.pwn"
 #include "player\anti_cheat.pwn"
 #include "player\session.pwn"
 
-// =============================================================================
-// TIER 8 — Dialog router
-// =============================================================================
+// ─── Tier 8: Dialog router ────────────────────────────────────────────────────
 #include "ui\dialog_router.pwn"
 
-// =============================================================================
-// TIER 9 — RP Systems
-// =============================================================================
-#include "systems\\chat\\chat.pwn"
+// ─── Tier 9: Systems ──────────────────────────────────────────────────────────
+#include "systems\survival\survival.pwn"
 
-// Future systems:
-// #include "systems\\inventory\\inventory.pwn"
-// #include "systems\\vehicles\\vehicle_system.pwn"
+// ─── Tier 10: Commands ────────────────────────────────────────────────────────
+#include "commands\general_cmd.pwn"
+#include "commands\survival_cmd.pwn"
+#include "commands\admin_cmd.pwn"
+// #include "commands\vehicle_cmd.pwn"  // next
 
 // =============================================================================
 main() {
-    print("  ======================================");
-    print("  Vibe Roleplay  |  Production v1.0");
-    print("  ======================================");
+    print("  ==========================================");
+    print("   Vibe Roleplay  |  " SERVER_VERSION);
+    print("   Full Voice — No Chat System");
+    print("  ==========================================");
 }
 
 // =============================================================================
-// INIT — y_hooks chain ke PawnCmd_OnGameModeInit secara otomatis
+// INIT
 // =============================================================================
 hook OnGameModeInit() {
-    // Phase 1: Database
     if (!DB_Connect()) {
-        print("[FATAL] MySQL gagal connect. Server shutdown.");
+        print("[FATAL] MySQL gagal connect. Shutdown.");
         SendRconCommand("exit");
         return 1;
     }
     DB_RunMigrations();
 
-    // Phase 2: Server settings
-    SetGameModeText("Vrp v1.0");
+    SetGameModeText(SERVER_NAME " " SERVER_VERSION);
     ShowNameTags(true);
     ShowPlayerMarkers(PLAYER_MARKERS_MODE_OFF);
     EnableStuntBonusForAll(false);
@@ -127,30 +110,27 @@ hook OnGameModeInit() {
     ManualVehicleEngineAndLights();
     UsePlayerPedAnims();
 
-    // SA-MP WAJIB: minimal 1 AddPlayerClass terdaftar
-    // agar SpawnPlayer() berfungsi dengan benar.
-    // Kita pakai class dummy — spawn actual dihandle Player_DoSpawn via SetSpawnInfo.
-    AddPlayerClass(SPAWN_SKIN, SPAWN_X, SPAWN_Y, SPAWN_Z, SPAWN_A, 0,0,0,0,0,0);
+    // SA-MP: minimal 1 AddPlayerClass agar SpawnPlayer() berfungsi
+    AddPlayerClass(SPAWN_SKIN, SPAWN_X, SPAWN_Y, SPAWN_Z, SPAWN_A,
+        0, 0, 0, 0, 0, 0);
 
-    // Phase 3: Streamer
     Streamer_SetTickRate(50);
     Streamer_SetVisibleItems(STREAMER_TYPE_OBJECT, 500);
     Streamer_SetVisibleItems(STREAMER_TYPE_PICKUP, 50);
 
-    // Phase 4: Global textdraws
     TextDraw_InitGlobals();
 
-    // Phase 5: Start timers
-    // y_timers: deklarasi "timer X[]" hanya mendaftarkan timer.
-    // "repeat X();" yang benar-benar menjalankannya sebagai repeating timer.
     repeat Timer_HUD();
     repeat Timer_AC();
     repeat Timer_AutoSave();
+    repeat Timer_Survival();
 
-    print("[Init] Server siap.");
+    print("[Init] Vibe Roleplay siap.");
     return 1;
 }
 
+// =============================================================================
+// EXIT
 // =============================================================================
 hook OnGameModeExit() {
     foreach (new i : Player) {
@@ -163,27 +143,33 @@ hook OnGameModeExit() {
 }
 
 // =============================================================================
-// TIMERS — y_timers: tidak perlu forward/SetTimer manual
-//
-// FIX: timer bernama "AC_Tick" bentrok dengan stock AC_Tick() di anti_cheat.pwn
-//      Solusi: timer diganti nama "Timer_AC", stock di anti_cheat.pwn
-//      sudah diganti menjadi AC_CheckPlayer()
+// COMMAND FALLBACK
+// =============================================================================
+public OnPlayerCommandPerformed(playerid, cmd[], params[], result, flags) {
+    if (!result) {
+        SendClientMessage(playerid, COL_RED,
+            "  {FF4444}[!] {FFFFFF}Perintah tidak dikenal. Ketik {00C8FF}/help{FFFFFF}.");
+    }
+    return 1;
+}
+
+// =============================================================================
+// TIMERS
 // =============================================================================
 
+// HUD — update speedometer tiap 1 detik
 timer Timer_HUD[INTERVAL_HUD]() {
     foreach (new i : Player) {
-        if (g_Player[i][p_LoggedIn]) {
-            HUD_UpdateVehicle(i);
-        }
+        if (g_Player[i][p_LoggedIn]) HUD_UpdateVehicle(i);
     }
 }
 
+// Anti-cheat — tiap 3 detik
 timer Timer_AC[INTERVAL_AC]() {
-    foreach (new i : Player) {
-        AC_CheckPlayer(i);
-    }
+    foreach (new i : Player) AC_CheckPlayer(i);
 }
 
+// Auto-save — tiap 5 menit
 timer Timer_AutoSave[INTERVAL_SAVE]() {
     new count = 0;
     foreach (new i : Player) {
@@ -192,53 +178,10 @@ timer Timer_AutoSave[INTERVAL_SAVE]() {
             count++;
         }
     }
-    printf("[AutoSave] %d player tersimpan.", count);
+    if (count > 0) printf("[AutoSave] %d player tersimpan.", count);
 }
 
-// =============================================================================
-// COMMANDS
-// =============================================================================
-
-CMD:help(playerid, params[]) {
-    SendClientMessage(playerid, COL_GREEN, "==============================");
-    SendClientMessage(playerid, COL_WHITE, " /stats  /waktu  /rules");
-    SendClientMessage(playerid, COL_GREEN, "==============================");
-    return 1;
-}
-
-// FIX error 001 pada CMD:stats:
-// Masalah: format() dengan string literal multi-baris menggunakan
-//   MSG_* macro (yang berisi "{XXXXXX}") tidak bisa digabung
-//   sebagai argument terpisah di Pawn.
-// Solusi: tulis format string sebagai satu string literal biasa.
-CMD:stats(playerid, params[]) {
-    if (!g_Player[playerid][p_LoggedIn]) {
-        SendClientMessage(playerid, COL_RED, "[!] Belum login.");
-        return 1;
-    }
-    new str[192];
-    format(str, sizeof(str),
-        "{FFFFFF}Nama: {44FF44}%s  {FFFFFF}Level: {44FF44}%d  {FFFFFF}Uang: {44FF44}$%d",
-        g_Player[playerid][p_Name],
-        g_Player[playerid][p_Level],
-        g_Player[playerid][p_Money]
-    );
-    SendClientMessage(playerid, -1, str);
-    return 1;
-}
-
-CMD:waktu(playerid, params[]) {
-    new t[16], msg[64];
-    Util_TimeStr(t);
-    format(msg, sizeof(msg), "[VRP] Waktu server: %s", t);
-    SendClientMessage(playerid, COL_WHITE, msg);
-    return 1;
-}
-
-// Command fallback — dipanggil Pawn.CMD jika perintah tidak ditemukan
-public OnPlayerCommandPerformed(playerid, cmd[], params[], result, flags) {
-    if (!result) {
-        SendClientMessage(playerid, COL_RED, "[!] Perintah tidak dikenal. /help");
-    }
-    return 1;
+// Survival decay — tiap 1 menit
+timer Timer_Survival[INTERVAL_SURVIVAL]() {
+    Survival_Tick();
 }

@@ -1,4 +1,4 @@
-// config.pwn — Konstanta global server
+// core/config.pwn — Konstanta global server
 // Pure defines, tidak ada #include di sini.
 
 #if defined _CONFIG_PWN
@@ -22,9 +22,9 @@
 #define MIN_PASS_LEN        (6)
 #define MAX_LOGIN_TRIES     (3)
 
-// ─── Default spawn — Pershing Square, LS (lantai beton datar, Z=13.36) ────────
-//     Koordinat ini adalah area datar di depan gedung Pershing Square
-//     Z = 13.3663 — dijamin tidak jatuh
+// ─── Default spawn — Pershing Square, LS ─────────────────────────────────────
+//     Z = 13.3663 — lantai beton, tidak jatuh
+//     Hanya untuk player BARU. Player lama load last position.
 #define SPAWN_X             (1499.8069)
 #define SPAWN_Y             (-1640.7380)
 #define SPAWN_Z             (13.3663)
@@ -35,34 +35,56 @@
 #define SPAWN_CASH          (50000)
 
 // ─── Login camera — Flint County countryside ──────────────────────────────────
-//     Kamera di tepi bukit menghadap ladang hijau, tenang dan sinematik
 #define LOGIN_CAM_POS_X     (-213.9044)
 #define LOGIN_CAM_POS_Y     (-113.0438)
 #define LOGIN_CAM_POS_Z     (8.5000)
 #define LOGIN_CAM_LOOK_X    (-185.0)
 #define LOGIN_CAM_LOOK_Y    (-113.0438)
 #define LOGIN_CAM_LOOK_Z    (4.0)
-// Player disembunyikan di bawah peta — tidak terlihat siapapun
 #define LOGIN_HIDE_Z        (-500.0)
 
 // ─── Timer intervals (ms) ─────────────────────────────────────────────────────
 #define INTERVAL_HUD        (1000)
 #define INTERVAL_AC         (3000)
 #define INTERVAL_SAVE       (300000)
+#define INTERVAL_SURVIVAL   (60000)
 
 // ─── Anti-cheat ───────────────────────────────────────────────────────────────
 #define AC_MAX_PING         (500)
 #define AC_MAX_HEALTH       (100.1)
 #define AC_MAX_ARMOUR       (100.1)
 
-// ─── Chat proximity radius ────────────────────────────────────────────────────
-#define CHAT_RADIUS_NORMAL  (20.0)
-#define CHAT_RADIUS_SHOUT   (40.0)
-#define CHAT_RADIUS_WHISPER (3.0)
-#define CHAT_RADIUS_DO      (20.0)
-#define CHAT_RADIUS_ME      (20.0)
+// ─── Survival system ──────────────────────────────────────────────────────────
+#define NEEDS_MAX           (100)
+#define NEEDS_MIN           (0)
+#define HUNGER_DECAY        (2)
+#define THIRST_DECAY        (3)
+#define NEEDS_WARN_LEVEL    (30)
+#define NEEDS_CRIT_LEVEL    (10)
+#define HUNGER_CRIT_DMG     (2.0)
+#define THIRST_CRIT_DMG     (3.0)
 
-// ─── Server info (untuk dialog) ───────────────────────────────────────────────
+// ─── Death system ─────────────────────────────────────────────────────────────
+#define DEATH_RESPAWN_TIME  (30)    // detik tunggu sebelum bisa /respawn
+#define SPAWN_PROT_TIME     (5000)  // ms spawn protection setelah respawn
+
+// ─── Admin levels ─────────────────────────────────────────────────────────────
+#define ADMIN_NONE          (0)
+#define ADMIN_MOD           (1)     // Moderator  — kick, warn
+#define ADMIN_ADMIN         (2)     // Admin      — ban, setlevel, goto
+#define ADMIN_OWNER         (3)     // Owner      — semua akses
+
+// ─── TextDraw constants ───────────────────────────────────────────────────────
+#define TEXT_DRAW_FONT_0            (0)
+#define TEXT_DRAW_FONT_1            (1)     // Big font
+#define TEXT_DRAW_FONT_2            (2)     // Tall font
+#define TEXT_DRAW_FONT_3            (3)     // Pricedown font
+// TEXT_DRAW_FONT_SPRITE_DRAW sudah didefinisikan di a_samp.inc
+#define TEXT_DRAW_ALIGN_LEFT        (0)
+#define TEXT_DRAW_ALIGN_CENTER      (1)
+#define TEXT_DRAW_ALIGN_RIGHT       (2)
+
+// ─── Server info ──────────────────────────────────────────────────────────────
 #define SERVER_NAME         "Vibe Roleplay"
 #define SERVER_VERSION      "v1.0"
 #define SERVER_DISCORD      "discord.gg/vibeRP"

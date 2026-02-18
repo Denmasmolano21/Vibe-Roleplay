@@ -59,8 +59,6 @@ stock Util_PassError(reason, out[], len = sizeof(out)) {
     }
 }
 
-// ─── Cek string kosong ────────────────────────────────────────────────────────
-stock bool:Util_IsEmpty(const str[]) { return bool:(strlen(str) == 0); }
 
 // // ─── Cek string hanya angka ───────────────────────────────────────────────────
 // stock bool:Util_IsNumeric(const s[]) {
