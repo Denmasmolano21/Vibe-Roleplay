@@ -283,35 +283,4 @@ hook OnPlayerText(playerid, text[])
     return 0;
 }
 
-// ============================================================================
-//  GameMode Init Hook — Inisialisasi regex dan server settings
-// ============================================================================
 
-hook OnGameModeInit()
-{
-    // Inisialisasi name validator
-    NameValidator_Init();
-
-    // Server settings
-    SetGameModeText("Vibe RP v" SERVER_VERSION);
-    ShowPlayerMarkers(PLAYER_MARKERS_MODE_OFF);
-    ShowNameTags(1);
-    SetNameTagDrawDistance(30.0);
-    EnableStuntBonusForAll(0);
-    DisableInteriorEnterExits();
-    ManualVehicleEngineAndLights();
-    UsePlayerPedAnims();
-
-    // Tambahkan class default (diperlukan oleh SA-MP)
-    AddPlayerClass(0, DEFAULT_SPAWN_X, DEFAULT_SPAWN_Y, DEFAULT_SPAWN_Z,
-        DEFAULT_SPAWN_A, 0, 0, 0, 0, 0, 0);
-
-    printf("[GAMEMODE] %s v%s berhasil dimuat.", SERVER_NAME, SERVER_VERSION);
-    return 1;
-}
-
-hook OnGameModeExit()
-{
-    NameValidator_Destroy();
-    return 1;
-}

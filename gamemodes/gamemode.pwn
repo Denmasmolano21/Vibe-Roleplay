@@ -78,3 +78,40 @@ main()
     print("  =============================================");
     print("  ");
 }
+
+// ============================================================================
+//  GameMode Init — Server settings & inisialisasi
+// ============================================================================
+
+public OnGameModeInit()
+{
+    // Inisialisasi name validator
+    NameValidator_Init();
+
+    // Server settings
+    SetGameModeText("VRP v" SERVER_VERSION);
+    ShowPlayerMarkers(PLAYER_MARKERS_MODE_OFF);
+    ShowNameTags(1);
+    SetNameTagDrawDistance(30.0);
+    EnableStuntBonusForAll(0);
+    DisableInteriorEnterExits();
+    ManualVehicleEngineAndLights();
+    UsePlayerPedAnims();
+
+    // Tambahkan class default (diperlukan oleh SA-MP)
+    AddPlayerClass(0, DEFAULT_SPAWN_X, DEFAULT_SPAWN_Y, DEFAULT_SPAWN_Z,
+        DEFAULT_SPAWN_A, 0, 0, 0, 0, 0, 0);
+
+    printf("[GAMEMODE] %s v%s berhasil dimuat.", SERVER_NAME, SERVER_VERSION);
+    return 1;
+}
+
+// ============================================================================
+//  GameMode Exit — Cleanup
+// ============================================================================
+
+public OnGameModeExit()
+{
+    NameValidator_Destroy();
+    return 1;
+}

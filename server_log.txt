@@ -2459,3 +2459,216 @@ v0.3.7-R2, (C)2005-2015 SA-MP Team
 [15:14:04]  |                               |
 [15:14:04]  =================================
 [15:14:04] 
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[17:41:41] 
+[17:41:41] Server Plugins
+[17:41:41] --------------
+[17:41:41]  Loading plugin: crashdetect
+[17:41:42]   CrashDetect plugin 4.22-1-gcd608b6
+[17:41:42]   Loaded.
+[17:41:42]  Loading plugin: mysql
+[17:41:42]  >> plugin.mysql: R41-4 successfully loaded.
+[17:41:42]   Loaded.
+[17:41:42]  Loading plugin: streamer
+[17:41:42] 
+
+*** Streamer Plugin v2.9.6 by Incognito loaded ***
+
+[17:41:42]   Loaded.
+[17:41:42]  Loading plugin: sscanf
+[17:41:42] 
+[17:41:42]  ===============================
+[17:41:42] 
+[17:41:42]       sscanf plugin loaded.     
+[17:41:42] 
+[17:41:42]          Version: 2.13.8
+[17:41:42] 
+[17:41:42]    (c) 2022 Alex "Y_Less" Cole  
+[17:41:42] 
+[17:41:42]  ===============================
+[17:41:42] 
+[17:41:42]   Loaded.
+[17:41:42]  Loading plugin: pawncmd
+[17:41:42] [Pawn.CMD] plugin v3.4.0 loading...
+[17:41:42] [Pawn.CMD] 
+
+    | Pawn.CMD 3.4.0 | 2016 - 2023
+    |--------------------------------
+    | Author and maintainer: katursis
+
+
+    | Compiled: Feb 12 2023 at 18:12:31
+    |--------------------------------------------------------------
+    | Repository: https://github.com/katursis/Pawn.CMD
+
+[17:41:42]   Loaded.
+[17:41:42]  Loading plugin: samp_bcrypt
+[17:41:43] [SampBcrypt] [info]: Version: 0.4.1
+[17:41:43]   Loaded.
+[17:41:43]  Loading plugin: pawnregex
+[17:41:43] [Pawn.Regex] plugin v1.2.3 loading...
+[17:41:43] [Pawn.Regex] 
+
+    | Pawn.Regex 1.2.3 | 2016 - 2021
+    |--------------------------------
+    | Author and maintainer: katursis
+
+
+    | Compiled: Sep 26 2021 at 11:59:38
+    |--------------------------------------------------------------
+    | Repository: https://github.com/katursis/Pawn.Regex
+
+[17:41:43]   Loaded.
+[17:41:43]  Loading plugin: sampvoice
+[17:41:43] [sv:dbg:network:init] : module initializing...
+[17:41:43] [dbg:raknet:init] : module initializing...
+[17:41:43] [dbg:raknet:init] : module initialized
+[17:41:43] [sv:dbg:network:init] : module initialized
+[17:41:43] [sv:dbg:main:Load] : creating 4 work threads...
+[17:41:43]  -------------------------------------------    
+[17:41:43]    ___                __   __    _              
+[17:41:43]   / __| __ _ _ __  _ _\ \ / /__ (_) __ ___    
+[17:41:43]   \__ \/ _` | '  \| '_ \   / _ \| |/ _/ -_)
+[17:41:43]   |___/\__,_|_|_|_| .__/\_/\___/|_|\__\___|
+[17:41:43]                   |_|                           
+[17:41:43]  -------------------------------------------    
+[17:41:43]            SampVoice by MOR loaded              
+[17:41:43]  -------------------------------------------    
+[17:41:43]   Loaded.
+[17:41:43]  Loading plugin: nativechecker
+[17:41:43]   Loaded.
+[17:41:43]  Loading plugin: profiler
+[17:41:44]   Profiler plugin 2.15.3
+[17:41:44]   Loaded.
+[17:41:44]  Loading plugin: KeyListener
+[17:41:44] KeyListener v1.1.2 by MOR loaded
+[17:41:44]   Loaded.
+[17:41:44]  Loading plugin: textdraw-streamer
+[17:41:44] 
+[17:41:44]  =================================
+[17:41:44]  |                               |
+[17:41:44]  |    textdraw-streamer v2.0.3   |
+[17:41:44]  |            Loaded             |
+[17:41:44]  |                               |
+[17:41:44]  |  Coding:                      |
+[17:41:44]  |                               |
+[17:41:44]  |  Burak (Nexor)                |
+[17:41:44]  |                               |
+[17:41:44]  |  Compiled:                    |
+[17:41:44]  |                               |
+[17:41:44]  |  29.09.2023, 16:49:07         |
+[17:41:44]  |                               |
+[17:41:44]  |  Github:                      |
+[17:41:44]  |                               |
+[17:41:44]  |  github.com/nexquery          |
+[17:41:44]  |                               |
+[17:41:45]  |  Discord:                     |
+[17:41:45]  |                               |
+[17:41:45]  |  benburakya - Nexor#4730      |
+[17:41:45]  |                               |
+[17:41:45]  =================================
+[17:41:45] 
+[17:41:45]   Loaded.
+[17:41:45]  Loaded 12 plugins.
+
+[17:41:45] 
+[17:41:45] Filterscripts
+[17:41:45] ---------------
+[17:41:45]   Loading filterscript 'voice_manager.amx'...
+[17:41:45]   Unable to load filterscript 'voice_manager.amx'.
+[17:41:45]   Loaded 0 filterscripts.
+
+[17:41:45] [sv:dbg:main:AmxLoad] : net game pointer (value:0259AAD8) received
+[17:41:45] [sv:dbg:network:bind] : voice server running on port 58546
+[17:41:45]  
+[17:41:45]  
+[17:41:45]          ==============================================================
+[17:41:45]          |                                                            |
+[17:41:45]          |                                                            |
+[17:41:45]          |    YYYYYYY       YYYYYYY    SSSSSSSSSSSSSSS  IIIIIIIIII    |
+[17:41:45]          |    Y:::::Y       Y:::::Y  SS:::::::::::::::S I::::::::I    |
+[17:41:45]          |    Y:::::Y       Y:::::Y S:::::SSSSSS::::::S I::::::::I    |
+[17:41:45]          |    Y::::::Y     Y::::::Y S:::::S     SSSSSSS II::::::II    |
+[17:41:45]          |    YYY:::::Y   Y:::::YYY S:::::S               I::::I      |
+[17:41:45]          |       Y:::::Y Y:::::Y    S:::::S               I::::I      |
+[17:41:45]          |        Y:::::Y:::::Y      S::::SSSS            I::::I      |
+[17:41:45]          |         Y:::::::::Y        SS::::::SSSSS       I::::I      |
+[17:41:45]          |          Y:::::::Y           SSS::::::::SS     I::::I      |
+[17:41:45]          |           Y:::::Y               SSSSSS::::S    I::::I      |
+[17:41:45]          |           Y:::::Y                    S:::::S   I::::I      |
+[17:41:45]          |           Y:::::Y                    S:::::S   I::::I      |
+[17:41:45]          |           Y:::::Y        SSSSSSS     S:::::S II::::::II    |
+[17:41:45]          |        YYYY:::::YYYY     S::::::SSSSSS:::::S I::::::::I    |
+[17:41:45]          |        Y:::::::::::Y     S:::::::::::::::SS  I::::::::I    |
+[17:41:45]          |        YYYYYYYYYYYYY      SSSSSSSSSSSSSSS    IIIIIIIIII    |
+[17:41:45]          |                                                            |
+[17:41:45]          |                                                            |
+[17:41:45]          |                      (c) 2021 MPL v1.1                     |
+[17:41:45]          |            Alex "Y_Less" Cole and contributors.            |
+[17:41:45]          |                                                            |
+[17:41:45]          |                                                            |
+[17:41:45]          ==============================================================
+[17:41:45]  
+[17:41:45]  
+[17:41:45]  ========================================== 
+[17:41:45]  |                                        | 
+[17:41:45]  |   Generating code, this may take a     | 
+[17:41:45]  |  little bit of time.  Note that this   | 
+[17:41:45]  |  code generation works best with the   | 
+[17:41:45]  |     JIT plugin, which you are not      | 
+[17:41:45]  |     currently using.  Get it here:     | 
+[17:41:45]  |                                        | 
+[17:41:45]  |       https://git.io/jit-plugin        | 
+[17:41:45]  |                                        | 
+[17:41:45]  |             Please wait...             | 
+[17:41:45]  |                                        | 
+[17:41:45]  |             Done in 39ms!              | 
+[17:41:45]  |                                        | 
+[17:41:45]  ========================================== 
+[17:41:45]   Filterscript '../scriptfiles/callbackfix.amx' loaded.
+[17:41:46]  |                                        | 
+[17:41:46]  | Server:      0.3.7-R2 (W)              | 
+[17:41:46]  | Started:     20 Feb 2026 - 17:41:45    | 
+[17:41:46]  |                                        | 
+[17:41:46]  | Compiler:    3.10.10 (Windows)         | 
+[17:41:46]  | Includes:    0.3.7                     | 
+[17:41:46]  | Codepage:    <none>                    | 
+[17:41:46]  | Built:       20 Feb 2026 - 17:41:23    | 
+[17:41:46]  |                                        | 
+[17:41:46]  | YSI:         v05.10.0006               | 
+[17:41:46]  | Master:      -1                        | 
+[17:41:46]  |                                        | 
+[17:41:46]  | JIT:         <none>                    | 
+[17:41:46]  | Crashdetect: <found>                   | 
+[17:41:46]  |                                        | 
+[17:41:46]  ========================================== 
+[17:41:46]  |                                        | 
+[17:41:46]  | Unable to check the latest YSI version | 
+[17:41:46]  | - please watch the forums and github:  | 
+[17:41:46]  |                                        | 
+[17:41:46]  |          https://git.io/5.x            | 
+[17:41:46]  |                                        | 
+[17:41:46]  ========================================== 
+[17:41:46]  
+[17:41:46]  
+[17:41:46] [DATABASE] Berhasil terhubung ke MySQL database 'vrp'.
+[17:41:46] [DATABASE] Tabel 'players' siap.
+[17:41:46] [GAMEMODE] Vibe Roleplay v1.0.0 berhasil dimuat.
+[17:41:46]   
+[17:41:46]   =============================================
+[17:41:46]     Vibe Roleplay v1.0.0
+[17:41:46]     SA-MP 0.3.7 Gamemode
+[17:41:46]   =============================================
+[17:41:46]   
+[17:41:46] Number of vehicle models: 0
+[17:43:16] [connection] incoming connection: 192.168.1.6:57889 id: 0
+[17:43:16] [join] Denmas_Molano has joined the server (0:192.168.1.6)
+[17:47:27] [part] Denmas_Molano has left the server (0:1)

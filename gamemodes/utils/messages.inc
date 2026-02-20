@@ -13,7 +13,7 @@
 stock SendServerMessage(playerid, const message[])
 {
     new string[256];
-    format(string, sizeof(string), "{5B8CFF}[SERVER] {FFFFFF}%s", message);
+    format(string, sizeof(string), "{5B8CFF}[SERVER]: {FFFFFF}%s", message);
     SendClientMessage(playerid, COLOR_WHITE, string);
     return 1;
 }
@@ -21,7 +21,7 @@ stock SendServerMessage(playerid, const message[])
 stock SendErrorMessage(playerid, const message[])
 {
     new string[256];
-    format(string, sizeof(string), "{E74C3C}[!] {FFFFFF}%s", message);
+    format(string, sizeof(string), "{E74C3C}[ERROR]: {FFFFFF}%s", message);
     SendClientMessage(playerid, COLOR_WHITE, string);
     return 1;
 }
@@ -29,7 +29,7 @@ stock SendErrorMessage(playerid, const message[])
 stock SendSuccessMessage(playerid, const message[])
 {
     new string[256];
-    format(string, sizeof(string), "{4CAF50}[✓] {FFFFFF}%s", message);
+    format(string, sizeof(string), "{4CAF50}[SUCCESS]: {FFFFFF}%s", message);
     SendClientMessage(playerid, COLOR_WHITE, string);
     return 1;
 }
@@ -37,7 +37,7 @@ stock SendSuccessMessage(playerid, const message[])
 stock SendInfoMessage(playerid, const message[])
 {
     new string[256];
-    format(string, sizeof(string), "{3498DB}[i] {FFFFFF}%s", message);
+    format(string, sizeof(string), "{3498DB}[INFO]: {FFFFFF}%s", message);
     SendClientMessage(playerid, COLOR_WHITE, string);
     return 1;
 }
@@ -45,7 +45,7 @@ stock SendInfoMessage(playerid, const message[])
 stock SendWarningMessage(playerid, const message[])
 {
     new string[256];
-    format(string, sizeof(string), "{F39C12}[!] {FFFFFF}%s", message);
+    format(string, sizeof(string), "{F39C12}[WARNING]: {FFFFFF}%s", message);
     SendClientMessage(playerid, COLOR_WHITE, string);
     return 1;
 }
