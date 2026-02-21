@@ -18,3 +18,10 @@
 #define DIALOG_REGISTER             100
 #define DIALOG_REGISTER_CONFIRM     101
 #define DIALOG_LOGIN                102
+
+// ============================================================================
+//  Death/Spawn Dialogs (103 - 109)
+// ============================================================================
+
+#define DIALOG_DEATH                103
+#define DIALOG_STATS                104

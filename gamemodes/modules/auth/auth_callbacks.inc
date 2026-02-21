@@ -83,6 +83,12 @@ public OnPlayerRegisterInsert(playerid)
     PlayerData[playerid][pRegistering] = false;
     PlayerData[playerid][pTempPassword][0] = EOS;
 
+    // Set state ke ALIVE
+    SetPlayerState_(playerid, STATE_ALIVE);
+
+    // Mulai session
+    Session_Start(playerid);
+
     // Update last_login
     new query[256];
     mysql_format(g_MySQL, query, sizeof(query),
@@ -96,6 +102,9 @@ public OnPlayerRegisterInsert(playerid)
 
     // Spawn pemain
     SpawnPlayerAtSavedPosition(playerid);
+
+    // Inisialisasi stats & HUD
+    Stats_OnPlayerLogin(playerid);
     return 1;
 }
 
@@ -162,6 +171,9 @@ public OnPlayerDataLoad(playerid)
     cache_get_value_name_int(0, "skin", PlayerData[playerid][pSkin]);
     cache_get_value_name_int(0, "money", PlayerData[playerid][pMoney]);
     cache_get_value_name_int(0, "level", PlayerData[playerid][pLevel]);
+    cache_get_value_name_int(0, "hunger", PlayerData[playerid][pHunger]);
+    cache_get_value_name_int(0, "thirst", PlayerData[playerid][pThirst]);
+    cache_get_value_name_int(0, "playtime", PlayerData[playerid][pPlaytime]);
     cache_get_value_name_float(0, "pos_x", PlayerData[playerid][pPosX]);
     cache_get_value_name_float(0, "pos_y", PlayerData[playerid][pPosY]);
     cache_get_value_name_float(0, "pos_z", PlayerData[playerid][pPosZ]);
@@ -170,6 +182,12 @@ public OnPlayerDataLoad(playerid)
     cache_get_value_name_int(0, "virtual_world", PlayerData[playerid][pVirtualWorld]);
 
     PlayerData[playerid][pLoggedIn] = true;
+
+    // Set state ke ALIVE
+    SetPlayerState_(playerid, STATE_ALIVE);
+
+    // Mulai session
+    Session_Start(playerid);
 
     // Update last_login
     new query[256];
@@ -183,17 +201,9 @@ public OnPlayerDataLoad(playerid)
 
     // Spawn pemain
     SpawnPlayerAtSavedPosition(playerid);
-    return 1;
-}
 
-// ============================================================================
-//  MySQL Callback: Simpan data pemain (disconnect)
-// ============================================================================
-
-forward OnPlayerDataSave(playerid);
-public OnPlayerDataSave(playerid)
-{
-    // Callback opsional — untuk logging jika diperlukan
+    // Inisialisasi stats & HUD
+    Stats_OnPlayerLogin(playerid);
     return 1;
 }
 

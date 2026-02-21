@@ -2672,3 +2672,608 @@ v0.3.7-R2, (C)2005-2015 SA-MP Team
 [17:43:16] [connection] incoming connection: 192.168.1.6:57889 id: 0
 [17:43:16] [join] Denmas_Molano has joined the server (0:192.168.1.6)
 [17:47:27] [part] Denmas_Molano has left the server (0:1)
+[17:48:09]  -------------------------------------------
+[17:48:09]            SampVoice unloading...           
+[17:48:09]  -------------------------------------------
+[17:48:09] [dbg:raknet:free] : module releasing...
+[17:48:09] [dbg:raknet:free] : module released
+[17:48:09] [sv:dbg:network:free] : module releasing...
+[17:48:09] [sv:dbg:network:free] : module released
+[17:48:09] --- Server Shutting Down.
+[17:48:09] [DATABASE] Koneksi MySQL ditutup.
+[17:48:09] plugin.mysql: Unloading plugin...
+[17:48:09] plugin.mysql: Plugin unloaded.
+[17:48:09] 
+
+*** Streamer Plugin v2.9.6 by Incognito unloaded ***
+
+[17:48:09] 
+[17:48:09]  ===============================
+[17:48:09] 
+[17:48:09]      sscanf plugin unloaded.    
+[17:48:09] 
+[17:48:10]  ===============================
+[17:48:10] 
+[17:48:10] [Pawn.CMD] plugin unloaded
+[17:48:10] [Pawn.Regex] plugin unloaded
+[17:48:10] 
+[17:48:10]  =================================
+[17:48:10]  |                               |
+[17:48:10]  |    textdraw-streamer v2.0.3   |
+[17:48:10]  |           Unloaded            |
+[17:48:10]  |                               |
+[17:48:10]  |  Coding:                      |
+[17:48:10]  |                               |
+[17:48:10]  |  Burak (Nexor)                |
+[17:48:10]  |                               |
+[17:48:10]  |  Compiled:                    |
+[17:48:10]  |                               |
+[17:48:10]  |  29.09.2023, 16:49:07         |
+[17:48:10]  |                               |
+[17:48:10]  |  Github:                      |
+[17:48:10]  |                               |
+[17:48:10]  |  github.com/nexquery          |
+[17:48:10]  |                               |
+[17:48:10]  |  Discord:                     |
+[17:48:10]  |                               |
+[17:48:10]  |  benburakya - Nexor#4730      |
+[17:48:10]  |                               |
+[17:48:10]  =================================
+[17:48:10] 
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[17:48:17] 
+[17:48:17] Server Plugins
+[17:48:17] --------------
+[17:48:17]  Loading plugin: crashdetect
+[17:48:17]   CrashDetect plugin 4.22-1-gcd608b6
+[17:48:17]   Loaded.
+[17:48:17]  Loading plugin: mysql
+[17:48:18]  >> plugin.mysql: R41-4 successfully loaded.
+[17:48:18]   Loaded.
+[17:48:18]  Loading plugin: streamer
+[17:48:18] 
+
+*** Streamer Plugin v2.9.6 by Incognito loaded ***
+
+[17:48:18]   Loaded.
+[17:48:18]  Loading plugin: sscanf
+[17:48:18] 
+[17:48:18]  ===============================
+[17:48:18] 
+[17:48:18]       sscanf plugin loaded.     
+[17:48:18] 
+[17:48:18]          Version: 2.13.8
+[17:48:18] 
+[17:48:18]    (c) 2022 Alex "Y_Less" Cole  
+[17:48:18] 
+[17:48:18]  ===============================
+[17:48:18] 
+[17:48:18]   Loaded.
+[17:48:18]  Loading plugin: pawncmd
+[17:48:18] [Pawn.CMD] plugin v3.4.0 loading...
+[17:48:18] [Pawn.CMD] 
+
+    | Pawn.CMD 3.4.0 | 2016 - 2023
+    |--------------------------------
+    | Author and maintainer: katursis
+
+
+    | Compiled: Feb 12 2023 at 18:12:31
+    |--------------------------------------------------------------
+    | Repository: https://github.com/katursis/Pawn.CMD
+
+[17:48:18]   Loaded.
+[17:48:18]  Loading plugin: samp_bcrypt
+[17:48:18] [SampBcrypt] [info]: Version: 0.4.1
+[17:48:18]   Loaded.
+[17:48:18]  Loading plugin: pawnregex
+[17:48:18] [Pawn.Regex] plugin v1.2.3 loading...
+[17:48:18] [Pawn.Regex] 
+
+    | Pawn.Regex 1.2.3 | 2016 - 2021
+    |--------------------------------
+    | Author and maintainer: katursis
+
+
+    | Compiled: Sep 26 2021 at 11:59:38
+    |--------------------------------------------------------------
+    | Repository: https://github.com/katursis/Pawn.Regex
+
+[17:48:18]   Loaded.
+[17:48:18]  Loading plugin: sampvoice
+[17:48:19] [sv:dbg:network:init] : module initializing...
+[17:48:19] [dbg:raknet:init] : module initializing...
+[17:48:19] [dbg:raknet:init] : module initialized
+[17:48:19] [sv:dbg:network:init] : module initialized
+[17:48:19] [sv:dbg:main:Load] : creating 4 work threads...
+[17:48:19]  -------------------------------------------    
+[17:48:19]    ___                __   __    _              
+[17:48:19]   / __| __ _ _ __  _ _\ \ / /__ (_) __ ___    
+[17:48:19]   \__ \/ _` | '  \| '_ \   / _ \| |/ _/ -_)
+[17:48:19]   |___/\__,_|_|_|_| .__/\_/\___/|_|\__\___|
+[17:48:19]                   |_|                           
+[17:48:19]  -------------------------------------------    
+[17:48:19]            SampVoice by MOR loaded              
+[17:48:19]  -------------------------------------------    
+[17:48:19]   Loaded.
+[17:48:19]  Loading plugin: nativechecker
+[17:48:19]   Loaded.
+[17:48:19]  Loading plugin: profiler
+[17:48:20]   Profiler plugin 2.15.3
+[17:48:20]   Loaded.
+[17:48:20]  Loading plugin: KeyListener
+[17:48:20] KeyListener v1.1.2 by MOR loaded
+[17:48:20]   Loaded.
+[17:48:20]  Loading plugin: textdraw-streamer
+[17:48:20] 
+[17:48:20]  =================================
+[17:48:20]  |                               |
+[17:48:20]  |    textdraw-streamer v2.0.3   |
+[17:48:20]  |            Loaded             |
+[17:48:20]  |                               |
+[17:48:20]  |  Coding:                      |
+[17:48:20]  |                               |
+[17:48:20]  |  Burak (Nexor)                |
+[17:48:20]  |                               |
+[17:48:20]  |  Compiled:                    |
+[17:48:20]  |                               |
+[17:48:20]  |  29.09.2023, 16:49:07         |
+[17:48:20]  |                               |
+[17:48:20]  |  Github:                      |
+[17:48:20]  |                               |
+[17:48:20]  |  github.com/nexquery          |
+[17:48:20]  |                               |
+[17:48:20]  |  Discord:                     |
+[17:48:20]  |                               |
+[17:48:20]  |  benburakya - Nexor#4730      |
+[17:48:20]  |                               |
+[17:48:20]  =================================
+[17:48:20] 
+[17:48:20]   Loaded.
+[17:48:20]  Loaded 12 plugins.
+
+[17:48:20] 
+[17:48:20] Filterscripts
+[17:48:20] ---------------
+[17:48:20]   Loading filterscript 'voice_manager.amx'...
+[17:48:20]   Unable to load filterscript 'voice_manager.amx'.
+[17:48:20]   Loaded 0 filterscripts.
+
+[17:48:20] [sv:dbg:main:AmxLoad] : net game pointer (value:024CAAD8) received
+[17:48:20] [sv:dbg:network:bind] : voice server running on port 59654
+[17:48:20]  
+[17:48:20]  
+[17:48:20]          ==============================================================
+[17:48:20]          |                                                            |
+[17:48:20]          |                                                            |
+[17:48:20]          |    YYYYYYY       YYYYYYY    SSSSSSSSSSSSSSS  IIIIIIIIII    |
+[17:48:20]          |    Y:::::Y       Y:::::Y  SS:::::::::::::::S I::::::::I    |
+[17:48:20]          |    Y:::::Y       Y:::::Y S:::::SSSSSS::::::S I::::::::I    |
+[17:48:20]          |    Y::::::Y     Y::::::Y S:::::S     SSSSSSS II::::::II    |
+[17:48:20]          |    YYY:::::Y   Y:::::YYY S:::::S               I::::I      |
+[17:48:20]          |       Y:::::Y Y:::::Y    S:::::S               I::::I      |
+[17:48:20]          |        Y:::::Y:::::Y      S::::SSSS            I::::I      |
+[17:48:20]          |         Y:::::::::Y        SS::::::SSSSS       I::::I      |
+[17:48:20]          |          Y:::::::Y           SSS::::::::SS     I::::I      |
+[17:48:20]          |           Y:::::Y               SSSSSS::::S    I::::I      |
+[17:48:20]          |           Y:::::Y                    S:::::S   I::::I      |
+[17:48:20]          |           Y:::::Y                    S:::::S   I::::I      |
+[17:48:20]          |           Y:::::Y        SSSSSSS     S:::::S II::::::II    |
+[17:48:20]          |        YYYY:::::YYYY     S::::::SSSSSS:::::S I::::::::I    |
+[17:48:20]          |        Y:::::::::::Y     S:::::::::::::::SS  I::::::::I    |
+[17:48:20]          |        YYYYYYYYYYYYY      SSSSSSSSSSSSSSS    IIIIIIIIII    |
+[17:48:20]          |                                                            |
+[17:48:20]          |                                                            |
+[17:48:20]          |                      (c) 2021 MPL v1.1                     |
+[17:48:20]          |            Alex "Y_Less" Cole and contributors.            |
+[17:48:20]          |                                                            |
+[17:48:20]          |                                                            |
+[17:48:20]          ==============================================================
+[17:48:20]  
+[17:48:20]  
+[17:48:20]  ========================================== 
+[17:48:20]  |                                        | 
+[17:48:20]  |   Generating code, this may take a     | 
+[17:48:20]  |  little bit of time.  Note that this   | 
+[17:48:20]  |  code generation works best with the   | 
+[17:48:20]  |     JIT plugin, which you are not      | 
+[17:48:20]  |     currently using.  Get it here:     | 
+[17:48:20]  |                                        | 
+[17:48:20]  |       https://git.io/jit-plugin        | 
+[17:48:20]  |                                        | 
+[17:48:20]  |             Please wait...             | 
+[17:48:20]  |                                        | 
+[17:48:20]  |             Done in 33ms!              | 
+[17:48:20]  |                                        | 
+[17:48:20]  ========================================== 
+[17:48:20]   Filterscript '../scriptfiles/callbackfix.amx' loaded.
+[17:48:21]  |                                        | 
+[17:48:21]  | Server:      0.3.7-R2 (W)              | 
+[17:48:21]  | Started:     20 Feb 2026 - 17:48:20    | 
+[17:48:21]  |                                        | 
+[17:48:21]  | Compiler:    3.10.10 (Windows)         | 
+[17:48:21]  | Includes:    0.3.7                     | 
+[17:48:21]  | Codepage:    <none>                    | 
+[17:48:21]  | Built:       20 Feb 2026 - 17:47:49    | 
+[17:48:21]  |                                        | 
+[17:48:21]  | YSI:         v05.10.0006               | 
+[17:48:21]  | Master:      -1                        | 
+[17:48:21]  |                                        | 
+[17:48:21]  | JIT:         <none>                    | 
+[17:48:21]  | Crashdetect: <found>                   | 
+[17:48:21]  |                                        | 
+[17:48:21]  ========================================== 
+[17:48:21]  |                                        | 
+[17:48:21]  | Unable to check the latest YSI version | 
+[17:48:21]  | - please watch the forums and github:  | 
+[17:48:21]  |                                        | 
+[17:48:21]  |          https://git.io/5.x            | 
+[17:48:21]  |                                        | 
+[17:48:21]  ========================================== 
+[17:48:21]  
+[17:48:21]  
+[17:48:21] [DATABASE] Berhasil terhubung ke MySQL database 'vrp'.
+[17:48:21] [DATABASE] Tabel 'players' siap.
+[17:48:21] [GAMEMODE] Vibe Roleplay v1.0.0 berhasil dimuat.
+[17:48:21]   
+[17:48:21]   =============================================
+[17:48:21]     Vibe Roleplay v1.0.0
+[17:48:21]     SA-MP 0.3.7 Gamemode
+[17:48:21]   =============================================
+[17:48:21]   
+[17:48:21] Number of vehicle models: 0
+[17:50:16] [connection] incoming connection: 192.168.1.6:54758 id: 0
+[17:50:17] [join] Bocah_NYawit has joined the server (0:192.168.1.6)
+[17:50:18] [part] Bocah_NYawit has left the server (0:2)
+[17:51:00] [connection] incoming connection: 192.168.1.6:51351 id: 0
+[17:51:01] [join] Bocah_Nyawit has joined the server (0:192.168.1.6)
+[17:51:38] [part] Bocah_Nyawit has left the server (0:1)
+[17:51:49]  -------------------------------------------
+[17:51:49]            SampVoice unloading...           
+[17:51:49]  -------------------------------------------
+[17:51:49] [dbg:raknet:free] : module releasing...
+[17:51:49] [dbg:raknet:free] : module released
+[17:51:49] [sv:dbg:network:free] : module releasing...
+[17:51:49] [sv:dbg:network:free] : module released
+[17:51:49] --- Server Shutting Down.
+[17:51:49] [DATABASE] Koneksi MySQL ditutup.
+[17:51:49] plugin.mysql: Unloading plugin...
+[17:51:49] plugin.mysql: Plugin unloaded.
+[17:51:49] 
+
+*** Streamer Plugin v2.9.6 by Incognito unloaded ***
+
+[17:51:49] 
+[17:51:49]  ===============================
+[17:51:49] 
+[17:51:49]      sscanf plugin unloaded.    
+[17:51:49] 
+[17:51:49]  ===============================
+[17:51:49] 
+[17:51:49] [Pawn.CMD] plugin unloaded
+[17:51:49] [Pawn.Regex] plugin unloaded
+[17:51:49] 
+[17:51:49]  =================================
+[17:51:49]  |                               |
+[17:51:49]  |    textdraw-streamer v2.0.3   |
+[17:51:49]  |           Unloaded            |
+[17:51:49]  |                               |
+[17:51:49]  |  Coding:                      |
+[17:51:49]  |                               |
+[17:51:49]  |  Burak (Nexor)                |
+[17:51:49]  |                               |
+[17:51:49]  |  Compiled:                    |
+[17:51:49]  |                               |
+[17:51:49]  |  29.09.2023, 16:49:07         |
+[17:51:49]  |                               |
+[17:51:49]  |  Github:                      |
+[17:51:49]  |                               |
+[17:51:49]  |  github.com/nexquery          |
+[17:51:49]  |                               |
+[17:51:49]  |  Discord:                     |
+[17:51:49]  |                               |
+[17:51:49]  |  benburakya - Nexor#4730      |
+[17:51:49]  |                               |
+[17:51:49]  =================================
+[17:51:49] 
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[19:19:54] 
+[19:19:54] Server Plugins
+[19:19:54] --------------
+[19:19:54]  Loading plugin: crashdetect
+[19:19:54]   CrashDetect plugin 4.22-1-gcd608b6
+[19:19:54]   Loaded.
+[19:19:54]  Loading plugin: mysql
+[19:19:54]  >> plugin.mysql: R41-4 successfully loaded.
+[19:19:54]   Loaded.
+[19:19:54]  Loading plugin: streamer
+[19:19:54] 
+
+*** Streamer Plugin v2.9.6 by Incognito loaded ***
+
+[19:19:54]   Loaded.
+[19:19:54]  Loading plugin: sscanf
+[19:19:54] 
+[19:19:54]  ===============================
+[19:19:54] 
+[19:19:54]       sscanf plugin loaded.     
+[19:19:54] 
+[19:19:54]          Version: 2.13.8
+[19:19:54] 
+[19:19:54]    (c) 2022 Alex "Y_Less" Cole  
+[19:19:54] 
+[19:19:54]  ===============================
+[19:19:54] 
+[19:19:54]   Loaded.
+[19:19:54]  Loading plugin: pawncmd
+[19:19:54] [Pawn.CMD] plugin v3.4.0 loading...
+[19:19:54] [Pawn.CMD] 
+
+    | Pawn.CMD 3.4.0 | 2016 - 2023
+    |--------------------------------
+    | Author and maintainer: katursis
+
+
+    | Compiled: Feb 12 2023 at 18:12:31
+    |--------------------------------------------------------------
+    | Repository: https://github.com/katursis/Pawn.CMD
+
+[19:19:54]   Loaded.
+[19:19:54]  Loading plugin: samp_bcrypt
+[19:19:54] [SampBcrypt] [info]: Version: 0.4.1
+[19:19:54]   Loaded.
+[19:19:54]  Loading plugin: pawnregex
+[19:19:54] [Pawn.Regex] plugin v1.2.3 loading...
+[19:19:54] [Pawn.Regex] 
+
+    | Pawn.Regex 1.2.3 | 2016 - 2021
+    |--------------------------------
+    | Author and maintainer: katursis
+
+
+    | Compiled: Sep 26 2021 at 11:59:38
+    |--------------------------------------------------------------
+    | Repository: https://github.com/katursis/Pawn.Regex
+
+[19:19:54]   Loaded.
+[19:19:54]  Loading plugin: sampvoice
+[19:19:54] [sv:dbg:network:init] : module initializing...
+[19:19:54] [dbg:raknet:init] : module initializing...
+[19:19:54] [dbg:raknet:init] : module initialized
+[19:19:54] [sv:dbg:network:init] : module initialized
+[19:19:54] [sv:dbg:main:Load] : creating 4 work threads...
+[19:19:54]  -------------------------------------------    
+[19:19:54]    ___                __   __    _              
+[19:19:54]   / __| __ _ _ __  _ _\ \ / /__ (_) __ ___    
+[19:19:54]   \__ \/ _` | '  \| '_ \   / _ \| |/ _/ -_)
+[19:19:54]   |___/\__,_|_|_|_| .__/\_/\___/|_|\__\___|
+[19:19:54]                   |_|                           
+[19:19:54]  -------------------------------------------    
+[19:19:54]            SampVoice by MOR loaded              
+[19:19:54]  -------------------------------------------    
+[19:19:54]   Loaded.
+[19:19:54]  Loading plugin: nativechecker
+[19:19:54]   Loaded.
+[19:19:54]  Loading plugin: profiler
+[19:19:55]   Profiler plugin 2.15.3
+[19:19:55]   Loaded.
+[19:19:55]  Loading plugin: KeyListener
+[19:19:55] KeyListener v1.1.2 by MOR loaded
+[19:19:55]   Loaded.
+[19:19:55]  Loading plugin: textdraw-streamer
+[19:19:55] 
+[19:19:55]  =================================
+[19:19:55]  |                               |
+[19:19:55]  |    textdraw-streamer v2.0.3   |
+[19:19:55]  |            Loaded             |
+[19:19:55]  |                               |
+[19:19:55]  |  Coding:                      |
+[19:19:55]  |                               |
+[19:19:55]  |  Burak (Nexor)                |
+[19:19:55]  |                               |
+[19:19:55]  |  Compiled:                    |
+[19:19:55]  |                               |
+[19:19:55]  |  29.09.2023, 16:49:07         |
+[19:19:55]  |                               |
+[19:19:55]  |  Github:                      |
+[19:19:55]  |                               |
+[19:19:55]  |  github.com/nexquery          |
+[19:19:55]  |                               |
+[19:19:55]  |  Discord:                     |
+[19:19:55]  |                               |
+[19:19:55]  |  benburakya - Nexor#4730      |
+[19:19:56]  |                               |
+[19:19:56]  =================================
+[19:19:56] 
+[19:19:56]   Loaded.
+[19:19:56]  Loaded 12 plugins.
+
+[19:19:56] 
+[19:19:56] Filterscripts
+[19:19:56] ---------------
+[19:19:56]   Loading filterscript 'voice_manager.amx'...
+[19:19:56]   Unable to load filterscript 'voice_manager.amx'.
+[19:19:56]   Loaded 0 filterscripts.
+
+[19:19:56] [sv:dbg:main:AmxLoad] : net game pointer (value:026EAAD8) received
+[19:19:56] [sv:dbg:network:bind] : voice server running on port 55856
+[19:19:56]    Error: Function not registered: 'CreateDynamicTextDraw'
+[19:19:56]    Error: Function not registered: 'DynamicTextDrawLetterSize'
+[19:19:56]    Error: Function not registered: 'DynamicTextDrawAlignment'
+[19:19:56]    Error: Function not registered: 'DynamicTextDrawColour'
+[19:19:56]    Error: Function not registered: 'DynamicTextDrawSetShadow'
+[19:19:56]    Error: Function not registered: 'DynamicTextDrawSetOutline'
+[19:19:56]    Error: Function not registered: 'DynamicTextDrawBackgroundColour'
+[19:19:56]    Error: Function not registered: 'DynamicTextDrawFont'
+[19:19:56]    Error: Function not registered: 'DynamicTextDrawSetProportional'
+[19:19:56]    Error: Function not registered: 'DestroyDynamicTextDraw'
+[19:19:56]    Error: Function not registered: 'CreateDynamicPlayerTextDraw'
+[19:19:56]    Error: Function not registered: 'DynamicPlayerTextDrawTextSize'
+[19:19:56]    Error: Function not registered: 'DynamicPlayerTextDrawAlignment'
+[19:19:56]    Error: Function not registered: 'DynamicPlayerTextDrawColour'
+[19:19:56]    Error: Function not registered: 'DynamicPlayerTextDrawSetShadow'
+[19:19:56]    Error: Function not registered: 'DynamicPlayerTextDrawSetOutline'
+[19:19:56]    Error: Function not registered: 'DynamicPlayerTextDrawBGColour'
+[19:19:56]    Error: Function not registered: 'DynamicPlayerTextDrawFont'
+[19:19:56]    Error: Function not registered: 'DynPlayerTextSetProportional'
+[19:19:56]    Error: Function not registered: 'DynamicPlayerTextDrawLetterSize'
+[19:19:56]    Error: Function not registered: 'DynamicTextDrawShowForPlayer'
+[19:19:56]    Error: Function not registered: 'DynamicPlayerTextDrawShow'
+[19:19:56]    Error: Function not registered: 'DynamicTextDrawHideForPlayer'
+[19:19:56]    Error: Function not registered: 'DynamicPlayerTextDrawHide'
+[19:19:56]    Error: Function not registered: 'DestroyDynamicPlayerTextDraw'
+[19:19:56]    Error: Function not registered: 'DynamicPlayerTextDrawSetString'
+[19:19:56]  
+[19:19:56]  
+[19:19:56]          ==============================================================
+[19:19:56]          |                                                            |
+[19:19:56]          |                                                            |
+[19:19:56]          |    YYYYYYY       YYYYYYY    SSSSSSSSSSSSSSS  IIIIIIIIII    |
+[19:19:56]          |    Y:::::Y       Y:::::Y  SS:::::::::::::::S I::::::::I    |
+[19:19:56]          |    Y:::::Y       Y:::::Y S:::::SSSSSS::::::S I::::::::I    |
+[19:19:56]          |    Y::::::Y     Y::::::Y S:::::S     SSSSSSS II::::::II    |
+[19:19:56]          |    YYY:::::Y   Y:::::YYY S:::::S               I::::I      |
+[19:19:56]          |       Y:::::Y Y:::::Y    S:::::S               I::::I      |
+[19:19:56]          |        Y:::::Y:::::Y      S::::SSSS            I::::I      |
+[19:19:56]          |         Y:::::::::Y        SS::::::SSSSS       I::::I      |
+[19:19:56]          |          Y:::::::Y           SSS::::::::SS     I::::I      |
+[19:19:56]          |           Y:::::Y               SSSSSS::::S    I::::I      |
+[19:19:56]          |           Y:::::Y                    S:::::S   I::::I      |
+[19:19:56]          |           Y:::::Y                    S:::::S   I::::I      |
+[19:19:56]          |           Y:::::Y        SSSSSSS     S:::::S II::::::II    |
+[19:19:56]          |        YYYY:::::YYYY     S::::::SSSSSS:::::S I::::::::I    |
+[19:19:56]          |        Y:::::::::::Y     S:::::::::::::::SS  I::::::::I    |
+[19:19:56]          |        YYYYYYYYYYYYY      SSSSSSSSSSSSSSS    IIIIIIIIII    |
+[19:19:56]          |                                                            |
+[19:19:56]          |                                                            |
+[19:19:56]          |                      (c) 2021 MPL v1.1                     |
+[19:19:56]          |            Alex "Y_Less" Cole and contributors.            |
+[19:19:56]          |                                                            |
+[19:19:56]          |                                                            |
+[19:19:56]          ==============================================================
+[19:19:56]  
+[19:19:56]  
+[19:19:56]  ========================================== 
+[19:19:56]  |                                        | 
+[19:19:56]  |   Generating code, this may take a     | 
+[19:19:56]  |  little bit of time.  Note that this   | 
+[19:19:56]  |  code generation works best with the   | 
+[19:19:56]  |     JIT plugin, which you are not      | 
+[19:19:56]  |     currently using.  Get it here:     | 
+[19:19:56]  |                                        | 
+[19:19:56]  |       https://git.io/jit-plugin        | 
+[19:19:56]  |                                        | 
+[19:19:56]  |             Please wait...             | 
+[19:19:56]  |                                        | 
+[19:19:56]  |             Done in 29ms!              | 
+[19:19:56]  |                                        | 
+[19:19:56]  ========================================== 
+[19:19:56]   Filterscript '../scriptfiles/callbackfix.amx' loaded.
+[19:19:56]  |                                        | 
+[19:19:56]  | Server:      0.3.7-R2 (W)              | 
+[19:19:56]  | Started:     20 Feb 2026 - 19:19:56    | 
+[19:19:56]  |                                        | 
+[19:19:56]  | Compiler:    3.10.10 (Windows)         | 
+[19:19:56]  | Includes:    0.3.7                     | 
+[19:19:56]  | Codepage:    <none>                    | 
+[19:19:56]  | Built:       20 Feb 2026 - 19:19:42    | 
+[19:19:56]  |                                        | 
+[19:19:56]  | YSI:         v05.10.0006               | 
+[19:19:56]  | Master:      -1                        | 
+[19:19:56]  |                                        | 
+[19:19:56]  | JIT:         <none>                    | 
+[19:19:56]  | Crashdetect: <found>                   | 
+[19:19:56]  |                                        | 
+[19:19:56]  ========================================== 
+[19:19:56]  |                                        | 
+[19:19:56]  | Unable to check the latest YSI version | 
+[19:19:56]  | - please watch the forums and github:  | 
+[19:19:56]  |                                        | 
+[19:19:56]  |          https://git.io/5.x            | 
+[19:19:56]  |                                        | 
+[19:19:56]  ========================================== 
+[19:19:56]  
+[19:19:56]  
+[19:19:56] [DATABASE] Berhasil terhubung ke MySQL database 'vrp'.
+[19:19:56] [DATABASE] Tabel 'players' siap.
+[19:19:56] [HUD] Global textdraws dimuat.
+[19:19:56] [SESSION] Autosave timer aktif (interval: 300 detik).
+[19:19:56] [STATS] Stats decay timer aktif (interval: 60 detik).
+[19:19:56] [GAMEMODE] Vibe Roleplay v1.0.0 berhasil dimuat.
+[19:19:56]   
+[19:19:56]   =============================================
+[19:19:56]     Vibe Roleplay v1.0.0
+[19:19:56]     SA-MP 0.3.7 Gamemode
+[19:19:56]   =============================================
+[19:19:56]   
+[19:19:56] Number of vehicle models: 0
+[19:20:42] [connection] incoming connection: 192.168.1.6:59263 id: 0
+[19:20:43] [join] Bocah_Nyawit has joined the server (0:192.168.1.6)
+[19:20:47] [SESSION] Session dimulai untuk player 0
+[19:25:14] [AUTOSAVE] Data 1 pemain berhasil disimpan.
+[19:25:29] [SESSION] Session berakhir untuk player 0 (sesi: 4 menit)
+[19:25:29] [part] Bocah_Nyawit has left the server (0:1)
+[19:26:41]  -------------------------------------------
+[19:26:41]            SampVoice unloading...           
+[19:26:41]  -------------------------------------------
+[19:26:41] [dbg:raknet:free] : module releasing...
+[19:26:41] [dbg:raknet:free] : module released
+[19:26:41] [sv:dbg:network:free] : module releasing...
+[19:26:41] [sv:dbg:network:free] : module released
+[19:26:41] --- Server Shutting Down.
+[19:26:41] [DATABASE] Koneksi MySQL ditutup.
+[19:26:41] plugin.mysql: Unloading plugin...
+[19:26:41] plugin.mysql: Plugin unloaded.
+[19:26:41] 
+
+*** Streamer Plugin v2.9.6 by Incognito unloaded ***
+
+[19:26:41] 
+[19:26:41]  ===============================
+[19:26:41] 
+[19:26:41]      sscanf plugin unloaded.    
+[19:26:41] 
+[19:26:41]  ===============================
+[19:26:41] 
+[19:26:41] [Pawn.CMD] plugin unloaded
+[19:26:41] [Pawn.Regex] plugin unloaded
+[19:26:41] 
+[19:26:41]  =================================
+[19:26:41]  |                               |
+[19:26:41]  |    textdraw-streamer v2.0.3   |
+[19:26:41]  |           Unloaded            |
+[19:26:41]  |                               |
+[19:26:41]  |  Coding:                      |
+[19:26:41]  |                               |
+[19:26:41]  |  Burak (Nexor)                |
+[19:26:41]  |                               |
+[19:26:41]  |  Compiled:                    |
+[19:26:41]  |                               |
+[19:26:41]  |  29.09.2023, 16:49:07         |
+[19:26:41]  |                               |
+[19:26:41]  |  Github:                      |
+[19:26:41]  |                               |
+[19:26:41]  |  github.com/nexquery          |
+[19:26:41]  |                               |
+[19:26:41]  |  Discord:                     |
+[19:26:41]  |                               |
+[19:26:41]  |  benburakya - Nexor#4730      |
+[19:26:41]  |                               |
+[19:26:41]  =================================
+[19:26:41] 

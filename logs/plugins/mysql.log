@@ -153,3 +153,441 @@
 [17:47:28] [DEBUG] executing AMX callback with index '42'
 [17:47:28] [DEBUG] AMX callback executed with error '0'
 [17:47:28] [INFO] Callback successfully executed.
+[17:48:09] [DEBUG] mysql_close(1) (core\database.inc:70 -> core\database.inc:90 -> D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\y_cgen\y_cgen_impl.inc:157 -> D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\..\YSI_Core\y_core\y_scriptinit_impl.inc:1966)
+[17:48:09] [DEBUG] CHandleManager::Destroy(this=0x8db9d8, handle=0x816ff8)
+[17:48:09] [DEBUG] CHandle::~CHandle(this=0x816ff8)
+[17:48:09] [DEBUG] CConnection::~CConnection(this=0x8535f0, connection=0x7417730)
+[17:48:09] [DEBUG] CThreadedConnection::~CThreadedConnection(this=0x760e020, connection=0x760e020)
+[17:48:09] [DEBUG] CThreadedConnection::WorkerFunc(this=0x760e020, connection=0x760e020) - shutting down
+[17:48:09] [DEBUG] CConnection::~CConnection(this=0x760e020, connection=0x81cdd8)
+[17:48:09] [DEBUG] CConnectionPool::~CConnectionPool(this=0x853ab0)
+[17:48:09] [DEBUG] CThreadedConnection::~CThreadedConnection(this=0x779b020, connection=0x779b020)
+[17:48:09] [DEBUG] CThreadedConnection::WorkerFunc(this=0x779b020, connection=0x779b020) - shutting down
+[17:48:09] [DEBUG] CConnection::~CConnection(this=0x779b020, connection=0x743c3e0)
+[17:48:09] [DEBUG] CThreadedConnection::~CThreadedConnection(this=0x7961020, connection=0x7961020)
+[17:48:09] [DEBUG] CThreadedConnection::WorkerFunc(this=0x7961020, connection=0x7961020) - shutting down
+[17:48:09] [DEBUG] CConnection::~CConnection(this=0x7961020, connection=0x74457d0)
+[17:48:09] [DEBUG] mysql_close: return value: '1' (core\database.inc:70 -> core\database.inc:90 -> D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\y_cgen\y_cgen_impl.inc:157 -> D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\..\YSI_Core\y_core\y_scriptinit_impl.inc:1966)
+[17:48:21] [INFO] changed log level from 'warning, error' to 'debug, info, warning, error'
+[17:48:21] [DEBUG] mysql_connect("127.0.0.1", "root", "*****", "vrp", 0) (core\database.inc:25 -> core\database.inc:83 -> D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\y_cgen\y_cgen_impl.inc:156)
+[17:48:21] [DEBUG] CHandleManager::Create(this=0x743410, host='127.0.0.1', user='root', pass='****', db='vrp', options=0x7e5e48)
+[17:48:21] [INFO] Creating new connection handle...
+[17:48:21] [WARNING] mysql_connect: no password specified (core\database.inc:25 -> core\database.inc:83 -> D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\y_cgen\y_cgen_impl.inc:156)
+[17:48:21] [DEBUG] CConnection::CConnection(this=0x733b60, host='127.0.0.1', user='root', passw='****', db='vrp', options=0x7e5e48)
+[17:48:21] [DEBUG] CConnection::CConnection - new connection = 0x7cc348
+[17:48:21] [DEBUG] CConnection::CConnection(this=0x75d9020, host='127.0.0.1', user='root', passw='****', db='vrp', options=0x7e5e48)
+[17:48:21] [DEBUG] CConnection::CConnection - new connection = 0x7ed778
+[17:48:21] [DEBUG] CThreadedConnection::WorkerFunc(this=0x75d9020, connection=0x75d9020)
+[17:48:21] [DEBUG] CThreadedConnection::CThreadedConnection(this=0x75d9020, connection=0x75d9020)
+[17:48:21] [DEBUG] CConnectionPool::CConnectionPool(size=2, this=0x733ba0)
+[17:48:21] [DEBUG] CConnection::CConnection(this=0x77a4020, host='127.0.0.1', user='root', passw='****', db='vrp', options=0x7e5e48)
+[17:48:21] [DEBUG] CConnection::CConnection - new connection = 0x7ee218
+[17:48:21] [DEBUG] CThreadedConnection::WorkerFunc(this=0x77a4020, connection=0x77a4020)
+[17:48:21] [DEBUG] CThreadedConnection::CThreadedConnection(this=0x77a4020, connection=0x77a4020)
+[17:48:21] [DEBUG] CConnection::CConnection(this=0x797a020, host='127.0.0.1', user='root', passw='****', db='vrp', options=0x7e5e48)
+[17:48:21] [DEBUG] CConnection::CConnection - new connection = 0x73d6c08
+[17:48:21] [DEBUG] CThreadedConnection::CThreadedConnection(this=0x797a020, connection=0x797a020)
+[17:48:21] [INFO] Connection handle with id '1' successfully created.
+[17:48:21] [DEBUG] CThreadedConnection::WorkerFunc(this=0x797a020, connection=0x797a020)
+[17:48:21] [DEBUG] CHandleManager::Create - new handle = 0x6f70b8
+[17:48:21] [DEBUG] mysql_connect: return value: '1' (core\database.inc:25 -> core\database.inc:83 -> D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\y_cgen\y_cgen_impl.inc:156)
+[17:48:21] [DEBUG] mysql_errno(1) (core\database.inc:27 -> core\database.inc:83 -> D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\y_cgen\y_cgen_impl.inc:156)
+[17:48:21] [DEBUG] CHandle::GetErrorId(this=0x6f70b8)
+[17:48:21] [DEBUG] CConnection::GetError(this=0x733b60, connection=0x7cc348)
+[17:48:21] [DEBUG] CHandle::GetErrorId - return value: true, error id: '0', error msg: ''
+[17:48:21] [DEBUG] mysql_errno: return value: '0' (core\database.inc:27 -> core\database.inc:83 -> D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\y_cgen\y_cgen_impl.inc:156)
+[17:48:21] [DEBUG] mysql_set_charset("utf8mb4", 1) (core\database.inc:35 -> core\database.inc:83 -> D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\y_cgen\y_cgen_impl.inc:156)
+[17:48:21] [DEBUG] CHandle::SetCharacterSet(this=0x6f70b8, charset='utf8mb4')
+[17:48:21] [DEBUG] CConnection::SetCharset(charset='utf8mb4', this=0x733b60, connection=0x7cc348)
+[17:48:21] [DEBUG] CConnection::SetCharset(charset='utf8mb4', this=0x75d9020, connection=0x7ed778)
+[17:48:21] [DEBUG] CConnectionPool::SetCharset(charset='utf8mb4', this=0x733ba0)
+[17:48:21] [DEBUG] CConnection::SetCharset(charset='utf8mb4', this=0x77a4020, connection=0x7ee218)
+[17:48:21] [DEBUG] CConnection::SetCharset(charset='utf8mb4', this=0x797a020, connection=0x73d6c08)
+[17:48:21] [DEBUG] mysql_set_charset: return value: '1' (core\database.inc:35 -> core\database.inc:83 -> D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\y_cgen\y_cgen_impl.inc:156)
+[17:48:21] [DEBUG] mysql_tquery(1, "CREATE TABLE IF NOT EXISTS `players` (`id`            INT(11)         NOT NULL AUTO_INCREMENT,`username`      VARCHAR(24)     NOT NULL,`password`      VARCHAR(61)     NOT NULL,`skin`          INT(5)          NOT NULL DEFAULT '299',`money`         INT(11)         NOT NULL DEFAULT '0',`level`         INT(5)          NOT NULL DEFAULT '1',`pos_x`         FLOAT           NOT NULL DEFAULT '1481.053',`pos_y`         FLOAT           NOT NULL DEFAULT '-1770.616',`pos_z`         FLOAT           NOT NULL DEFAULT '18.795',`pos_a`         FLOAT           NOT NULL DEFAULT '0.0',`interior`      INT(3)          NOT NULL DEFAULT '0',`virtual_world` INT(5)          NOT NULL DEFAULT '0',`created_at`    DATETIME        NOT NULL DEFAULT CURRENT_TIMESTAMP,`last_login`    DATETIME        NULL DEFAULT NULL,PRIMARY KEY (`id`),UNIQUE KEY `username` (`username`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;", "", "") (core\database.inc:60 -> core\database.inc:84 -> D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\y_cgen\y_cgen_impl.inc:156)
+[17:48:21] [DEBUG] CCallback::Create(amx=0x3980ae8, name='', format='', params=0x7383090, param_offset=5)
+[17:48:21] [DEBUG] CHandle::Execute(this=0x6f70b8, type=1, query=0x6fd180)
+[17:48:21] [DEBUG] CHandle::Execute - return value: true
+[17:48:21] [DEBUG] mysql_tquery: return value: '1' (core\database.inc:60 -> core\database.inc:84 -> D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\y_cgen\y_cgen_impl.inc:156)
+[17:48:21] [DEBUG] CConnection::Execute(query=0x6fd180, this=0x75d9020, connection=0x7ed778)
+[17:48:21] [DEBUG] CQuery::Execute(this=0x6fd180, connection=0x7ed778)
+[17:48:21] [INFO] query "CREATE TABLE IF NOT EXISTS `players` (`id`            INT(11)         NOT NULL AUTO_INCREMENT,`username`      VARCHAR(24)     NOT NULL,`password`      VARCHAR(61)     NOT NULL,`skin`          INT(5)          NOT NULL DEFAULT '299',`money`         INT(11)         NOT NULL DEFAULT '0',`level`         INT(5)          NOT NULL DEFAULT '1',`pos_x`         FLOAT           NOT NULL DEFAULT '1481.053',`pos_y`         FLOAT           NOT NULL DEFAULT '-1770.616',`pos_z`         FLOAT           NOT NULL DEFAULT '18.795',`pos_a`         FLOAT           NOT NULL DEFAULT '0.0',`interior`      INT(3)          NOT NULL DEFAULT '0',`virtual_world` INT(5)          NOT NULL DEFAULT '0',`created_at`    DATETIME        NOT NULL DEFAULT CURRENT_TIMESTAMP,`last_login`    DATETIME        NULL DEFAULT NULL,PRIMARY KEY (`id`),UNIQUE KEY `username` (`username`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;" successfully executed within 32.21 milliseconds
+[17:48:21] [DEBUG] CResultSet::Create(connection=0x7ed778, query_str='CREATE TABLE IF NOT EXISTS `players` (`id`            INT(11)         NOT NULL AUTO_INCREMENT,`username`      VARCHAR(24)     NOT NULL,`password`      VARCHAR(61)     NOT NULL,`skin`          INT(5)          NOT NULL DEFAULT '299',`money`         INT(11)         NOT NULL DEFAULT '0',`level`         INT(5)          NOT NULL DEFAULT '1',`pos_x`         FLOAT           NOT NULL DEFAULT '1481.053',`pos_y`         FLOAT           NOT NULL DEFAULT '-1770.616',`pos_z`         FLOAT           NOT NULL DEFAULT '18.795',`pos_a`         FLOAT           NOT NULL DEFAULT '0.0',`interior`      INT(3)          NOT NULL DEFAULT '0',`virtual_world` INT(5)          NOT NULL DEFAULT '0',`created_at`    DATETIME        NOT NULL DEFAULT CURRENT_TIMESTAMP,`last_login`    DATETIME        NULL DEFAULT NULL,PRIMARY KEY (`id`),UNIQUE KEY `username` (`username`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;')
+[17:48:21] [DEBUG] created new resultset '0x73a6c48'
+[17:48:21] [DEBUG] fetched MySQL result '0x0'
+[17:51:01] [DEBUG] mysql_format(1, 0x07382BF8, 256, "SELECT `id`, `password` FROM `players` WHERE `username` = '%e' LIMIT 1") (modules\auth\auth.inc:96 -> D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\y_cgen\y_cgen_impl.inc:157 -> D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_timers\..\..\YSI_Data\y_foreach\y_foreach_iterators.inc:702 -> D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\..\YSI_Core\y_core\../y_utils/y_utils_ip.inc:101 -> D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\..\YSI_Core\y_core\..\..\YSI_Players\y_android\y_android_entry.inc:167 -> D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\sscanf2.inc:1128)
+[17:51:01] [DEBUG] CHandle::EscapeString(this=0x6f70b8, src='Bocah_Nyawit')
+[17:51:01] [DEBUG] CConnection::EscapeString(src='Bocah_Nyawit', this=0x733b60, connection=0x7cc348)
+[17:51:01] [DEBUG] CHandle::EscapeString - return value: true, escaped string: 'Bocah_Nyawit'
+[17:51:01] [DEBUG] mysql_format: return value: '80' (modules\auth\auth.inc:96 -> D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\y_cgen\y_cgen_impl.inc:157 -> D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_timers\..\..\YSI_Data\y_foreach\y_foreach_iterators.inc:702 -> D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\..\YSI_Core\y_core\../y_utils/y_utils_ip.inc:101 -> D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\..\YSI_Core\y_core\..\..\YSI_Players\y_android\y_android_entry.inc:167 -> D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\sscanf2.inc:1128)
+[17:51:01] [DEBUG] mysql_tquery(1, "SELECT `id`, `password` FROM `players` WHERE `username` = 'Bocah_Nyawit' LIMIT 1", "OnPlayerDataCheck", "i") (modules\auth\auth.inc:100 -> D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\y_cgen\y_cgen_impl.inc:157 -> D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_timers\..\..\YSI_Data\y_foreach\y_foreach_iterators.inc:702 -> D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\..\YSI_Core\y_core\../y_utils/y_utils_ip.inc:101 -> D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\..\YSI_Core\y_core\..\..\YSI_Players\y_android\y_android_entry.inc:167 -> D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\sscanf2.inc:1128)
+[17:51:01] [DEBUG] CCallback::Create(amx=0x3980ae8, name='OnPlayerDataCheck', format='i', params=0x7382be0, param_offset=5)
+[17:51:01] [DEBUG] CCallback::Create - callback index for 'OnPlayerDataCheck': 40
+[17:51:01] [DEBUG] processing specifier 'i' with parameter index 0
+[17:51:01] [DEBUG] retrieved and pushed value '0'
+[17:51:01] [INFO] Callback 'OnPlayerDataCheck' set up for delayed execution.
+[17:51:01] [DEBUG] created delayed callback with 1 parameter
+[17:51:01] [DEBUG] CHandle::Execute(this=0x6f70b8, type=1, query=0x74272e8)
+[17:51:01] [DEBUG] CHandle::Execute - return value: true
+[17:51:01] [DEBUG] mysql_tquery: return value: '1' (modules\auth\auth.inc:100 -> D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\y_cgen\y_cgen_impl.inc:157 -> D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_timers\..\..\YSI_Data\y_foreach\y_foreach_iterators.inc:702 -> D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\..\YSI_Core\y_core\../y_utils/y_utils_ip.inc:101 -> D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\..\YSI_Core\y_core\..\..\YSI_Players\y_android\y_android_entry.inc:167 -> D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\sscanf2.inc:1128)
+[17:51:01] [DEBUG] CConnection::Execute(query=0x74272e8, this=0x75d9020, connection=0x7ed778)
+[17:51:01] [DEBUG] CQuery::Execute(this=0x74272e8, connection=0x7ed778)
+[17:51:01] [INFO] query "SELECT `id`, `password` FROM `players` WHERE `username` = 'Bocah_Nyawit' LIMIT 1" successfully executed within 121.185 milliseconds
+[17:51:01] [DEBUG] CResultSet::Create(connection=0x7ed778, query_str='SELECT `id`, `password` FROM `players` WHERE `username` = 'Bocah_Nyawit' LIMIT 1')
+[17:51:01] [DEBUG] created new resultset '0x740b090'
+[17:51:01] [DEBUG] fetched MySQL result '0x7404740'
+[17:51:01] [DEBUG] allocated 0 bytes for PAWN result
+[17:51:01] [DEBUG] CCallback::Execute(amx=0x3980ae8, index=40, num_params=1)
+[17:51:01] [INFO] Executing callback 'OnPlayerDataCheck' with 1 parameter...
+[17:51:01] [DEBUG] processing internal specifier 'c'
+[17:51:01] [DEBUG] pushed value '0' onto AMX stack
+[17:51:01] [DEBUG] executing AMX callback with index '40'
+[17:51:01] [DEBUG] cache_get_row_count(0x073830DC) (D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\a_mysql.inc:182 -> modules\auth\auth_callbacks.inc:23)
+[17:51:01] [DEBUG] cache_get_row_count: return value: '1' (D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\a_mysql.inc:182 -> modules\auth\auth_callbacks.inc:23)
+[17:51:01] [DEBUG] AMX callback executed with error '0'
+[17:51:01] [INFO] Callback successfully executed.
+[17:51:09] [DEBUG] mysql_format(1, 0x073827FC, 512, "INSERT INTO `players` (`username`, `password`) VALUES ('%e', '%e')") (modules\auth\auth_callbacks.inc:63)
+[17:51:09] [DEBUG] CHandle::EscapeString(this=0x6f70b8, src='Bocah_Nyawit')
+[17:51:09] [DEBUG] CConnection::EscapeString(src='Bocah_Nyawit', this=0x733b60, connection=0x7cc348)
+[17:51:09] [DEBUG] CHandle::EscapeString - return value: true, escaped string: 'Bocah_Nyawit'
+[17:51:09] [DEBUG] CHandle::EscapeString(this=0x6f70b8, src='$2b$12$4LYou5r.aITPbskWtqxig.PpQzUDswMf/zZJi6dJkTh4JGMNeAJhS')
+[17:51:09] [DEBUG] CConnection::EscapeString(src='$2b$12$4LYou5r.aITPbskWtqxig.PpQzUDswMf/zZJi6dJkTh4JGMNeAJhS', this=0x733b60, connection=0x7cc348)
+[17:51:09] [DEBUG] CHandle::EscapeString - return value: true, escaped string: '$2b$12$4LYou5r.aITPbskWtqxig.PpQzUDswMf/zZJi6dJkTh4JGMNeAJhS'
+[17:51:09] [DEBUG] mysql_format: return value: '134' (modules\auth\auth_callbacks.inc:63)
+[17:51:09] [DEBUG] mysql_tquery(1, "INSERT INTO `players` (`username`, `password`) VALUES ('Bocah_Nyawit', '$2b$12$4LYou5r.aITPbskWtqxig.PpQzUDswMf/zZJi6dJkTh4JGMNeAJhS')", "OnPlayerRegisterInsert", "i") (modules\auth\auth_callbacks.inc:67)
+[17:51:09] [DEBUG] CCallback::Create(amx=0x3980ae8, name='OnPlayerRegisterInsert', format='i', params=0x7382784, param_offset=5)
+[17:51:09] [DEBUG] CCallback::Create - callback index for 'OnPlayerRegisterInsert': 44
+[17:51:09] [DEBUG] processing specifier 'i' with parameter index 0
+[17:51:09] [DEBUG] retrieved and pushed value '0'
+[17:51:09] [INFO] Callback 'OnPlayerRegisterInsert' set up for delayed execution.
+[17:51:09] [DEBUG] created delayed callback with 1 parameter
+[17:51:09] [DEBUG] CHandle::Execute(this=0x6f70b8, type=1, query=0x74274b0)
+[17:51:09] [DEBUG] CHandle::Execute - return value: true
+[17:51:09] [DEBUG] mysql_tquery: return value: '1' (modules\auth\auth_callbacks.inc:67)
+[17:51:09] [DEBUG] CConnection::Execute(query=0x74274b0, this=0x75d9020, connection=0x7ed778)
+[17:51:09] [DEBUG] CQuery::Execute(this=0x74274b0, connection=0x7ed778)
+[17:51:09] [INFO] query "INSERT INTO `players` (`username`, `password`) VALUES ('Bocah_Nyawit', '$2b$12$4LYou5r.aITPbskWtqxig.PpQzUDswMf/zZJi6dJkTh4JGMNeAJhS')" successfully executed within 37.22 milliseconds
+[17:51:09] [DEBUG] CResultSet::Create(connection=0x7ed778, query_str='INSERT INTO `players` (`username`, `password`) VALUES ('Bocah_Nyawit', '$2b$12$4LYou5r.aITPbskWtqxig.PpQzUDswMf/zZJi6dJkTh4JGMNeAJhS')')
+[17:51:09] [DEBUG] created new resultset '0x740b090'
+[17:51:09] [DEBUG] fetched MySQL result '0x0'
+[17:51:09] [DEBUG] CCallback::Execute(amx=0x3980ae8, index=44, num_params=1)
+[17:51:09] [INFO] Executing callback 'OnPlayerRegisterInsert' with 1 parameter...
+[17:51:09] [DEBUG] processing internal specifier 'c'
+[17:51:09] [DEBUG] pushed value '0' onto AMX stack
+[17:51:09] [DEBUG] executing AMX callback with index '44'
+[17:51:09] [DEBUG] cache_insert_id() (modules\auth\auth_callbacks.inc:81)
+[17:51:09] [DEBUG] cache_insert_id: return value: '2' (modules\auth\auth_callbacks.inc:81)
+[17:51:09] [DEBUG] mysql_format(1, 0x07382CF0, 256, "UPDATE `players` SET `last_login` = NOW() WHERE `id` = %d") (modules\auth\auth_callbacks.inc:88)
+[17:51:09] [DEBUG] mysql_format: return value: '56' (modules\auth\auth_callbacks.inc:88)
+[17:51:09] [DEBUG] mysql_tquery(1, "UPDATE `players` SET `last_login` = NOW() WHERE `id` = 2", "", "") (modules\auth\auth_callbacks.inc:92)
+[17:51:09] [DEBUG] CCallback::Create(amx=0x3980ae8, name='', format='', params=0x7382cdc, param_offset=5)
+[17:51:09] [DEBUG] CHandle::Execute(this=0x6f70b8, type=1, query=0x7427250)
+[17:51:09] [DEBUG] CConnection::Execute(query=0x7427250, this=0x75d9020, connection=0x7ed778)
+[17:51:09] [DEBUG] CQuery::Execute(this=0x7427250, connection=0x7ed778)
+[17:51:09] [DEBUG] CHandle::Execute - return value: true
+[17:51:09] [DEBUG] mysql_tquery: return value: '1' (modules\auth\auth_callbacks.inc:92)
+[17:51:09] [DEBUG] AMX callback executed with error '0'
+[17:51:09] [INFO] Callback successfully executed.
+[17:51:09] [INFO] query "UPDATE `players` SET `last_login` = NOW() WHERE `id` = 2" successfully executed within 19.171 milliseconds
+[17:51:09] [DEBUG] CResultSet::Create(connection=0x7ed778, query_str='UPDATE `players` SET `last_login` = NOW() WHERE `id` = 2')
+[17:51:09] [DEBUG] created new resultset '0x740b5d0'
+[17:51:09] [DEBUG] fetched MySQL result '0x0'
+[17:51:38] [DEBUG] mysql_format(1, 0x0738287C, 512, "UPDATE `players` SET `skin` = %d, `money` = %d, `level` = %d, `pos_x` = %f, `pos_y` = %f, `pos_z` = %f, `pos_a` = %f, `interior` = %d, `virtual_world` = %d WHERE `id` = %d") (modules\auth\auth.inc:123 -> D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\y_cgen\y_cgen_impl.inc:157 -> D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_timers\..\..\YSI_Data\y_foreach\y_foreach_iterators.inc:769 -> D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\..\YSI_Core\y_core\../y_utils/y_utils_ip.inc:115 -> D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\..\YSI_Core\y_core\..\..\YSI_Players\y_android\y_android_entry.inc:148 -> D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\sscanf2.inc:1153)
+[17:51:38] [DEBUG] mysql_format: return value: '201' (modules\auth\auth.inc:123 -> D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\y_cgen\y_cgen_impl.inc:157 -> D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_timers\..\..\YSI_Data\y_foreach\y_foreach_iterators.inc:769 -> D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\..\YSI_Core\y_core\../y_utils/y_utils_ip.inc:115 -> D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\..\YSI_Core\y_core\..\..\YSI_Players\y_android\y_android_entry.inc:148 -> D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\sscanf2.inc:1153)
+[17:51:38] [DEBUG] mysql_tquery(1, "UPDATE `players` SET `skin` = 299, `money` = 0, `level` = 1, `pos_x` = 1480.898438, `pos_y` = -1730.261353, `pos_z` = 13.382813, `pos_a` = 359.960449, `interior` = 0, `virtual_world` = 0 WHERE `id` = 2", "OnPlayerDataSave", "i") (modules\auth\auth.inc:146 -> D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\y_cgen\y_cgen_impl.inc:157 -> D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_timers\..\..\YSI_Data\y_foreach\y_foreach_iterators.inc:769 -> D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\..\YSI_Core\y_core\../y_utils/y_utils_ip.inc:115 -> D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\..\YSI_Core\y_core\..\..\YSI_Players\y_android\y_android_entry.inc:148 -> D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\sscanf2.inc:1153)
+[17:51:38] [DEBUG] CCallback::Create(amx=0x3980ae8, name='OnPlayerDataSave', format='i', params=0x7382864, param_offset=5)
+[17:51:38] [DEBUG] CCallback::Create - callback index for 'OnPlayerDataSave': 42
+[17:51:38] [DEBUG] processing specifier 'i' with parameter index 0
+[17:51:38] [DEBUG] retrieved and pushed value '0'
+[17:51:38] [INFO] Callback 'OnPlayerDataSave' set up for delayed execution.
+[17:51:38] [DEBUG] created delayed callback with 1 parameter
+[17:51:38] [DEBUG] CHandle::Execute(this=0x6f70b8, type=1, query=0x7426ec0)
+[17:51:38] [DEBUG] CHandle::Execute - return value: true
+[17:51:38] [DEBUG] mysql_tquery: return value: '1' (modules\auth\auth.inc:146 -> D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\y_cgen\y_cgen_impl.inc:157 -> D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_timers\..\..\YSI_Data\y_foreach\y_foreach_iterators.inc:769 -> D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\..\YSI_Core\y_core\../y_utils/y_utils_ip.inc:115 -> D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\..\YSI_Core\y_core\..\..\YSI_Players\y_android\y_android_entry.inc:148 -> D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\sscanf2.inc:1153)
+[17:51:38] [DEBUG] CConnection::Execute(query=0x7426ec0, this=0x75d9020, connection=0x7ed778)
+[17:51:38] [DEBUG] CQuery::Execute(this=0x7426ec0, connection=0x7ed778)
+[17:51:38] [INFO] query "UPDATE `players` SET `skin` = 299, `money` = 0, `level` = 1, `pos_x` = 1480.898438, `pos_y` = -1730.261353, `pos_z` = 13.382813, `pos_a` = 359.960449, `interior` = 0, `virtual_world` = 0 WHERE `id` = 2" successfully executed within 32.712 milliseconds
+[17:51:38] [DEBUG] CResultSet::Create(connection=0x7ed778, query_str='UPDATE `players` SET `skin` = 299, `money` = 0, `level` = 1, `pos_x` = 1480.898438, `pos_y` = -1730.261353, `pos_z` = 13.382813, `pos_a` = 359.960449, `interior` = 0, `virtual_world` = 0 WHERE `id` = 2')
+[17:51:38] [DEBUG] created new resultset '0x740b5d0'
+[17:51:38] [DEBUG] fetched MySQL result '0x0'
+[17:51:38] [DEBUG] CCallback::Execute(amx=0x3980ae8, index=42, num_params=1)
+[17:51:38] [INFO] Executing callback 'OnPlayerDataSave' with 1 parameter...
+[17:51:38] [DEBUG] processing internal specifier 'c'
+[17:51:38] [DEBUG] pushed value '0' onto AMX stack
+[17:51:38] [DEBUG] executing AMX callback with index '42'
+[17:51:38] [DEBUG] AMX callback executed with error '0'
+[17:51:38] [INFO] Callback successfully executed.
+[17:51:49] [DEBUG] mysql_close(1) (core\database.inc:70 -> core\database.inc:90 -> D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\y_cgen\y_cgen_impl.inc:157 -> D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\..\YSI_Core\y_core\y_scriptinit_impl.inc:1966)
+[17:51:49] [DEBUG] CHandleManager::Destroy(this=0x743410, handle=0x6f70b8)
+[17:51:49] [DEBUG] CHandle::~CHandle(this=0x6f70b8)
+[17:51:49] [DEBUG] CConnection::~CConnection(this=0x733b60, connection=0x7cc348)
+[17:51:49] [DEBUG] CThreadedConnection::~CThreadedConnection(this=0x75d9020, connection=0x75d9020)
+[17:51:49] [DEBUG] CThreadedConnection::WorkerFunc(this=0x75d9020, connection=0x75d9020) - shutting down
+[17:51:49] [DEBUG] CConnection::~CConnection(this=0x75d9020, connection=0x7ed778)
+[17:51:49] [DEBUG] CConnectionPool::~CConnectionPool(this=0x733ba0)
+[17:51:49] [DEBUG] CThreadedConnection::~CThreadedConnection(this=0x77a4020, connection=0x77a4020)
+[17:51:49] [DEBUG] CThreadedConnection::WorkerFunc(this=0x77a4020, connection=0x77a4020) - shutting down
+[17:51:49] [DEBUG] CConnection::~CConnection(this=0x77a4020, connection=0x7ee218)
+[17:51:49] [DEBUG] CThreadedConnection::~CThreadedConnection(this=0x797a020, connection=0x797a020)
+[17:51:49] [DEBUG] CThreadedConnection::WorkerFunc(this=0x797a020, connection=0x797a020) - shutting down
+[17:51:49] [DEBUG] CConnection::~CConnection(this=0x797a020, connection=0x73d6c08)
+[17:51:49] [DEBUG] mysql_close: return value: '1' (core\database.inc:70 -> core\database.inc:90 -> D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\y_cgen\y_cgen_impl.inc:157 -> D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\..\YSI_Core\y_core\y_scriptinit_impl.inc:1966)
+[19:19:56] [INFO] changed log level from 'warning, error' to 'debug, info, warning, error'
+[19:19:56] [DEBUG] mysql_connect("127.0.0.1", "root", "*****", "vrp", 0) (core\database.inc:25 -> core\database.inc:86 -> D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\y_cgen\y_cgen_impl.inc:156)
+[19:19:56] [DEBUG] CHandleManager::Create(this=0x6ae300, host='127.0.0.1', user='root', pass='****', db='vrp', options=0x7459658)
+[19:19:56] [INFO] Creating new connection handle...
+[19:19:56] [WARNING] mysql_connect: no password specified (core\database.inc:25 -> core\database.inc:86 -> D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\y_cgen\y_cgen_impl.inc:156)
+[19:19:56] [DEBUG] CConnection::CConnection(this=0x6204a0, host='127.0.0.1', user='root', passw='****', db='vrp', options=0x7459658)
+[19:19:56] [DEBUG] CConnection::CConnection - new connection = 0x6dcdb8
+[19:19:56] [DEBUG] CConnection::CConnection(this=0x7647020, host='127.0.0.1', user='root', passw='****', db='vrp', options=0x7459658)
+[19:19:56] [DEBUG] CConnection::CConnection - new connection = 0x6de158
+[19:19:56] [DEBUG] CThreadedConnection::WorkerFunc(this=0x7647020, connection=0x7647020)
+[19:19:56] [DEBUG] CThreadedConnection::CThreadedConnection(this=0x7647020, connection=0x7647020)
+[19:19:56] [DEBUG] CConnectionPool::CConnectionPool(size=2, this=0x61fda0)
+[19:19:56] [DEBUG] CConnection::CConnection(this=0x77d0020, host='127.0.0.1', user='root', passw='****', db='vrp', options=0x7459658)
+[19:19:56] [DEBUG] CConnection::CConnection - new connection = 0x747e6a0
+[19:19:56] [DEBUG] CThreadedConnection::CThreadedConnection(this=0x77d0020, connection=0x77d0020)
+[19:19:56] [DEBUG] CConnection::CConnection(this=0x79a3020, host='127.0.0.1', user='root', passw='****', db='vrp', options=0x7459658)
+[19:19:56] [DEBUG] CThreadedConnection::WorkerFunc(this=0x77d0020, connection=0x77d0020)
+[19:19:56] [DEBUG] CConnection::CConnection - new connection = 0x748b158
+[19:19:56] [DEBUG] CThreadedConnection::WorkerFunc(this=0x79a3020, connection=0x79a3020)
+[19:19:56] [DEBUG] CThreadedConnection::CThreadedConnection(this=0x79a3020, connection=0x79a3020)
+[19:19:56] [INFO] Connection handle with id '1' successfully created.
+[19:19:56] [DEBUG] CHandleManager::Create - new handle = 0x5e71b8
+[19:19:56] [DEBUG] mysql_connect: return value: '1' (core\database.inc:25 -> core\database.inc:86 -> D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\y_cgen\y_cgen_impl.inc:156)
+[19:19:56] [DEBUG] mysql_errno(1) (core\database.inc:27 -> core\database.inc:86 -> D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\y_cgen\y_cgen_impl.inc:156)
+[19:19:56] [DEBUG] CHandle::GetErrorId(this=0x5e71b8)
+[19:19:56] [DEBUG] CConnection::GetError(this=0x6204a0, connection=0x6dcdb8)
+[19:19:56] [DEBUG] CHandle::GetErrorId - return value: true, error id: '0', error msg: ''
+[19:19:56] [DEBUG] mysql_errno: return value: '0' (core\database.inc:27 -> core\database.inc:86 -> D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\y_cgen\y_cgen_impl.inc:156)
+[19:19:56] [DEBUG] mysql_set_charset("utf8mb4", 1) (core\database.inc:35 -> core\database.inc:86 -> D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\y_cgen\y_cgen_impl.inc:156)
+[19:19:56] [DEBUG] CHandle::SetCharacterSet(this=0x5e71b8, charset='utf8mb4')
+[19:19:56] [DEBUG] CConnection::SetCharset(charset='utf8mb4', this=0x6204a0, connection=0x6dcdb8)
+[19:19:56] [DEBUG] CConnection::SetCharset(charset='utf8mb4', this=0x7647020, connection=0x6de158)
+[19:19:56] [DEBUG] CConnectionPool::SetCharset(charset='utf8mb4', this=0x61fda0)
+[19:19:56] [DEBUG] CConnection::SetCharset(charset='utf8mb4', this=0x77d0020, connection=0x747e6a0)
+[19:19:56] [DEBUG] CConnection::SetCharset(charset='utf8mb4', this=0x79a3020, connection=0x748b158)
+[19:19:56] [DEBUG] mysql_set_charset: return value: '1' (core\database.inc:35 -> core\database.inc:86 -> D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\y_cgen\y_cgen_impl.inc:156)
+[19:19:56] [DEBUG] mysql_tquery(1, "CREATE TABLE IF NOT EXISTS `players` (`id`            INT(11)         NOT NULL AUTO_INCREMENT,`username`      VARCHAR(24)     NOT NULL,`password`      VARCHAR(61)     NOT NULL,`skin`          INT(5)          NOT NULL DEFAULT '299',`money`         INT(11)         NOT NULL DEFAULT '0',`level`         INT(5)          NOT NULL DEFAULT '1',`hunger`        INT(3)          NOT NULL DEFAULT '100',`thirst`        INT(3)          NOT NULL DEFAULT '100',`playtime`      INT(11)         NOT NULL DEFAULT '0',`pos_x`         FLOAT           NOT NULL DEFAULT '1481.053',`pos_y`         FLOAT           NOT NULL DEFAULT '-1770.616',`pos_z`         FLOAT           NOT NULL DEFAULT '18.795',`pos_a`         FLOAT           NOT NULL DEFAULT '0.0',`interior`      INT(3)          NOT NULL DEFAULT '0',`virtual_world` INT(5)          NOT NULL DEFAULT '0',`created_at`    DATETIME        NOT NULL DEFAULT CURRENT_TIMESTAMP,`last_login`    DATETIME        NULL DEFAULT NULL,PRIMARY KEY (`id`),UNIQUE KEY `username` (`username`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;", "", "") (core\database.inc:63 -> core\database.inc:87 -> D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\y_cgen\y_cgen_impl.inc:156)
+[19:19:56] [DEBUG] CCallback::Create(amx=0x3a60ae8, name='', format='', params=0x7432e2c, param_offset=5)
+[19:19:56] [DEBUG] CHandle::Execute(this=0x5e71b8, type=1, query=0x6b8d70)
+[19:19:56] [DEBUG] CHandle::Execute - return value: true
+[19:19:56] [DEBUG] mysql_tquery: return value: '1' (core\database.inc:63 -> core\database.inc:87 -> D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\y_cgen\y_cgen_impl.inc:156)
+[19:19:56] [DEBUG] CConnection::Execute(query=0x6b8d70, this=0x7647020, connection=0x6de158)
+[19:19:56] [DEBUG] CQuery::Execute(this=0x6b8d70, connection=0x6de158)
+[19:19:57] [INFO] query "CREATE TABLE IF NOT EXISTS `players` (`id`            INT(11)         NOT NULL AUTO_INCREMENT,`username`      VARCHAR(24)     NOT NULL,`password`      VARCHAR(61)     NOT NULL,`skin`          INT(5)          NOT NULL DEFAULT '299',`money`         INT(11)         NOT NULL DEFAULT '0',`level`         INT(5)          NOT NULL DEFAULT '1',`hunger`        INT(3)          NOT NULL DEFAULT '100',`thirst`        INT(3)          NOT NULL DEFAULT '100',`playtime`      INT(11)         NOT NULL DEFAULT '0',`pos_x`         FLOAT           NOT NULL DEFAULT '1481.053',`pos_y`         FLOAT           NOT NULL DEFAULT '-1770.616',`pos_z`         FLOAT           NOT NULL DEFAULT '18.795',`pos_a`         FLOAT           NOT NULL DEFAULT '0.0',`interior`      INT(3)          NOT NULL DEFAULT '0',`virtual_world` INT(5)          NOT NULL DEFAULT '0',`created_at`    DATETIME        NOT NULL DEFAULT CURRENT_TIMESTAMP,`last_login`    DATETIME        NULL DEFAULT NULL,PRIMARY KEY (`id`),UNIQUE KEY `username` (`username`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;" successfully executed within 59.266 milliseconds
+[19:19:57] [DEBUG] CResultSet::Create(connection=0x6de158, query_str='CREATE TABLE IF NOT EXISTS `players` (`id`            INT(11)         NOT NULL AUTO_INCREMENT,`username`      VARCHAR(24)     NOT NULL,`password`      VARCHAR(61)     NOT NULL,`skin`          INT(5)          NOT NULL DEFAULT '299',`money`         INT(11)         NOT NULL DEFAULT '0',`level`         INT(5)          NOT NULL DEFAULT '1',`hunger`        INT(3)          NOT NULL DEFAULT '100',`thirst`        INT(3)          NOT NULL DEFAULT '100',`playtime`      INT(11)         NOT NULL DEFAULT '0',`pos_x`         FLOAT           NOT NULL DEFAULT '1481.053',`pos_y`         FLOAT           NOT NULL DEFAULT '-1770.616',`pos_z`         FLOAT           NOT NULL DEFAULT '18.795',`pos_a`         FLOAT           NOT NULL DEFAULT '0.0',`interior`      INT(3)          NOT NULL DEFAULT '0',`virtual_world` INT(5)          NOT NULL DEFAULT '0',`created_at`    DATETIME        NOT NULL DEFAULT CURRENT_TIMESTAMP,`last_login`    DATETIME        NULL DEFAULT NULL,PRIMARY KEY (`id`),UNIQUE KEY `username` (`username`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;')
+[19:19:57] [DEBUG] created new resultset '0x5ecb48'
+[19:19:57] [DEBUG] fetched MySQL result '0x0'
+[19:20:43] [DEBUG] mysql_format(1, 0x07432994, 256, "SELECT `id`, `password` FROM `players` WHERE `username` = '%e' LIMIT 1") (modules\auth\auth.inc:99 -> D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\y_cgen\y_cgen_impl.inc:157 -> D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_timers\..\..\YSI_Data\y_foreach\y_foreach_iterators.inc:702 -> D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\..\YSI_Core\y_core\../y_utils/y_utils_ip.inc:101 -> D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\..\YSI_Core\y_core\..\..\YSI_Players\y_android\y_android_entry.inc:167 -> D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\sscanf2.inc:1128)
+[19:20:43] [DEBUG] CHandle::EscapeString(this=0x5e71b8, src='Bocah_Nyawit')
+[19:20:43] [DEBUG] CConnection::EscapeString(src='Bocah_Nyawit', this=0x6204a0, connection=0x6dcdb8)
+[19:20:43] [DEBUG] CHandle::EscapeString - return value: true, escaped string: 'Bocah_Nyawit'
+[19:20:43] [DEBUG] mysql_format: return value: '80' (modules\auth\auth.inc:99 -> D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\y_cgen\y_cgen_impl.inc:157 -> D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_timers\..\..\YSI_Data\y_foreach\y_foreach_iterators.inc:702 -> D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\..\YSI_Core\y_core\../y_utils/y_utils_ip.inc:101 -> D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\..\YSI_Core\y_core\..\..\YSI_Players\y_android\y_android_entry.inc:167 -> D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\sscanf2.inc:1128)
+[19:20:43] [DEBUG] mysql_tquery(1, "SELECT `id`, `password` FROM `players` WHERE `username` = 'Bocah_Nyawit' LIMIT 1", "OnPlayerDataCheck", "i") (modules\auth\auth.inc:103 -> D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\y_cgen\y_cgen_impl.inc:157 -> D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_timers\..\..\YSI_Data\y_foreach\y_foreach_iterators.inc:702 -> D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\..\YSI_Core\y_core\../y_utils/y_utils_ip.inc:101 -> D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\..\YSI_Core\y_core\..\..\YSI_Players\y_android\y_android_entry.inc:167 -> D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\sscanf2.inc:1128)
+[19:20:43] [DEBUG] CCallback::Create(amx=0x3a60ae8, name='OnPlayerDataCheck', format='i', params=0x743297c, param_offset=5)
+[19:20:43] [DEBUG] CCallback::Create - callback index for 'OnPlayerDataCheck': 43
+[19:20:43] [DEBUG] processing specifier 'i' with parameter index 0
+[19:20:43] [DEBUG] retrieved and pushed value '0'
+[19:20:43] [INFO] Callback 'OnPlayerDataCheck' set up for delayed execution.
+[19:20:43] [DEBUG] created delayed callback with 1 parameter
+[19:20:43] [DEBUG] CHandle::Execute(this=0x5e71b8, type=1, query=0x7496788)
+[19:20:43] [DEBUG] CHandle::Execute - return value: true
+[19:20:43] [DEBUG] mysql_tquery: return value: '1' (modules\auth\auth.inc:103 -> D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\y_cgen\y_cgen_impl.inc:157 -> D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_timers\..\..\YSI_Data\y_foreach\y_foreach_iterators.inc:702 -> D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\..\YSI_Core\y_core\../y_utils/y_utils_ip.inc:101 -> D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\..\YSI_Core\y_core\..\..\YSI_Players\y_android\y_android_entry.inc:167 -> D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\sscanf2.inc:1128)
+[19:20:43] [DEBUG] CConnection::Execute(query=0x7496788, this=0x7647020, connection=0x6de158)
+[19:20:43] [DEBUG] CQuery::Execute(this=0x7496788, connection=0x6de158)
+[19:20:43] [INFO] query "SELECT `id`, `password` FROM `players` WHERE `username` = 'Bocah_Nyawit' LIMIT 1" successfully executed within 252.55 milliseconds
+[19:20:43] [DEBUG] CResultSet::Create(connection=0x6de158, query_str='SELECT `id`, `password` FROM `players` WHERE `username` = 'Bocah_Nyawit' LIMIT 1')
+[19:20:43] [DEBUG] created new resultset '0x74b8938'
+[19:20:43] [DEBUG] fetched MySQL result '0x74b2cb8'
+[19:20:43] [DEBUG] allocated 84 bytes for PAWN result
+[19:20:43] [DEBUG] CCallback::Execute(amx=0x3a60ae8, index=43, num_params=1)
+[19:20:43] [INFO] Executing callback 'OnPlayerDataCheck' with 1 parameter...
+[19:20:43] [DEBUG] processing internal specifier 'c'
+[19:20:43] [DEBUG] pushed value '0' onto AMX stack
+[19:20:43] [DEBUG] executing AMX callback with index '43'
+[19:20:43] [DEBUG] cache_get_row_count(0x07432E78) (D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\a_mysql.inc:182 -> modules\auth\auth_callbacks.inc:23)
+[19:20:43] [DEBUG] cache_get_row_count: return value: '1' (D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\a_mysql.inc:182 -> modules\auth\auth_callbacks.inc:23)
+[19:20:43] [DEBUG] cache_get_value_name_int(0, "id", 0x073B72F8) (modules\auth\auth_callbacks.inc:29)
+[19:20:43] [DEBUG] cache_get_value_name_int: assigned value: '2' (modules\auth\auth_callbacks.inc:29)
+[19:20:43] [DEBUG] cache_get_value_name_int: return value: '1' (modules\auth\auth_callbacks.inc:29)
+[19:20:43] [DEBUG] cache_get_value_name(0, "password", 0x073B72FC, 61) (modules\auth\auth_callbacks.inc:30)
+[19:20:43] [DEBUG] cache_get_value_name: assigned value: '$2b$12$4LYou5r.aITPbskWtqxig.PpQzUDswMf/zZJi6dJkTh4JGMNeAJhS' (modules\auth\auth_callbacks.inc:30)
+[19:20:43] [DEBUG] cache_get_value_name: return value: '1' (modules\auth\auth_callbacks.inc:30)
+[19:20:43] [DEBUG] AMX callback executed with error '0'
+[19:20:43] [INFO] Callback successfully executed.
+[19:20:47] [DEBUG] mysql_format(1, 0x07432A88, 256, "SELECT * FROM `players` WHERE `username` = '%e' LIMIT 1") (modules\auth\auth_callbacks.inc:127)
+[19:20:47] [DEBUG] CHandle::EscapeString(this=0x5e71b8, src='Bocah_Nyawit')
+[19:20:47] [DEBUG] CConnection::EscapeString(src='Bocah_Nyawit', this=0x6204a0, connection=0x6dcdb8)
+[19:20:47] [DEBUG] CHandle::EscapeString - return value: true, escaped string: 'Bocah_Nyawit'
+[19:20:47] [DEBUG] mysql_format: return value: '65' (modules\auth\auth_callbacks.inc:127)
+[19:20:47] [DEBUG] mysql_tquery(1, "SELECT * FROM `players` WHERE `username` = 'Bocah_Nyawit' LIMIT 1", "OnPlayerDataLoad", "i") (modules\auth\auth_callbacks.inc:131)
+[19:20:47] [DEBUG] CCallback::Create(amx=0x3a60ae8, name='OnPlayerDataLoad', format='i', params=0x7432a10, param_offset=5)
+[19:20:47] [DEBUG] CCallback::Create - callback index for 'OnPlayerDataLoad': 44
+[19:20:47] [DEBUG] processing specifier 'i' with parameter index 0
+[19:20:47] [DEBUG] retrieved and pushed value '0'
+[19:20:47] [INFO] Callback 'OnPlayerDataLoad' set up for delayed execution.
+[19:20:47] [DEBUG] created delayed callback with 1 parameter
+[19:20:47] [DEBUG] CHandle::Execute(this=0x5e71b8, type=1, query=0x7496068)
+[19:20:47] [DEBUG] CConnection::Execute(query=0x7496068, this=0x7647020, connection=0x6de158)
+[19:20:47] [DEBUG] CQuery::Execute(this=0x7496068, connection=0x6de158)
+[19:20:47] [DEBUG] CHandle::Execute - return value: true
+[19:20:47] [DEBUG] mysql_tquery: return value: '1' (modules\auth\auth_callbacks.inc:131)
+[19:20:47] [INFO] query "SELECT * FROM `players` WHERE `username` = 'Bocah_Nyawit' LIMIT 1" successfully executed within 31.820 milliseconds
+[19:20:47] [DEBUG] CResultSet::Create(connection=0x6de158, query_str='SELECT * FROM `players` WHERE `username` = 'Bocah_Nyawit' LIMIT 1')
+[19:20:47] [DEBUG] created new resultset '0x74b8c48'
+[19:20:47] [DEBUG] fetched MySQL result '0x74d8358'
+[19:20:47] [DEBUG] allocated 228 bytes for PAWN result
+[19:20:47] [DEBUG] CCallback::Execute(amx=0x3a60ae8, index=44, num_params=1)
+[19:20:47] [INFO] Executing callback 'OnPlayerDataLoad' with 1 parameter...
+[19:20:47] [DEBUG] processing internal specifier 'c'
+[19:20:47] [DEBUG] pushed value '0' onto AMX stack
+[19:20:47] [DEBUG] executing AMX callback with index '44'
+[19:20:47] [DEBUG] cache_get_row_count(0x07432E7C) (D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\a_mysql.inc:182 -> modules\auth\auth_callbacks.inc:165)
+[19:20:47] [DEBUG] cache_get_row_count: return value: '1' (D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\a_mysql.inc:182 -> modules\auth\auth_callbacks.inc:165)
+[19:20:47] [DEBUG] cache_get_value_name_int(0, "id", 0x073B72F8) (modules\auth\auth_callbacks.inc:170)
+[19:20:47] [DEBUG] cache_get_value_name_int: assigned value: '2' (modules\auth\auth_callbacks.inc:170)
+[19:20:47] [DEBUG] cache_get_value_name_int: return value: '1' (modules\auth\auth_callbacks.inc:170)
+[19:20:47] [DEBUG] cache_get_value_name_int(0, "skin", 0x073B747C) (modules\auth\auth_callbacks.inc:171)
+[19:20:47] [DEBUG] cache_get_value_name_int: assigned value: '299' (modules\auth\auth_callbacks.inc:171)
+[19:20:47] [DEBUG] cache_get_value_name_int: return value: '1' (modules\auth\auth_callbacks.inc:171)
+[19:20:47] [DEBUG] cache_get_value_name_int(0, "money", 0x073B7480) (modules\auth\auth_callbacks.inc:172)
+[19:20:47] [DEBUG] cache_get_value_name_int: assigned value: '0' (modules\auth\auth_callbacks.inc:172)
+[19:20:47] [DEBUG] cache_get_value_name_int: return value: '1' (modules\auth\auth_callbacks.inc:172)
+[19:20:47] [DEBUG] cache_get_value_name_int(0, "level", 0x073B7484) (modules\auth\auth_callbacks.inc:173)
+[19:20:47] [DEBUG] cache_get_value_name_int: assigned value: '1' (modules\auth\auth_callbacks.inc:173)
+[19:20:47] [DEBUG] cache_get_value_name_int: return value: '1' (modules\auth\auth_callbacks.inc:173)
+[19:20:47] [DEBUG] cache_get_value_name_int(0, "hunger", 0x073B7488) (modules\auth\auth_callbacks.inc:174)
+[19:20:47] [ERROR] cache_get_value_name_int: field 'hunger' not found (modules\auth\auth_callbacks.inc:174)
+[19:20:47] [DEBUG] cache_get_value_name_int(0, "thirst", 0x073B748C) (modules\auth\auth_callbacks.inc:175)
+[19:20:47] [ERROR] cache_get_value_name_int: field 'thirst' not found (modules\auth\auth_callbacks.inc:175)
+[19:20:47] [DEBUG] cache_get_value_name_int(0, "playtime", 0x073B7490) (modules\auth\auth_callbacks.inc:176)
+[19:20:47] [ERROR] cache_get_value_name_int: field 'playtime' not found (modules\auth\auth_callbacks.inc:176)
+[19:20:47] [DEBUG] cache_get_value_name_float(0, "pos_x", 0x073B7498) (modules\auth\auth_callbacks.inc:177)
+[19:20:47] [DEBUG] cache_get_value_name_float: assigned value: '1480.9' (modules\auth\auth_callbacks.inc:177)
+[19:20:47] [DEBUG] cache_get_value_name_float: return value: '1' (modules\auth\auth_callbacks.inc:177)
+[19:20:47] [DEBUG] cache_get_value_name_float(0, "pos_y", 0x073B749C) (modules\auth\auth_callbacks.inc:178)
+[19:20:47] [DEBUG] cache_get_value_name_float: assigned value: '-1730.26' (modules\auth\auth_callbacks.inc:178)
+[19:20:47] [DEBUG] cache_get_value_name_float: return value: '1' (modules\auth\auth_callbacks.inc:178)
+[19:20:47] [DEBUG] cache_get_value_name_float(0, "pos_z", 0x073B74A0) (modules\auth\auth_callbacks.inc:179)
+[19:20:47] [DEBUG] cache_get_value_name_float: assigned value: '13.3828' (modules\auth\auth_callbacks.inc:179)
+[19:20:47] [DEBUG] cache_get_value_name_float: return value: '1' (modules\auth\auth_callbacks.inc:179)
+[19:20:47] [DEBUG] cache_get_value_name_float(0, "pos_a", 0x073B74A4) (modules\auth\auth_callbacks.inc:180)
+[19:20:47] [DEBUG] cache_get_value_name_float: assigned value: '359.96' (modules\auth\auth_callbacks.inc:180)
+[19:20:47] [DEBUG] cache_get_value_name_float: return value: '1' (modules\auth\auth_callbacks.inc:180)
+[19:20:47] [DEBUG] cache_get_value_name_int(0, "interior", 0x073B74A8) (modules\auth\auth_callbacks.inc:181)
+[19:20:47] [DEBUG] cache_get_value_name_int: assigned value: '0' (modules\auth\auth_callbacks.inc:181)
+[19:20:47] [DEBUG] cache_get_value_name_int: return value: '1' (modules\auth\auth_callbacks.inc:181)
+[19:20:47] [DEBUG] cache_get_value_name_int(0, "virtual_world", 0x073B74AC) (modules\auth\auth_callbacks.inc:182)
+[19:20:47] [DEBUG] cache_get_value_name_int: assigned value: '0' (modules\auth\auth_callbacks.inc:182)
+[19:20:47] [DEBUG] cache_get_value_name_int: return value: '1' (modules\auth\auth_callbacks.inc:182)
+[19:20:47] [DEBUG] mysql_format(1, 0x07432A8C, 256, "UPDATE `players` SET `last_login` = NOW() WHERE `id` = %d") (modules\auth\auth_callbacks.inc:194)
+[19:20:47] [DEBUG] mysql_format: return value: '56' (modules\auth\auth_callbacks.inc:194)
+[19:20:47] [DEBUG] mysql_tquery(1, "UPDATE `players` SET `last_login` = NOW() WHERE `id` = 2", "", "") (modules\auth\auth_callbacks.inc:198)
+[19:20:47] [DEBUG] CCallback::Create(amx=0x3a60ae8, name='', format='', params=0x7432a78, param_offset=5)
+[19:20:47] [DEBUG] CHandle::Execute(this=0x5e71b8, type=1, query=0x7496230)
+[19:20:47] [DEBUG] CHandle::Execute - return value: true
+[19:20:47] [DEBUG] mysql_tquery: return value: '1' (modules\auth\auth_callbacks.inc:198)
+[19:20:47] [DEBUG] CConnection::Execute(query=0x7496230, this=0x7647020, connection=0x6de158)
+[19:20:47] [DEBUG] CQuery::Execute(this=0x7496230, connection=0x6de158)
+[19:20:47] [DEBUG] AMX callback executed with error '0'
+[19:20:47] [INFO] Callback successfully executed.
+[19:20:47] [INFO] query "UPDATE `players` SET `last_login` = NOW() WHERE `id` = 2" successfully executed within 38.640 milliseconds
+[19:20:47] [DEBUG] CResultSet::Create(connection=0x6de158, query_str='UPDATE `players` SET `last_login` = NOW() WHERE `id` = 2')
+[19:20:47] [DEBUG] created new resultset '0x74a0100'
+[19:20:47] [DEBUG] fetched MySQL result '0x0'
+[19:25:13] [DEBUG] mysql_format(1, 0x07432264, 768, "UPDATE `players` SET `skin` = %d, `money` = %d, `level` = %d, `hunger` = %d, `thirst` = %d, `playtime` = %d, `pos_x` = %f, `pos_y` = %f, `pos_z` = %f, `pos_a` = %f, `interior` = %d, `virtual_world` = %d WHERE `id` = %d") (core\player_data.inc:177 -> modules\session\session.inc:56 -> modules\session\session.inc:42)
+[19:25:14] [DEBUG] mysql_format: return value: '245' (core\player_data.inc:177 -> modules\session\session.inc:56 -> modules\session\session.inc:42)
+[19:25:14] [DEBUG] mysql_tquery(1, "UPDATE `players` SET `skin` = 299, `money` = 0, `level` = 1, `hunger` = 98, `thirst` = 97, `playtime` = 4, `pos_x` = 1477.839966, `pos_y` = -1733.900635, `pos_z` = 14.086184, `pos_a` = 5.506588, `interior` = 0, `virtual_world` = 0 WHERE `id` = 2", "", "") (core\player_data.inc:206 -> modules\session\session.inc:56 -> modules\session\session.inc:42)
+[19:25:14] [DEBUG] CCallback::Create(amx=0x3a60ae8, name='', format='', params=0x7432250, param_offset=5)
+[19:25:14] [DEBUG] CHandle::Execute(this=0x5e71b8, type=1, query=0x7496788)
+[19:25:14] [DEBUG] CConnection::Execute(query=0x7496788, this=0x7647020, connection=0x6de158)
+[19:25:14] [DEBUG] CQuery::Execute(this=0x7496788, connection=0x6de158)
+[19:25:14] [DEBUG] CHandle::Execute - return value: true
+[19:25:14] [DEBUG] mysql_tquery: return value: '1' (core\player_data.inc:206 -> modules\session\session.inc:56 -> modules\session\session.inc:42)
+[19:25:14] [ERROR] error #1054 while executing query "UPDATE `players` SET `skin` = 299, `money` = 0, `level` = 1, `hunger` = 98, `thirst` = 97, `playtime` = 4, `pos_x` = 1477.839966, `pos_y` = -1733.900635, `pos_z` = 14.086184, `pos_a` = 5.506588, `interior` = 0, `virtual_world` = 0 WHERE `id` = 2": Unknown column 'hunger' in 'field list' (core\player_data.inc:206 -> modules\session\session.inc:56 -> modules\session\session.inc:42)
+[19:25:14] [DEBUG] CConnection::GetError(this=0x7647020, connection=0x6de158)
+[19:25:14] [DEBUG] CCallback::Create(amx=0x3a60ae8, name='OnQueryError', format='dsssd)
+[19:25:14] [DEBUG] CCallback::Create - callback index for 'OnQueryError': -10048
+[19:25:14] [DEBUG] processing specifier 'd'
+[19:25:14] [DEBUG] retrieved and pushed value '1054'
+[19:25:14] [DEBUG] processing specifier 's'
+[19:25:14] [DEBUG] retrieved and pushed value 'Unknown column 'hunger' in 'field list''
+[19:25:14] [DEBUG] processing specifier 's'
+[19:25:14] [DEBUG] retrieved and pushed value ''
+[19:25:14] [DEBUG] processing specifier 's'
+[19:25:14] [DEBUG] retrieved and pushed value 'UPDATE `players` SET `skin` = 299, `money` = 0, `level` = 1, `hunger` = 98, `thirst` = 97, `playtime` = 4, `pos_x` = 1477.839966, `pos_y` = -1733.900635, `pos_z` = 14.086184, `pos_a` = 5.506588, `interior` = 0, `virtual_world` = 0 WHERE `id` = 2'
+[19:25:14] [DEBUG] processing specifier 'd'
+[19:25:14] [DEBUG] retrieved and pushed value '1'
+[19:25:14] [INFO] Callback 'OnQueryError' set up for delayed execution.
+[19:25:14] [DEBUG] created delayed callback with 5 parameters
+[19:25:14] [DEBUG] CCallback::Execute(amx=0x3a60ae8, index=-10048, num_params=5)
+[19:25:14] [INFO] Executing callback 'æ¡ö' with 5 parameters...
+[19:25:14] [DEBUG] processing internal specifier 'c'
+[19:25:14] [DEBUG] pushed value '1' onto AMX stack
+[19:25:14] [DEBUG] processing internal specifier 's'
+[19:25:14] [DEBUG] pushed value 'UPDATE `players` SET `skin` = 299, `money` = 0, `level` = 1, `hunger` = 98, `thirst` = 97, `playtime` = 4, `pos_x` = 1477.839966, `pos_y` = -1733.900635, `pos_z` = 14.086184, `pos_a` = 5.506588, `interior` = 0, `virtual_world` = 0 WHERE `id` = 2' onto AMX stack
+[19:25:14] [DEBUG] processing internal specifier 's'
+[19:25:14] [DEBUG] pushed value '' onto AMX stack
+[19:25:14] [DEBUG] processing internal specifier 's'
+[19:25:14] [DEBUG] pushed value 'Unknown column 'hunger' in 'field list'' onto AMX stack
+[19:25:14] [DEBUG] processing internal specifier 'c'
+[19:25:14] [DEBUG] pushed value '1054' onto AMX stack
+[19:25:14] [DEBUG] executing AMX callback with index '-10048'
+[19:25:14] [DEBUG] AMX callback executed with error '0'
+[19:25:14] [INFO] Callback successfully executed.
+[19:25:29] [DEBUG] mysql_format(1, 0x07432204, 768, "UPDATE `players` SET `skin` = %d, `money` = %d, `level` = %d, `hunger` = %d, `thirst` = %d, `playtime` = %d, `pos_x` = %f, `pos_y` = %f, `pos_z` = %f, `pos_a` = %f, `interior` = %d, `virtual_world` = %d WHERE `id` = %d") (core\player_data.inc:177 -> modules\auth\auth.inc:119 -> D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\y_cgen\y_cgen_impl.inc:157 -> D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_timers\..\..\YSI_Data\y_foreach\y_foreach_iterators.inc:769 -> D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\..\YSI_Core\y_core\../y_utils/y_utils_ip.inc:115 -> D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\..\YSI_Core\y_core\..\..\YSI_Players\y_android\y_android_entry.inc:148 -> D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\sscanf2.inc:1153)
+[19:25:29] [DEBUG] mysql_format: return value: '245' (core\player_data.inc:177 -> modules\auth\auth.inc:119 -> D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\y_cgen\y_cgen_impl.inc:157 -> D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_timers\..\..\YSI_Data\y_foreach\y_foreach_iterators.inc:769 -> D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\..\YSI_Core\y_core\../y_utils/y_utils_ip.inc:115 -> D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\..\YSI_Core\y_core\..\..\YSI_Players\y_android\y_android_entry.inc:148 -> D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\sscanf2.inc:1153)
+[19:25:29] [DEBUG] mysql_tquery(1, "UPDATE `players` SET `skin` = 299, `money` = 0, `level` = 1, `hunger` = 98, `thirst` = 97, `playtime` = 4, `pos_x` = 1476.988159, `pos_y` = -1706.777344, `pos_z` = 14.046875, `pos_a` = 5.506588, `interior` = 0, `virtual_world` = 0 WHERE `id` = 2", "", "") (core\player_data.inc:206 -> modules\auth\auth.inc:119 -> D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\y_cgen\y_cgen_impl.inc:157 -> D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_timers\..\..\YSI_Data\y_foreach\y_foreach_iterators.inc:769 -> D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\..\YSI_Core\y_core\../y_utils/y_utils_ip.inc:115 -> D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\..\YSI_Core\y_core\..\..\YSI_Players\y_android\y_android_entry.inc:148 -> D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\sscanf2.inc:1153)
+[19:25:29] [DEBUG] CCallback::Create(amx=0x3a60ae8, name='', format='', params=0x74321f0, param_offset=5)
+[19:25:29] [DEBUG] CHandle::Execute(this=0x5e71b8, type=1, query=0x7495ea0)
+[19:25:29] [DEBUG] CHandle::Execute - return value: true
+[19:25:29] [DEBUG] mysql_tquery: return value: '1' (core\player_data.inc:206 -> modules\auth\auth.inc:119 -> D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\y_cgen\y_cgen_impl.inc:157 -> D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_timers\..\..\YSI_Data\y_foreach\y_foreach_iterators.inc:769 -> D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\..\YSI_Core\y_core\../y_utils/y_utils_ip.inc:115 -> D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\..\YSI_Core\y_core\..\..\YSI_Players\y_android\y_android_entry.inc:148 -> D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\sscanf2.inc:1153)
+[19:25:29] [DEBUG] CConnection::Execute(query=0x7495ea0, this=0x7647020, connection=0x6de158)
+[19:25:29] [DEBUG] CQuery::Execute(this=0x7495ea0, connection=0x6de158)
+[19:25:29] [ERROR] error #1054 while executing query "UPDATE `players` SET `skin` = 299, `money` = 0, `level` = 1, `hunger` = 98, `thirst` = 97, `playtime` = 4, `pos_x` = 1476.988159, `pos_y` = -1706.777344, `pos_z` = 14.046875, `pos_a` = 5.506588, `interior` = 0, `virtual_world` = 0 WHERE `id` = 2": Unknown column 'hunger' in 'field list' (core\player_data.inc:206 -> modules\auth\auth.inc:119 -> D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\y_cgen\y_cgen_impl.inc:157 -> D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_timers\..\..\YSI_Data\y_foreach\y_foreach_iterators.inc:769 -> D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\..\YSI_Core\y_core\../y_utils/y_utils_ip.inc:115 -> D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\..\YSI_Core\y_core\..\..\YSI_Players\y_android\y_android_entry.inc:148 -> D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\sscanf2.inc:1153)
+[19:25:29] [DEBUG] CConnection::GetError(this=0x7647020, connection=0x6de158)
+[19:25:29] [DEBUG] CCallback::Create(amx=0x3a60ae8, name='OnQueryError', format='dsssd)
+[19:25:29] [DEBUG] CCallback::Create - callback index for 'OnQueryError': -10048
+[19:25:29] [DEBUG] processing specifier 'd'
+[19:25:29] [DEBUG] retrieved and pushed value '1054'
+[19:25:29] [DEBUG] processing specifier 's'
+[19:25:29] [DEBUG] retrieved and pushed value 'Unknown column 'hunger' in 'field list''
+[19:25:29] [DEBUG] processing specifier 's'
+[19:25:29] [DEBUG] retrieved and pushed value ''
+[19:25:29] [DEBUG] processing specifier 's'
+[19:25:29] [DEBUG] retrieved and pushed value 'UPDATE `players` SET `skin` = 299, `money` = 0, `level` = 1, `hunger` = 98, `thirst` = 97, `playtime` = 4, `pos_x` = 1476.988159, `pos_y` = -1706.777344, `pos_z` = 14.046875, `pos_a` = 5.506588, `interior` = 0, `virtual_world` = 0 WHERE `id` = 2'
+[19:25:29] [DEBUG] processing specifier 'd'
+[19:25:29] [DEBUG] retrieved and pushed value '1'
+[19:25:29] [INFO] Callback 'OnQueryError' set up for delayed execution.
+[19:25:29] [DEBUG] created delayed callback with 5 parameters
+[19:25:29] [DEBUG] CCallback::Execute(amx=0x3a60ae8, index=-10048, num_params=5)
+[19:25:29] [INFO] Executing callback 'æ¡ö' with 5 parameters...
+[19:25:29] [DEBUG] processing internal specifier 'c'
+[19:25:29] [DEBUG] pushed value '1' onto AMX stack
+[19:25:29] [DEBUG] processing internal specifier 's'
+[19:25:29] [DEBUG] pushed value 'UPDATE `players` SET `skin` = 299, `money` = 0, `level` = 1, `hunger` = 98, `thirst` = 97, `playtime` = 4, `pos_x` = 1476.988159, `pos_y` = -1706.777344, `pos_z` = 14.046875, `pos_a` = 5.506588, `interior` = 0, `virtual_world` = 0 WHERE `id` = 2' onto AMX stack
+[19:25:29] [DEBUG] processing internal specifier 's'
+[19:25:29] [DEBUG] pushed value '' onto AMX stack
+[19:25:29] [DEBUG] processing internal specifier 's'
+[19:25:29] [DEBUG] pushed value 'Unknown column 'hunger' in 'field list'' onto AMX stack
+[19:25:29] [DEBUG] processing internal specifier 'c'
+[19:25:29] [DEBUG] pushed value '1054' onto AMX stack
+[19:25:29] [DEBUG] executing AMX callback with index '-10048'
+[19:25:29] [DEBUG] AMX callback executed with error '0'
+[19:25:29] [INFO] Callback successfully executed.
+[19:26:41] [DEBUG] mysql_close(1) (core\database.inc:73 -> core\database.inc:93 -> D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\y_cgen\y_cgen_impl.inc:157 -> D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\..\YSI_Core\y_core\y_scriptinit_impl.inc:1966)
+[19:26:41] [DEBUG] CHandleManager::Destroy(this=0x6ae300, handle=0x5e71b8)
+[19:26:41] [DEBUG] CHandle::~CHandle(this=0x5e71b8)
+[19:26:41] [DEBUG] CConnection::~CConnection(this=0x6204a0, connection=0x6dcdb8)
+[19:26:41] [DEBUG] CThreadedConnection::~CThreadedConnection(this=0x7647020, connection=0x7647020)
+[19:26:41] [DEBUG] CThreadedConnection::WorkerFunc(this=0x7647020, connection=0x7647020) - shutting down
+[19:26:41] [DEBUG] CConnection::~CConnection(this=0x7647020, connection=0x6de158)
+[19:26:41] [DEBUG] CConnectionPool::~CConnectionPool(this=0x61fda0)
+[19:26:41] [DEBUG] CThreadedConnection::~CThreadedConnection(this=0x77d0020, connection=0x77d0020)
+[19:26:41] [DEBUG] CThreadedConnection::WorkerFunc(this=0x77d0020, connection=0x77d0020) - shutting down
+[19:26:41] [DEBUG] CConnection::~CConnection(this=0x77d0020, connection=0x747e6a0)
+[19:26:41] [DEBUG] CThreadedConnection::~CThreadedConnection(this=0x79a3020, connection=0x79a3020)
+[19:26:41] [DEBUG] CThreadedConnection::WorkerFunc(this=0x79a3020, connection=0x79a3020) - shutting down
+[19:26:41] [DEBUG] CConnection::~CConnection(this=0x79a3020, connection=0x748b158)
+[19:26:41] [DEBUG] mysql_close: return value: '1' (core\database.inc:73 -> core\database.inc:93 -> D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\y_cgen\y_cgen_impl.inc:157 -> D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\..\YSI_Core\y_core\y_scriptinit_impl.inc:1966)

@@ -6,16 +6,14 @@
  *   ╚████╔╝ ██║██████╔╝███████╗    ██║  ██║██║     
  *    ╚═══╝  ╚═╝╚═════╝ ╚══════╝    ╚═╝  ╚═╝╚═╝     
  *
- *  Vibe Roleplay — SA-MP 0.3.7 Gamemode
- *  Version: 1.0.0
+ *  Vibe Roleplay — SA-MP 0.3.7 ( Gamemode )-
+ *  Version: 1.0.1
+ *  Author: Denmasmolano
  *
- *  File ini hanya sebagai LOADER.
- *  Semua logic ada di folder config/, core/, modules/, commands/, utils/.
  */
 
-// ============================================================================
+
 //  Library Includes
-// ============================================================================
 
 #include <a_samp>
 #include <a_mysql>
@@ -45,6 +43,7 @@
 
 #include "utils\name_validator.inc"
 #include "utils\messages.inc"
+#include "utils\command_guard.inc"
 
 // ============================================================================
 //  Core
@@ -52,12 +51,16 @@
 
 #include "core\database.inc"
 #include "core\player_data.inc"
+#include "core\player_state.inc"
 
 // ============================================================================
 //  Modules
 // ============================================================================
 
 #include "modules\auth\auth.inc"
+#include "modules\session\session.inc"
+#include "modules\stats\stats.inc"
+#include "modules\spawn\spawn.inc"
 
 // ============================================================================
 //  Commands
@@ -69,15 +72,7 @@
 //  Entry Point
 // ============================================================================
 
-main()
-{
-    print("  ");
-    print("  =============================================");
-    print("    Vibe Roleplay v1.0.0");
-    print("    SA-MP 0.3.7 Gamemode");
-    print("  =============================================");
-    print("  ");
-}
+main() {}
 
 // ============================================================================
 //  GameMode Init — Server settings & inisialisasi

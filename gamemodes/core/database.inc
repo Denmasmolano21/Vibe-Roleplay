@@ -46,6 +46,9 @@ stock Database_CreateTables()
             `skin`          INT(5)          NOT NULL DEFAULT '299',\
             `money`         INT(11)         NOT NULL DEFAULT '0',\
             `level`         INT(5)          NOT NULL DEFAULT '1',\
+            `hunger`        INT(3)          NOT NULL DEFAULT '100',\
+            `thirst`        INT(3)          NOT NULL DEFAULT '100',\
+            `playtime`      INT(11)         NOT NULL DEFAULT '0',\
             `pos_x`         FLOAT           NOT NULL DEFAULT '1481.053',\
             `pos_y`         FLOAT           NOT NULL DEFAULT '-1770.616',\
             `pos_z`         FLOAT           NOT NULL DEFAULT '18.795',\

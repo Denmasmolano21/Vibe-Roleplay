@@ -71,13 +71,16 @@ stock ShowLoginDialog(playerid)
 }
 
 // ============================================================================
-//  Hooks
+//  Hooks — Player Lifecycle
 // ============================================================================
 
 hook OnPlayerConnect(playerid)
 {
     // Reset data pemain
     ResetPlayerData(playerid);
+
+    // Set state ke AUTH
+    SetPlayerState_(playerid, STATE_AUTH);
 
     // Validasi nama roleplay
     new name[MAX_PLAYER_NAME];
@@ -106,44 +109,21 @@ hook OnPlayerDisconnect(playerid, reason)
     // Simpan data jika sudah login
     if (PlayerData[playerid][pLoggedIn])
     {
-        // Ambil posisi terakhir
-        GetPlayerPos(playerid,
-            PlayerData[playerid][pPosX],
-            PlayerData[playerid][pPosY],
-            PlayerData[playerid][pPosZ]
-        );
-        GetPlayerFacingAngle(playerid, PlayerData[playerid][pPosA]);
-        PlayerData[playerid][pInterior] = GetPlayerInterior(playerid);
-        PlayerData[playerid][pVirtualWorld] = GetPlayerVirtualWorld(playerid);
-        PlayerData[playerid][pMoney] = GetPlayerMoney(playerid);
-        PlayerData[playerid][pSkin] = GetPlayerSkin(playerid);
+        // Akhiri session (hitung playtime)
+        Session_End(playerid);
 
-        // Simpan ke database
-        new query[512];
-        mysql_format(g_MySQL, query, sizeof(query),
-            "UPDATE `players` SET \
-                `skin` = %d, \
-                `money` = %d, \
-                `level` = %d, \
-                `pos_x` = %f, \
-                `pos_y` = %f, \
-                `pos_z` = %f, \
-                `pos_a` = %f, \
-                `interior` = %d, \
-                `virtual_world` = %d \
-            WHERE `id` = %d",
-            PlayerData[playerid][pSkin],
-            PlayerData[playerid][pMoney],
-            PlayerData[playerid][pLevel],
-            PlayerData[playerid][pPosX],
-            PlayerData[playerid][pPosY],
-            PlayerData[playerid][pPosZ],
-            PlayerData[playerid][pPosA],
-            PlayerData[playerid][pInterior],
-            PlayerData[playerid][pVirtualWorld],
-            PlayerData[playerid][pID]
-        );
-        mysql_tquery(g_MySQL, query, "OnPlayerDataSave", "i", playerid);
+        // Simpan ke database (shared function)
+        SavePlayerDataToDB(playerid);
+
+        // Destroy HUD
+        Stats_OnPlayerDisconnect(playerid);
+
+        // Kill death timer jika ada
+        if (PlayerData[playerid][pDeathTimer] != -1)
+        {
+            KillTimer(PlayerData[playerid][pDeathTimer]);
+            PlayerData[playerid][pDeathTimer] = -1;
+        }
     }
 
     ResetPlayerData(playerid);
@@ -253,34 +233,9 @@ hook OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
     return 0;
 }
 
-hook OnPlayerRequestClass(playerid, classid)
-{
-    // Jangan tampilkan class selection — langsung freeze
-    if (!PlayerData[playerid][pLoggedIn])
-    {
-        // Pemain belum login, tetap di layar gelap
-        TogglePlayerSpectating(playerid, true);
-        return 0;
-    }
-    return 1;
-}
-
-hook OnPlayerSpawn(playerid)
-{
-    if (!PlayerData[playerid][pLoggedIn])
-    {
-        // Jangan spawn jika belum login — ini seharusnya tidak terjadi
-        TogglePlayerSpectating(playerid, true);
-        return 0;
-    }
-    return 1;
-}
-
 hook OnPlayerText(playerid, text[])
 {
     // Disable chat — server ini menggunakan voice chat
     SendInfoMessage(playerid, "Chat dinonaktifkan. Gunakan voice chat untuk berkomunikasi.");
     return 0;
 }
-
-
