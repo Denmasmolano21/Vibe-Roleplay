@@ -509,3 +509,55 @@ v0.3.7-R2, (C)2005-2015 SA-MP Team
 [06:00:52] [textdraw.streamer] DynamicTextDrawShowForPlayer: No such id was found. (textId: 0) (modules\stats\stats_hud.inc:145)
 [06:00:52] [textdraw.streamer] DynamicTextDrawShowForPlayer: No such id was found. (textId: 0) (modules\stats\stats_hud.inc:144)
 [06:00:52] [textdraw.streamer] DynamicTextDrawShowForPlayer: No such id was found. (textId: 0) (modules\stats\stats_hud.inc:145)
+[06:04:31] [SESSION] Session berakhir untuk player 0 (sesi: 3 menit, total: 3 menit)
+[06:04:31] [textdraw.streamer] DynamicTextDrawHideForPlayer: No such id was found. (textId: 0) (modules\stats\stats_hud.inc:163)
+[06:04:31] [textdraw.streamer] DynamicTextDrawHideForPlayer: No such id was found. (textId: 0) (modules\stats\stats_hud.inc:164)
+[06:04:31] [part] Bocah_Nyawit has left the server (0:1)
+[06:07:12]  -------------------------------------------
+[06:07:12]            SampVoice unloading...           
+[06:07:12]  -------------------------------------------
+[06:07:12] [dbg:raknet:free] : module releasing...
+[06:07:12] [dbg:raknet:free] : module released
+[06:07:12] [sv:dbg:network:free] : module releasing...
+[06:07:12] [sv:dbg:network:free] : module released
+[06:07:12] --- Server Shutting Down.
+[06:07:12] [DATABASE] Koneksi MySQL ditutup.
+[06:07:12] plugin.mysql: Unloading plugin...
+[06:07:12] plugin.mysql: Plugin unloaded.
+[06:07:12] 
+
+*** Streamer Plugin v2.9.6 by Incognito unloaded ***
+
+[06:07:12] 
+[06:07:12]  ===============================
+[06:07:12] 
+[06:07:12]      sscanf plugin unloaded.    
+[06:07:12] 
+[06:07:12]  ===============================
+[06:07:12] 
+[06:07:12] [Pawn.CMD] plugin unloaded
+[06:07:12] [Pawn.Regex] plugin unloaded
+[06:07:13] 
+[06:07:13]  =================================
+[06:07:13]  |                               |
+[06:07:13]  |    textdraw-streamer v2.0.3   |
+[06:07:13]  |           Unloaded            |
+[06:07:13]  |                               |
+[06:07:13]  |  Coding:                      |
+[06:07:13]  |                               |
+[06:07:13]  |  Burak (Nexor)                |
+[06:07:13]  |                               |
+[06:07:13]  |  Compiled:                    |
+[06:07:13]  |                               |
+[06:07:13]  |  29.09.2023, 16:49:07         |
+[06:07:13]  |                               |
+[06:07:13]  |  Github:                      |
+[06:07:13]  |                               |
+[06:07:13]  |  github.com/nexquery          |
+[06:07:13]  |                               |
+[06:07:13]  |  Discord:                     |
+[06:07:13]  |                               |
+[06:07:13]  |  benburakya - Nexor#4730      |
+[06:07:13]  |                               |
+[06:07:13]  =================================
+[06:07:13] 

@@ -197,3 +197,18 @@
 [06:04:32] [DEBUG] CResultSet::Create(connection=0x6cc580, query_str='UPDATE `players` SET `skin` = 299, `money` = 0, `level` = 1, `hunger` = 100, `thirst` = 100, `playtime` = 3, `pos_x` = 1488.915283, `pos_y` = -1716.629272, `pos_z` = 14.046875, `pos_a` = 108.680931, `interior` = 0, `virtual_world` = 0 WHERE `id` = 1')
 [06:04:32] [DEBUG] created new resultset '0x746a580'
 [06:04:32] [DEBUG] fetched MySQL result '0x0'
+[06:07:12] [DEBUG] mysql_close(1) (core\database.inc:74 -> core\database.inc:92 -> D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\y_cgen\y_cgen_impl.inc:157 -> D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\..\YSI_Core\y_core\y_scriptinit_impl.inc:1966)
+[06:07:12] [DEBUG] CHandleManager::Destroy(this=0x6cbac8, handle=0x60b8d0)
+[06:07:12] [DEBUG] CHandle::~CHandle(this=0x60b8d0)
+[06:07:12] [DEBUG] CConnection::~CConnection(this=0x632fa8, connection=0x6cc1b0)
+[06:07:12] [DEBUG] CThreadedConnection::~CThreadedConnection(this=0x761f020, connection=0x761f020)
+[06:07:12] [DEBUG] CThreadedConnection::WorkerFunc(this=0x761f020, connection=0x761f020) - shutting down
+[06:07:12] [DEBUG] CConnection::~CConnection(this=0x761f020, connection=0x6cc580)
+[06:07:12] [DEBUG] CConnectionPool::~CConnectionPool(this=0x633528)
+[06:07:12] [DEBUG] CThreadedConnection::~CThreadedConnection(this=0x77f7020, connection=0x77f7020)
+[06:07:12] [DEBUG] CThreadedConnection::WorkerFunc(this=0x77f7020, connection=0x77f7020) - shutting down
+[06:07:12] [DEBUG] CConnection::~CConnection(this=0x77f7020, connection=0x73e9bb8)
+[06:07:12] [DEBUG] CThreadedConnection::~CThreadedConnection(this=0x79c2020, connection=0x79c2020)
+[06:07:12] [DEBUG] CThreadedConnection::WorkerFunc(this=0x79c2020, connection=0x79c2020) - shutting down
+[06:07:12] [DEBUG] CConnection::~CConnection(this=0x79c2020, connection=0x73ea658)
+[06:07:12] [DEBUG] mysql_close: return value: '1' (core\database.inc:74 -> core\database.inc:92 -> D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\y_cgen\y_cgen_impl.inc:157 -> D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\..\YSI_Core\y_core\y_scriptinit_impl.inc:1966)
