@@ -1,9 +1,9 @@
 /*
- *  Vibe Roleplay - Player State Machine
+ *  Vibe Roleplay - Player State
  *  File: core/player_state.inc
  *
- *  Manajemen state pemain untuk mencegah exploit:
- *  anti-spawn-abuse, anti-double-login, validasi aksi.
+ *  State constants untuk tracking status pemain.
+ *  Tidak perlu fungsi wrapper - langsung pakai variabel PlayerData[playerid][pState]
  */
 
 #if defined _player_state_included
@@ -12,56 +12,19 @@
 #define _player_state_included
 
 // ============================================================================
-//  Player State Enum
+//  Player State Constants (langsung pakai ini)
 // ============================================================================
 
-enum E_PLAYER_STATE
-{
-    STATE_NONE = 0,         // Baru connect, belum apa-apa
-    STATE_AUTH,             // Sedang dalam proses login/register
-    STATE_ALIVE,            // Sudah login, hidup, bisa beraktivitas
-    STATE_DEAD,             // Mati, menunggu respawn
-    STATE_SPECTATING        // Mode spectator
-};
+#define PLAYER_STATE_AUTH           1   // Sedang login/register
+#define PLAYER_STATE_ALIVE          2   // Sudah login, hidup
+#define PLAYER_STATE_DEAD           3   // Mati, menunggu respawn
 
 // ============================================================================
-//  State Functions
+//  Helper Macros (opsional, bisa juga langsung cek PlayerData)
 // ============================================================================
 
-stock SetPlayerState_(playerid, E_PLAYER_STATE:state)
-{
-    PlayerData[playerid][pState] = _:state;
-    return 1;
-}
-
-stock E_PLAYER_STATE:GetPlayerState_(playerid)
-{
-    return E_PLAYER_STATE:PlayerData[playerid][pState];
-}
-
-stock bool:IsPlayerAlive(playerid)
-{
-    return (GetPlayerState_(playerid) == STATE_ALIVE);
-}
-
-stock bool:IsPlayerDead(playerid)
-{
-    return (GetPlayerState_(playerid) == STATE_DEAD);
-}
-
-stock bool:IsPlayerInAuth(playerid)
-{
-    return (GetPlayerState_(playerid) == STATE_AUTH);
-}
-
-stock bool:IsPlayerReady(playerid)
-{
-    // Pemain harus logged in DAN alive untuk bisa melakukan aksi
-    if (!PlayerData[playerid][pLoggedIn])
-        return false;
-
-    if (!IsPlayerAlive(playerid))
-        return false;
-
-    return true;
-}
+#define IsPlayerLoggedIn(%0)        (PlayerData[%0][pLoggedIn])
+#define IsPlayerAliveState(%0)      (PlayerData[%0][pState] == PLAYER_STATE_ALIVE)
+#define IsPlayerDeadState(%0)       (PlayerData[%0][pState] == PLAYER_STATE_DEAD)
+#define IsPlayerInAuth(%0)          (PlayerData[%0][pState] == PLAYER_STATE_AUTH)
+#define IsPlayerReady(%0)           (PlayerData[%0][pLoggedIn] && PlayerData[%0][pState] == PLAYER_STATE_ALIVE)

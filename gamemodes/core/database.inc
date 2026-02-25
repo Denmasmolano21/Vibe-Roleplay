@@ -1,9 +1,6 @@
 /*
  *  Vibe Roleplay - Database Core
  *  File: core/database.inc
- *
- *  Koneksi MySQL dan pembuatan tabel.
- *  Menggunakan y_hooks supaya modular.
  */
 
 #if defined _database_included
@@ -11,38 +8,42 @@
 #endif
 #define _database_included
 
-// Handle koneksi MySQL global
 new MySQL:g_MySQL = MYSQL_INVALID_HANDLE;
-
-// ============================================================================
-//  Database Functions
-// ============================================================================
+new bool:g_DatabaseConnected = false;
 
 stock Database_Connect()
 {
     mysql_log(ALL);
-
     g_MySQL = mysql_connect(MYSQL_HOST, MYSQL_USER, MYSQL_PASS, MYSQL_DB);
 
     if (g_MySQL == MYSQL_INVALID_HANDLE || mysql_errno(g_MySQL) != 0)
     {
-        printf("[DATABASE] GAGAL terhubung ke MySQL! Server akan dimatikan.");
+        printf("[DATABASE] GAGAL terhubung ke MySQL! Error: %d", mysql_errno(g_MySQL));
+        g_DatabaseConnected = false;
         SendRconCommand("exit");
         return 0;
     }
 
     printf("[DATABASE] Berhasil terhubung ke MySQL database '%s'.", MYSQL_DB);
     mysql_set_charset("utf8mb4", g_MySQL);
+    g_DatabaseConnected = true;
     return 1;
 }
 
 stock Database_CreateTables()
 {
+    if (!g_DatabaseConnected || g_MySQL == MYSQL_INVALID_HANDLE)
+    {
+        printf("[DATABASE] ERROR: Tidak bisa membuat tabel, koneksi belum tersedia.");
+        return 0;
+    }
+
     mysql_tquery(g_MySQL, "\
         CREATE TABLE IF NOT EXISTS `players` (\
             `id`            INT(11)         NOT NULL AUTO_INCREMENT,\
             `username`      VARCHAR(24)     NOT NULL,\
-            `password`      VARCHAR(61)     NOT NULL,\
+            `password`      VARCHAR(65)     NOT NULL,\
+            `admin_level`   INT(2)          NOT NULL DEFAULT '0',\
             `skin`          INT(5)          NOT NULL DEFAULT '299',\
             `money`         INT(11)         NOT NULL DEFAULT '0',\
             `level`         INT(5)          NOT NULL DEFAULT '1',\
@@ -71,14 +72,12 @@ stock Database_Close()
     if (g_MySQL != MYSQL_INVALID_HANDLE)
     {
         mysql_close(g_MySQL);
+        g_MySQL = MYSQL_INVALID_HANDLE;
+        g_DatabaseConnected = false;
         printf("[DATABASE] Koneksi MySQL ditutup.");
     }
     return 1;
 }
-
-// ============================================================================
-//  Hooks
-// ============================================================================
 
 hook OnGameModeInit()
 {

@@ -1,19 +1,12 @@
 /*
  *  Vibe Roleplay - Auth Callbacks
  *  File: modules/auth/auth_callbacks.inc
- *
- *  Semua callback async dari MySQL dan bcrypt untuk sistem auth.
- *  Dipisahkan dari auth.inc supaya clean.
  */
 
 #if defined _auth_callbacks_included
     #endinput
 #endif
 #define _auth_callbacks_included
-
-// ============================================================================
-//  MySQL Callback: Cek apakah pemain sudah terdaftar
-// ============================================================================
 
 forward OnPlayerDataCheck(playerid);
 public OnPlayerDataCheck(playerid)
@@ -25,24 +18,16 @@ public OnPlayerDataCheck(playerid)
 
     if (rows > 0)
     {
-        // Akun ditemukan — ambil password hash dan ID
         cache_get_value_name_int(0, "id", PlayerData[playerid][pID]);
-        cache_get_value_name(0, "password", PlayerData[playerid][pPassword], BCRYPT_HASH_LENGTH);
-
-        // Tampilkan dialog login
+        cache_get_value_name(0, "password", PlayerData[playerid][pPassword], MAX_PLAYER_PASSWORD);
         ShowLoginDialog(playerid);
     }
     else
     {
-        // Akun belum ada — tampilkan dialog register
         ShowRegisterDialog(playerid);
     }
     return 1;
 }
-
-// ============================================================================
-//  bcrypt Callback: Setelah password di-hash (registrasi)
-// ============================================================================
 
 forward OnPasswordHash(playerid, hashid);
 public OnPasswordHash(playerid, hashid)
@@ -52,11 +37,8 @@ public OnPasswordHash(playerid, hashid)
 
     new hash[BCRYPT_HASH_LENGTH];
     bcrypt_get_hash(hash);
+    format(PlayerData[playerid][pPassword], MAX_PLAYER_PASSWORD, "%s", hash);
 
-    // Simpan hash ke memory
-    format(PlayerData[playerid][pPassword], BCRYPT_HASH_LENGTH, "%s", hash);
-
-    // Insert ke database
     new query[512], name[MAX_PLAYER_NAME];
     GetPlayerName(playerid, name, sizeof(name));
 
@@ -68,10 +50,6 @@ public OnPasswordHash(playerid, hashid)
     return 1;
 }
 
-// ============================================================================
-//  MySQL Callback: Setelah INSERT registrasi
-// ============================================================================
-
 forward OnPlayerRegisterInsert(playerid);
 public OnPlayerRegisterInsert(playerid)
 {
@@ -82,14 +60,10 @@ public OnPlayerRegisterInsert(playerid)
     PlayerData[playerid][pLoggedIn] = true;
     PlayerData[playerid][pRegistering] = false;
     PlayerData[playerid][pTempPassword][0] = EOS;
+    PlayerData[playerid][pState] = PLAYER_STATE_ALIVE;
 
-    // Set state ke ALIVE
-    SetPlayerState_(playerid, STATE_ALIVE);
-
-    // Mulai session
     Session_Start(playerid);
 
-    // Update last_login
     new query[256];
     mysql_format(g_MySQL, query, sizeof(query),
         "UPDATE `players` SET `last_login` = NOW() WHERE `id` = %d",
@@ -100,17 +74,10 @@ public OnPlayerRegisterInsert(playerid)
     SendSuccessMessage(playerid, "Registrasi berhasil! Selamat datang di Vibe Roleplay.");
     SendInfoMessage(playerid, "Gunakan voice chat untuk berkomunikasi.");
 
-    // Spawn pemain
     SpawnPlayerAtSavedPosition(playerid);
-
-    // Inisialisasi stats & HUD
     Stats_OnPlayerLogin(playerid);
     return 1;
 }
-
-// ============================================================================
-//  bcrypt Callback: Setelah verifikasi password (login)
-// ============================================================================
 
 forward OnPasswordVerify(playerid, bool:success);
 public OnPasswordVerify(playerid, bool:success)
@@ -120,7 +87,6 @@ public OnPasswordVerify(playerid, bool:success)
 
     if (success)
     {
-        // Password benar — load data pemain
         new query[256], name[MAX_PLAYER_NAME];
         GetPlayerName(playerid, name, sizeof(name));
 
@@ -132,9 +98,7 @@ public OnPasswordVerify(playerid, bool:success)
     }
     else
     {
-        // Password salah
         PlayerData[playerid][pLoginAttempts]++;
-
         new remaining = MAX_LOGIN_ATTEMPTS - PlayerData[playerid][pLoginAttempts];
 
         if (remaining <= 0)
@@ -147,15 +111,10 @@ public OnPasswordVerify(playerid, bool:success)
         new msg[128];
         format(msg, sizeof(msg), "Password salah! Sisa percobaan: %d/%d", remaining, MAX_LOGIN_ATTEMPTS);
         SendErrorMessage(playerid, msg);
-
         ShowLoginDialog(playerid);
     }
     return 1;
 }
-
-// ============================================================================
-//  MySQL Callback: Load player data setelah login berhasil
-// ============================================================================
 
 forward OnPlayerDataLoad(playerid);
 public OnPlayerDataLoad(playerid)
@@ -164,10 +123,14 @@ public OnPlayerDataLoad(playerid)
         return 0;
 
     if (cache_num_rows() == 0)
+    {
+        SendErrorMessage(playerid, "Terjadi kesalahan saat memuat data.");
+        SetTimerEx("KickPlayerDelay", 500, false, "i", playerid);
         return 0;
+    }
 
-    // Load semua data dari database
     cache_get_value_name_int(0, "id", PlayerData[playerid][pID]);
+    cache_get_value_name_int(0, "admin_level", PlayerData[playerid][pAdminLevel]);
     cache_get_value_name_int(0, "skin", PlayerData[playerid][pSkin]);
     cache_get_value_name_int(0, "money", PlayerData[playerid][pMoney]);
     cache_get_value_name_int(0, "level", PlayerData[playerid][pLevel]);
@@ -182,14 +145,10 @@ public OnPlayerDataLoad(playerid)
     cache_get_value_name_int(0, "virtual_world", PlayerData[playerid][pVirtualWorld]);
 
     PlayerData[playerid][pLoggedIn] = true;
+    PlayerData[playerid][pState] = PLAYER_STATE_ALIVE;
 
-    // Set state ke ALIVE
-    SetPlayerState_(playerid, STATE_ALIVE);
-
-    // Mulai session
     Session_Start(playerid);
 
-    // Update last_login
     new query[256];
     mysql_format(g_MySQL, query, sizeof(query),
         "UPDATE `players` SET `last_login` = NOW() WHERE `id` = %d",
@@ -199,21 +158,17 @@ public OnPlayerDataLoad(playerid)
 
     SendSuccessMessage(playerid, "Login berhasil! Selamat datang kembali.");
 
-    // Spawn pemain
     SpawnPlayerAtSavedPosition(playerid);
-
-    // Inisialisasi stats & HUD
     Stats_OnPlayerLogin(playerid);
     return 1;
 }
 
-// ============================================================================
-//  Utility: Delayed kick (agar pesan error sempat terkirim)
-// ============================================================================
-
 forward KickPlayerDelay(playerid);
 public KickPlayerDelay(playerid)
 {
-    Kick(playerid);
+    if (IsPlayerConnected(playerid))
+    {
+        Kick(playerid);
+    }
     return 1;
 }

@@ -6,16 +6,27 @@
  *   ╚████╔╝ ██║██████╔╝███████╗    ██║  ██║██║     
  *    ╚═══╝  ╚═╝╚═════╝ ╚══════╝    ╚═╝  ╚═╝╚═╝     
  *
- *  Vibe Roleplay — SA-MP 0.3.7 ( Gamemode )-
- *  Version: 1.0.1
+ *  Vibe Roleplay — SA-MP 0.3.7 ( Gamemode )
+ *  Version: 1.0.3
  *  Author: Denmasmolano
  *
+ *  Changelog:
+ *  - v1.0.3: Simplified code - use direct variables instead of wrapper functions
+ *  - v1.0.2: Fixed include order, improved code quality
+ *  - v1.0.1: Initial release with auth system
+ *  - v1.0.0: Base gamemode
  */
 
-
-//  Library Includes
+// ============================================================================
+//  SA-MP Native Includes (Harus pertama)
+// ============================================================================
 
 #include <a_samp>
+
+// ============================================================================
+//  Plugin Includes
+// ============================================================================
+
 #include <a_mysql>
 #include <sscanf2>
 #include <streamer>
@@ -23,6 +34,11 @@
 #include <samp_bcrypt>
 #include <crashdetect>
 #include <textdraw-streamer>
+#include <Pawn.Regex>
+
+// ============================================================================
+//  YSI Libraries
+// ============================================================================
 
 #define YSI_NO_HEAP_MALLOC
 #include <YSI_Coding\y_hooks>
@@ -72,18 +88,23 @@
 //  Entry Point
 // ============================================================================
 
-main() {}
+main()
+{
+    print("==============================================");
+    print("  Vibe Roleplay - Gamemode Loaded");
+    print("  Version: " SERVER_VERSION);
+    print("  Author: Denmasmolano");
+    print("==============================================");
+}
 
 // ============================================================================
-//  GameMode Init — Server settings & inisialisasi
+//  GameMode Init
 // ============================================================================
 
 public OnGameModeInit()
 {
-    // Inisialisasi name validator
     NameValidator_Init();
 
-    // Server settings
     SetGameModeText("VRP v" SERVER_VERSION);
     ShowPlayerMarkers(PLAYER_MARKERS_MODE_OFF);
     ShowNameTags(1);
@@ -93,7 +114,6 @@ public OnGameModeInit()
     ManualVehicleEngineAndLights();
     UsePlayerPedAnims();
 
-    // Tambahkan class default (diperlukan oleh SA-MP)
     AddPlayerClass(0, DEFAULT_SPAWN_X, DEFAULT_SPAWN_Y, DEFAULT_SPAWN_Z,
         DEFAULT_SPAWN_A, 0, 0, 0, 0, 0, 0);
 
@@ -102,7 +122,7 @@ public OnGameModeInit()
 }
 
 // ============================================================================
-//  GameMode Exit — Cleanup
+//  GameMode Exit
 // ============================================================================
 
 public OnGameModeExit()

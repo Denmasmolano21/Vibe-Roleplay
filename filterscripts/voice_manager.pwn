@@ -6,8 +6,15 @@
 // Author    : Vibe Dev Team
 // Tanggal   : 2026
 // =============================================================================
+#define FILTERSCRIPT
+
 #include <a_samp>
+#undef MAX_PLAYERS
+#define MAX_PLAYERS 250
+
+#include <streamer>
 #include <sampvoice>
+#include <sscanf2>
 
 // ─── Stream per player ────────────────────────────────────────────────────────
 static SV_PTR: s_LocalStream[MAX_PLAYERS];

@@ -1,9 +1,6 @@
 /*
  *  Vibe Roleplay - Stats HUD
  *  File: modules/stats/stats_hud.inc
- *
- *  Textdraw HUD untuk hunger/thirst dan nama pemain.
- *  Berdasarkan desain dari Textdraw.txt.
  */
 
 #if defined _stats_hud_included
@@ -11,16 +8,10 @@
 #endif
 #define _stats_hud_included
 
-// ============================================================================
-//  Global Textdraws (untuk semua pemain)
-// ============================================================================
+#include <YSI_Coding\y_hooks>
 
 new Text:g_KOMA;
 new Text:g_TITIK;
-
-// ============================================================================
-//  Per-player Textdraws
-// ============================================================================
 
 new PlayerText:ptd_BG_MINUM[MAX_PLAYERS];
 new PlayerText:ptd_BG_MAKAN[MAX_PLAYERS];
@@ -30,10 +21,7 @@ new PlayerText:ptd_BAR_MINUM[MAX_PLAYERS];
 new PlayerText:ptd_BAR_MAKAN[MAX_PLAYERS];
 new PlayerText:ptd_BG_NAMA[MAX_PLAYERS];
 new PlayerText:ptd_NAMA_PLAYER[MAX_PLAYERS];
-
-// ============================================================================
-//  Init Global Textdraws (panggil di OnGameModeInit)
-// ============================================================================
+new bool:ptd_HUD_Created[MAX_PLAYERS];
 
 stock HUD_InitGlobal()
 {
@@ -68,99 +56,68 @@ stock HUD_DestroyGlobal()
     return 1;
 }
 
-// ============================================================================
-//  Create Per-Player HUD (panggil setelah login/spawn)
-// ============================================================================
-
 stock HUD_Create(playerid)
 {
-    // Background Minum (thirst)
+    if (!IsPlayerConnected(playerid))
+        return 0;
+
+    if (ptd_HUD_Created[playerid])
+    {
+        HUD_Destroy(playerid);
+    }
+
     ptd_BG_MINUM[playerid] = CreatePlayerTextDraw(playerid, 555.000, 130.000, "LD_SPAC:white");
     PlayerTextDrawTextSize(playerid, ptd_BG_MINUM[playerid], 53.000, 17.000);
     PlayerTextDrawAlignment(playerid, ptd_BG_MINUM[playerid], 1);
     PlayerTextDrawColor(playerid, ptd_BG_MINUM[playerid], 200);
-    PlayerTextDrawSetShadow(playerid, ptd_BG_MINUM[playerid], 0);
-    PlayerTextDrawSetOutline(playerid, ptd_BG_MINUM[playerid], 0);
-    PlayerTextDrawBackgroundColor(playerid, ptd_BG_MINUM[playerid], 255);
     PlayerTextDrawFont(playerid, ptd_BG_MINUM[playerid], 4);
     PlayerTextDrawSetProportional(playerid, ptd_BG_MINUM[playerid], 1);
 
-    // Background Makan (hunger)
     ptd_BG_MAKAN[playerid] = CreatePlayerTextDraw(playerid, 498.000, 130.000, "LD_SPAC:white");
     PlayerTextDrawTextSize(playerid, ptd_BG_MAKAN[playerid], 52.000, 17.000);
     PlayerTextDrawAlignment(playerid, ptd_BG_MAKAN[playerid], 1);
     PlayerTextDrawColor(playerid, ptd_BG_MAKAN[playerid], 200);
-    PlayerTextDrawSetShadow(playerid, ptd_BG_MAKAN[playerid], 0);
-    PlayerTextDrawSetOutline(playerid, ptd_BG_MAKAN[playerid], 0);
-    PlayerTextDrawBackgroundColor(playerid, ptd_BG_MAKAN[playerid], 255);
     PlayerTextDrawFont(playerid, ptd_BG_MAKAN[playerid], 4);
     PlayerTextDrawSetProportional(playerid, ptd_BG_MAKAN[playerid], 1);
 
-    // Icon Minum
     ptd_ICON_MINUM[playerid] = CreatePlayerTextDraw(playerid, 570.000, 133.000, "HUD:radar_diner");
     PlayerTextDrawTextSize(playerid, ptd_ICON_MINUM[playerid], -10.000, 10.000);
     PlayerTextDrawAlignment(playerid, ptd_ICON_MINUM[playerid], 1);
     PlayerTextDrawColor(playerid, ptd_ICON_MINUM[playerid], -1);
-    PlayerTextDrawSetShadow(playerid, ptd_ICON_MINUM[playerid], 0);
-    PlayerTextDrawSetOutline(playerid, ptd_ICON_MINUM[playerid], 0);
-    PlayerTextDrawBackgroundColor(playerid, ptd_ICON_MINUM[playerid], 255);
     PlayerTextDrawFont(playerid, ptd_ICON_MINUM[playerid], 4);
     PlayerTextDrawSetProportional(playerid, ptd_ICON_MINUM[playerid], 1);
 
-    // Icon Makan
     ptd_ICON_MAKAN[playerid] = CreatePlayerTextDraw(playerid, 514.000, 133.000, "HUD:radar_dateFood");
     PlayerTextDrawTextSize(playerid, ptd_ICON_MAKAN[playerid], -11.000, 10.000);
     PlayerTextDrawAlignment(playerid, ptd_ICON_MAKAN[playerid], 1);
     PlayerTextDrawColor(playerid, ptd_ICON_MAKAN[playerid], -1);
-    PlayerTextDrawSetShadow(playerid, ptd_ICON_MAKAN[playerid], 0);
-    PlayerTextDrawSetOutline(playerid, ptd_ICON_MAKAN[playerid], 0);
-    PlayerTextDrawBackgroundColor(playerid, ptd_ICON_MAKAN[playerid], 255);
     PlayerTextDrawFont(playerid, ptd_ICON_MAKAN[playerid], 4);
     PlayerTextDrawSetProportional(playerid, ptd_ICON_MAKAN[playerid], 1);
 
-    // Bar Minum (thirst value)
     ptd_BAR_MINUM[playerid] = CreatePlayerTextDraw(playerid, 579.000, 133.000, "100");
     PlayerTextDrawLetterSize(playerid, ptd_BAR_MINUM[playerid], 0.200, 1.098);
     PlayerTextDrawAlignment(playerid, ptd_BAR_MINUM[playerid], 1);
     PlayerTextDrawColor(playerid, ptd_BAR_MINUM[playerid], -56);
-    PlayerTextDrawSetShadow(playerid, ptd_BAR_MINUM[playerid], 0);
-    PlayerTextDrawSetOutline(playerid, ptd_BAR_MINUM[playerid], -1);
-    PlayerTextDrawBackgroundColor(playerid, ptd_BAR_MINUM[playerid], 255);
     PlayerTextDrawFont(playerid, ptd_BAR_MINUM[playerid], 1);
     PlayerTextDrawSetProportional(playerid, ptd_BAR_MINUM[playerid], 1);
 
-    // Bar Makan (hunger value)
     ptd_BAR_MAKAN[playerid] = CreatePlayerTextDraw(playerid, 522.000, 133.000, "100");
     PlayerTextDrawLetterSize(playerid, ptd_BAR_MAKAN[playerid], 0.200, 1.098);
     PlayerTextDrawAlignment(playerid, ptd_BAR_MAKAN[playerid], 1);
     PlayerTextDrawColor(playerid, ptd_BAR_MAKAN[playerid], -56);
-    PlayerTextDrawSetShadow(playerid, ptd_BAR_MAKAN[playerid], 0);
-    PlayerTextDrawSetOutline(playerid, ptd_BAR_MAKAN[playerid], -1);
-    PlayerTextDrawBackgroundColor(playerid, ptd_BAR_MAKAN[playerid], 255);
     PlayerTextDrawFont(playerid, ptd_BAR_MAKAN[playerid], 1);
     PlayerTextDrawSetProportional(playerid, ptd_BAR_MAKAN[playerid], 1);
 
-    // Background Nama
     ptd_BG_NAMA[playerid] = CreatePlayerTextDraw(playerid, 498.000, 107.000, "LD_SPAC:white");
     PlayerTextDrawTextSize(playerid, ptd_BG_NAMA[playerid], 110.000, 21.000);
     PlayerTextDrawAlignment(playerid, ptd_BG_NAMA[playerid], 1);
     PlayerTextDrawColor(playerid, ptd_BG_NAMA[playerid], 200);
-    PlayerTextDrawSetShadow(playerid, ptd_BG_NAMA[playerid], 0);
-    PlayerTextDrawSetOutline(playerid, ptd_BG_NAMA[playerid], 0);
-    PlayerTextDrawBackgroundColor(playerid, ptd_BG_NAMA[playerid], 255);
     PlayerTextDrawFont(playerid, ptd_BG_NAMA[playerid], 4);
     PlayerTextDrawSetProportional(playerid, ptd_BG_NAMA[playerid], 1);
 
-    // Nama Player
     new name[MAX_PLAYER_NAME], displayName[MAX_PLAYER_NAME];
     GetPlayerName(playerid, name, sizeof(name));
-    // Ganti underscore dengan spasi untuk tampilan
-    format(displayName, sizeof(displayName), "%s", name);
-    for (new i = 0; displayName[i] != EOS; i++)
-    {
-        if (displayName[i] == '_')
-            displayName[i] = ' ';
-    }
+    FormatRPName(name, displayName, sizeof(displayName));
 
     ptd_NAMA_PLAYER[playerid] = CreatePlayerTextDraw(playerid, 521.000, 109.000, displayName);
     PlayerTextDrawLetterSize(playerid, ptd_NAMA_PLAYER[playerid], 0.349, 1.498);
@@ -172,15 +129,18 @@ stock HUD_Create(playerid)
     PlayerTextDrawFont(playerid, ptd_NAMA_PLAYER[playerid], 0);
     PlayerTextDrawSetProportional(playerid, ptd_NAMA_PLAYER[playerid], 1);
 
+    ptd_HUD_Created[playerid] = true;
     return 1;
 }
 
-// ============================================================================
-//  Show / Hide HUD
-// ============================================================================
-
 stock HUD_Show(playerid)
 {
+    if (!IsPlayerConnected(playerid))
+        return 0;
+
+    if (!ptd_HUD_Created[playerid])
+        return 0;
+
     TextDrawShowForPlayer(playerid, g_KOMA);
     TextDrawShowForPlayer(playerid, g_TITIK);
 
@@ -197,8 +157,14 @@ stock HUD_Show(playerid)
 
 stock HUD_Hide(playerid)
 {
+    if (!IsPlayerConnected(playerid))
+        return 0;
+
     TextDrawHideForPlayer(playerid, g_KOMA);
     TextDrawHideForPlayer(playerid, g_TITIK);
+
+    if (!ptd_HUD_Created[playerid])
+        return 0;
 
     PlayerTextDrawHide(playerid, ptd_BG_MINUM[playerid]);
     PlayerTextDrawHide(playerid, ptd_BG_MAKAN[playerid]);
@@ -211,12 +177,11 @@ stock HUD_Hide(playerid)
     return 1;
 }
 
-// ============================================================================
-//  Destroy Per-Player HUD (panggil saat disconnect)
-// ============================================================================
-
 stock HUD_Destroy(playerid)
 {
+    if (!ptd_HUD_Created[playerid])
+        return 0;
+
     PlayerTextDrawDestroy(playerid, ptd_BG_MINUM[playerid]);
     PlayerTextDrawDestroy(playerid, ptd_BG_MAKAN[playerid]);
     PlayerTextDrawDestroy(playerid, ptd_ICON_MINUM[playerid]);
@@ -225,39 +190,31 @@ stock HUD_Destroy(playerid)
     PlayerTextDrawDestroy(playerid, ptd_BAR_MAKAN[playerid]);
     PlayerTextDrawDestroy(playerid, ptd_BG_NAMA[playerid]);
     PlayerTextDrawDestroy(playerid, ptd_NAMA_PLAYER[playerid]);
+
+    ptd_HUD_Created[playerid] = false;
     return 1;
 }
 
-// ============================================================================
-//  Update HUD Values
-// ============================================================================
-
 stock HUD_Update(playerid)
 {
+    if (!IsPlayerConnected(playerid))
+        return 0;
+
+    if (!ptd_HUD_Created[playerid])
+        return 0;
+
     new str[8];
 
-    // Update hunger bar
     format(str, sizeof(str), "%d", PlayerData[playerid][pHunger]);
     PlayerTextDrawSetString(playerid, ptd_BAR_MAKAN[playerid], str);
 
-    // Update thirst bar
     format(str, sizeof(str), "%d", PlayerData[playerid][pThirst]);
     PlayerTextDrawSetString(playerid, ptd_BAR_MINUM[playerid], str);
     return 1;
 }
 
-// ============================================================================
-//  Hooks
-// ============================================================================
-
-hook OnGameModeInit()
+hook OnPlayerConnect(playerid)
 {
-    HUD_InitGlobal();
-    return 1;
-}
-
-hook OnGameModeExit()
-{
-    HUD_DestroyGlobal();
+    ptd_HUD_Created[playerid] = false;
     return 1;
 }

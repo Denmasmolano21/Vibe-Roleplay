@@ -1,9 +1,6 @@
 /*
  *  Vibe Roleplay - Stats System
  *  File: modules/stats/stats.inc
- *
- *  Sistem hunger, thirst, dan playtime.
- *  Timer-based decay + HP drain + persistent ke database.
  */
 
 #if defined _stats_included
@@ -11,16 +8,14 @@
 #endif
 #define _stats_included
 
-// Include HUD
+#include <YSI_Coding\y_hooks>
 #include "stats_hud.inc"
-
-// ============================================================================
-//  Stats Initialization (panggil setelah login)
-// ============================================================================
 
 stock Stats_OnPlayerLogin(playerid)
 {
-    // Create & show HUD
+    if (!IsPlayerConnected(playerid))
+        return 0;
+
     HUD_Create(playerid);
     HUD_Show(playerid);
     HUD_Update(playerid);
@@ -29,39 +24,32 @@ stock Stats_OnPlayerLogin(playerid)
 
 stock Stats_OnPlayerDisconnect(playerid)
 {
+    if (!IsPlayerConnected(playerid))
+        return 0;
+
     HUD_Hide(playerid);
     HUD_Destroy(playerid);
     return 1;
 }
 
-// ============================================================================
-//  Stats Decay Timer (y_timers)
-// ============================================================================
-
 timer StatsDecayTimer[STATS_DECAY_INTERVAL]()
 {
-    for (new i = 0; i < MAX_PLAYERS; i++)
+    foreach (new i : Player)
     {
-        if (!IsPlayerConnected(i))
-            continue;
-
         if (!PlayerData[i][pLoggedIn])
             continue;
 
-        if (!IsPlayerAlive(i))
+        if (PlayerData[i][pState] != PLAYER_STATE_ALIVE)
             continue;
 
-        // Decay hunger
         PlayerData[i][pHunger] -= HUNGER_DECAY_RATE;
         if (PlayerData[i][pHunger] < 0)
             PlayerData[i][pHunger] = 0;
 
-        // Decay thirst
         PlayerData[i][pThirst] -= THIRST_DECAY_RATE;
         if (PlayerData[i][pThirst] < 0)
             PlayerData[i][pThirst] = 0;
 
-        // HP drain jika hunger atau thirst = 0
         if (PlayerData[i][pHunger] == 0 || PlayerData[i][pThirst] == 0)
         {
             new Float:hp;
@@ -72,51 +60,65 @@ timer StatsDecayTimer[STATS_DECAY_INTERVAL]()
                 SetPlayerHealth(i, hp - STATS_HP_DRAIN);
 
                 if (PlayerData[i][pHunger] == 0 && PlayerData[i][pThirst] == 0)
-                {
                     SendWarningMessage(i, "Kamu kelaparan dan kehausan! HP berkurang.");
-                }
                 else if (PlayerData[i][pHunger] == 0)
-                {
-                    SendWarningMessage(i, "Kamu kelaparan! HP berkurang.");
-                }
+                    SendWarningMessage(i, "Kamu kelaparan! Makan sesuatu segera.");
                 else
-                {
-                    SendWarningMessage(i, "Kamu kehausan! HP berkurang.");
-                }
+                    SendWarningMessage(i, "Kamu kehausan! Minum sesuatu segera.");
             }
         }
 
-        // Update HUD
         HUD_Update(i);
     }
 }
 
-// ============================================================================
-//  Stats Manipulation (untuk command eat/drink nanti)
-// ============================================================================
-
 stock Stats_AddHunger(playerid, amount)
 {
+    if (!IsPlayerConnected(playerid))
+        return 0;
+
+    if (amount <= 0)
+        return 0;
+
     PlayerData[playerid][pHunger] += amount;
     if (PlayerData[playerid][pHunger] > MAX_HUNGER)
         PlayerData[playerid][pHunger] = MAX_HUNGER;
 
     HUD_Update(playerid);
+    
+    new msg[64];
+    format(msg, sizeof(msg), "Hunger +%d (sekarang: %d)", amount, PlayerData[playerid][pHunger]);
+    SendInfoMessage(playerid, msg);
+    
     return 1;
 }
 
 stock Stats_AddThirst(playerid, amount)
 {
+    if (!IsPlayerConnected(playerid))
+        return 0;
+
+    if (amount <= 0)
+        return 0;
+
     PlayerData[playerid][pThirst] += amount;
     if (PlayerData[playerid][pThirst] > MAX_THIRST)
         PlayerData[playerid][pThirst] = MAX_THIRST;
 
     HUD_Update(playerid);
+    
+    new msg[64];
+    format(msg, sizeof(msg), "Thirst +%d (sekarang: %d)", amount, PlayerData[playerid][pThirst]);
+    SendInfoMessage(playerid, msg);
+    
     return 1;
 }
 
 stock Stats_SetHunger(playerid, amount)
 {
+    if (!IsPlayerConnected(playerid))
+        return 0;
+
     PlayerData[playerid][pHunger] = amount;
     if (PlayerData[playerid][pHunger] > MAX_HUNGER)
         PlayerData[playerid][pHunger] = MAX_HUNGER;
@@ -129,6 +131,9 @@ stock Stats_SetHunger(playerid, amount)
 
 stock Stats_SetThirst(playerid, amount)
 {
+    if (!IsPlayerConnected(playerid))
+        return 0;
+
     PlayerData[playerid][pThirst] = amount;
     if (PlayerData[playerid][pThirst] > MAX_THIRST)
         PlayerData[playerid][pThirst] = MAX_THIRST;
@@ -139,9 +144,21 @@ stock Stats_SetThirst(playerid, amount)
     return 1;
 }
 
-// ============================================================================
-//  Hooks
-// ============================================================================
+stock Stats_GetHunger(playerid)
+{
+    if (!IsPlayerConnected(playerid))
+        return 0;
+
+    return PlayerData[playerid][pHunger];
+}
+
+stock Stats_GetThirst(playerid)
+{
+    if (!IsPlayerConnected(playerid))
+        return 0;
+
+    return PlayerData[playerid][pThirst];
+}
 
 hook OnGameModeInit()
 {

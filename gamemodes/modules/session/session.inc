@@ -1,9 +1,6 @@
 /*
  *  Vibe Roleplay - Session Manager
  *  File: modules/session/session.inc
- *
- *  Autosave berkala dan session tracking.
- *  Menggunakan y_timers untuk repeating timer.
  */
 
 #if defined _session_included
@@ -11,12 +8,13 @@
 #endif
 #define _session_included
 
-// ============================================================================
-//  Session Start / End
-// ============================================================================
+#include <YSI_Coding\y_hooks>
 
 stock Session_Start(playerid)
 {
+    if (playerid < 0 || playerid >= MAX_PLAYERS)
+        return 0;
+
     PlayerData[playerid][pSessionStart] = GetTickCount();
     printf("[SESSION] Session dimulai untuk player %d", playerid);
     return 1;
@@ -24,31 +22,27 @@ stock Session_Start(playerid)
 
 stock Session_End(playerid)
 {
+    if (playerid < 0 || playerid >= MAX_PLAYERS)
+        return 0;
+
     if (PlayerData[playerid][pSessionStart] > 0)
     {
-        // Tambahkan waktu sesi ke total playtime
         new sessionMinutes = GetPlayerSessionMinutes(playerid);
         PlayerData[playerid][pPlaytime] += sessionMinutes;
         PlayerData[playerid][pSessionStart] = 0;
 
-        printf("[SESSION] Session berakhir untuk player %d (sesi: %d menit)", playerid, sessionMinutes);
+        printf("[SESSION] Session berakhir untuk player %d (sesi: %d menit, total: %d menit)", 
+            playerid, sessionMinutes, PlayerData[playerid][pPlaytime]);
     }
     return 1;
 }
-
-// ============================================================================
-//  Autosave Timer (y_timers)
-// ============================================================================
 
 timer AutosaveAllPlayers[AUTOSAVE_INTERVAL]()
 {
     new count = 0;
 
-    for (new i = 0; i < MAX_PLAYERS; i++)
+    foreach (new i : Player)
     {
-        if (!IsPlayerConnected(i))
-            continue;
-
         if (!PlayerData[i][pLoggedIn])
             continue;
 
@@ -62,10 +56,6 @@ timer AutosaveAllPlayers[AUTOSAVE_INTERVAL]()
     }
 }
 
-// ============================================================================
-//  Hooks
-// ============================================================================
-
 hook OnGameModeInit()
 {
     // Start autosave timer
@@ -73,3 +63,4 @@ hook OnGameModeInit()
     printf("[SESSION] Autosave timer aktif (interval: %d detik).", AUTOSAVE_INTERVAL / 1000);
     return 1;
 }
+

@@ -1,210 +1,49 @@
-[10:59:45] Long callback execution detected (hang or performance issue)
-[10:59:45] AMX backtrace:
-[10:59:45] #0 0002690c in Iter_Remove_InternalC (&count=@027085b4 0, array[]=@02707610 "", size=1001, value=0) at D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_timers\..\..\YSI_Data\y_foreach\y_foreach_impl.inc:955
-[10:59:45] #1 00028500 in public ScriptInit_OnPlayerDisconnect (0, 1) at D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_timers\..\..\YSI_Data\y_foreach\y_foreach_iterators.inc:774
-[10:59:45] #2 00009ed8 in public Android_OnPlayerDisconnect (playerid=0, reason=1) at D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\..\YSI_Core\y_core\../y_utils/y_utils_ip.inc:115
-[10:59:45] #3 000079e8 in public SSCANF_OnPlayerDisconnect (0, 1) at D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\..\YSI_Core\y_core\..\..\YSI_Players\y_android\y_android_entry.inc:148
-[10:59:45] #4 00000c7c in public OnPlayerDisconnect (playerid=0, reason=1) at D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\sscanf2.inc:1154
-[10:59:51] Server received interrupt signal
-[10:59:51] Native backtrace:
-[10:59:51] #0 773a94dc in ?? () in C:\WINDOWS\SYSTEM32\ntdll.dll
-[10:59:51] #1 76d413b0 in ?? () in C:\WINDOWS\System32\KERNELBASE.dll
-[10:59:51] #2 76d4134f in ?? () in C:\WINDOWS\System32\KERNELBASE.dll
-[10:59:51] #3 0048d53c in ?? () in samp-server.exe
-[10:59:51] #4 0049b531 in ?? () in samp-server.exe
-[10:59:51] #5 0049b541 in ?? () in samp-server.exe
-[10:59:51] Long callback execution detected (hang or performance issue)
-[10:59:51] AMX backtrace:
-[10:59:51] #0 00006bc8 in AMX_GetEntryPrefix (E_AMX_TABLE:table=0, idx=83, &buffer=@0277bd60 0, pattern=1601784128) at D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\..\YSI_Core\y_core\y_amx_impl.inc:1165
-[10:59:51] #1 00006d20 in AMX_GetPointerPrefix (E_AMX_TABLE:table=0, idx=0, &buffer=@0277bd80 0, pattern=1601784128) at D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\..\YSI_Core\y_core\y_amx_impl.inc:2016
-[10:59:51] #2 0000a8bc in ScriptInit_PreExitFuncs_ () at D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\..\YSI_Core\y_core\y_core_entry.inc:606
-[10:59:51] #3 00003c60 in public OnGameModeExit () at D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\..\YSI_Core\y_core\y_scriptinit_impl.inc:1971
-[11:21:02] Server received interrupt signal
-[11:21:03] Native backtrace:
-[11:21:03] #0 773a94dc in ?? () in C:\WINDOWS\SYSTEM32\ntdll.dll
-[11:21:03] #1 76d413b0 in ?? () in C:\WINDOWS\System32\KERNELBASE.dll
-[11:21:03] #2 76d4134f in ?? () in C:\WINDOWS\System32\KERNELBASE.dll
-[11:21:03] #3 7651e910 in ?? () in C:\WINDOWS\System32\KERNEL32.DLL
-[11:21:03] #4 0049b531 in ?? () in samp-server.exe
-[11:21:03] #5 0049b541 in ?? () in samp-server.exe
-[11:21:03] #6 06884911 in ?? ()
-[11:21:03] #7 75c08500 in ?? () in C:\WINDOWS\System32\Windows.Storage.dll
-[11:21:03] Long callback execution detected (hang or performance issue)
-[11:21:03] AMX backtrace:
-[11:21:03] #0 00006bc0 in AMX_GetEntryPrefix (E_AMX_TABLE:table=0, idx=81, &buffer=@0279d794 0, pattern=1601784128) at D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\..\YSI_Core\y_core\y_amx_impl.inc:1156
-[11:21:03] #1 00006d74 in AMX_GetPointerPrefix (E_AMX_TABLE:table=0, idx=0, &buffer=@0279d7b4 0, pattern=1601784128) at D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\..\YSI_Core\y_core\y_amx_impl.inc:2016
-[11:21:03] #2 0000a910 in ScriptInit_PreExitFuncs_ () at D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\..\YSI_Core\y_core\y_core_entry.inc:606
-[11:21:03] #3 00003cb4 in public OnGameModeExit () at D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\..\YSI_Core\y_core\y_scriptinit_impl.inc:1971
-[15:08:02] Long callback execution detected (hang or performance issue)
-[15:08:02] AMX backtrace:
-[15:08:02] #0 00006c5c in AMX_GetEntryPrefix (E_AMX_TABLE:table=0, idx=8, &buffer=@02828fe4 0, pattern=1598650688) at D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\..\YSI_Core\y_core\y_amx_impl.inc:1156
-[15:08:02] #1 00006e10 in AMX_GetPointerPrefix (E_AMX_TABLE:table=0, idx=0, &buffer=@02829004 0, pattern=1598650688) at D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\..\YSI_Core\y_core\y_amx_impl.inc:2016
-[15:08:02] #2 0000a804 in ScriptInit_PreInitFuncs_ () at D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\..\YSI_Core\y_core\y_core_entry.inc:558
-[15:08:02] #3 00003b90 in public PawnCmd_OnGameModeInit () at D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\..\YSI_Core\y_core\y_scriptinit_impl.inc:1867
-[15:08:02] #4 000013f4 in public SSCANF_OnGameModeInit ()  at D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\Pawn.CMD.inc:131
-[15:08:02] #5 00000b3c in public ScriptInit_OnCodeInit () at D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\sscanf2.inc:1066
-[15:08:02] Long callback execution detected (hang or performance issue)
-[15:08:02] AMX backtrace:
-[15:08:02] #0 00025488 in Alloc:Malloc_Allocate (size=15, bool:clear=false) at D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_timers\..\y_malloc\y_malloc_funcs.inc:828
-[15:08:02] #1 0002a3b0 in Alloc:Timer_GetSingleSlot (len=0) at D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_timers\y_timers_impl.inc:375
-[15:08:02] #2 0002a934 in _Timer_B (repeatCount=0) at D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_timers\y_timers_impl.inc:522
-[15:08:02] #3 0003dec4 in _@yTTimer_AutoSave () at D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\gamemodes\gamemode.pwn:173
-[15:08:02] #4 0003d778 in _@yHOnGameModeInit@000 () at D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\gamemodes\gamemode.pwn:126
-[15:08:02] #5 00019ee8 in public OnScriptInit@E () at D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\y_cgen\y_cgen_impl.inc:157
-[15:08:02] #6 native CallLocalFunction () in samp-server.exe
-[15:08:02] #7 00003c64 in public PawnCmd_OnGameModeInit () at D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\..\YSI_Core\y_core\y_scriptinit_impl.inc:1900
-[15:08:02] #8 000013f4 in public SSCANF_OnGameModeInit ()  at D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\Pawn.CMD.inc:131
-[15:08:02] #9 00000b3c in public ScriptInit_OnCodeInit () at D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\sscanf2.inc:1066
-[15:09:40] Server received interrupt signal
-[15:09:40] Native backtrace:
-[15:09:40] #0 773a94dc in ?? () in C:\WINDOWS\SYSTEM32\ntdll.dll
-[15:09:40] #1 76d413b0 in ?? () in C:\WINDOWS\System32\KERNELBASE.dll
-[15:09:40] #2 76d4134f in ?? () in C:\WINDOWS\System32\KERNELBASE.dll
-[15:09:40] #3 0048d53c in ?? () in samp-server.exe
-[15:09:40] #4 0049b531 in ?? () in samp-server.exe
-[15:09:40] #5 0049b541 in ?? () in samp-server.exe
-[15:09:40] Long callback execution detected (hang or performance issue)
-[15:09:40] AMX backtrace:
-[15:09:40] #0 00006d70 in AMX_GetEntryPrefix (E_AMX_TABLE:table=0, idx=66, &buffer=@02828ffc 0, pattern=1601784128) at D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\..\YSI_Core\y_core\y_amx_impl.inc:1170
-[15:09:40] #1 00006e10 in AMX_GetPointerPrefix (E_AMX_TABLE:table=0, idx=0, &buffer=@0282901c 0, pattern=1601784128) at D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\..\YSI_Core\y_core\y_amx_impl.inc:2016
-[15:09:40] #2 0000a9ac in ScriptInit_PreExitFuncs_ () at D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\..\YSI_Core\y_core\y_core_entry.inc:606
-[15:09:40] #3 00003d50 in public OnGameModeExit () at D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\..\YSI_Core\y_core\y_scriptinit_impl.inc:1971
-[15:10:34] Long callback execution detected (hang or performance issue)
-[15:10:34] AMX backtrace:
-[15:10:34] #0 00006c5c in AMX_GetEntryPrefix (E_AMX_TABLE:table=0, idx=8, &buffer=@02828fe4 0, pattern=1598650688) at D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\..\YSI_Core\y_core\y_amx_impl.inc:1156
-[15:10:34] #1 00006e10 in AMX_GetPointerPrefix (E_AMX_TABLE:table=0, idx=0, &buffer=@02829004 0, pattern=1598650688) at D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\..\YSI_Core\y_core\y_amx_impl.inc:2016
-[15:10:34] #2 0000a804 in ScriptInit_PreInitFuncs_ () at D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\..\YSI_Core\y_core\y_core_entry.inc:558
-[15:10:34] #3 00003b90 in public PawnCmd_OnGameModeInit () at D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\..\YSI_Core\y_core\y_scriptinit_impl.inc:1867
-[15:10:34] #4 000013f4 in public SSCANF_OnGameModeInit ()  at D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\Pawn.CMD.inc:131
-[15:10:34] #5 00000b3c in public ScriptInit_OnCodeInit () at D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\sscanf2.inc:1066
-[15:10:34] Long callback execution detected (hang or performance issue)
-[15:10:34] AMX backtrace:
-[15:10:34] #0 00025488 in Alloc:Malloc_Allocate (size=15, bool:clear=false) at D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_timers\..\y_malloc\y_malloc_funcs.inc:828
-[15:10:34] #1 0002a3b0 in Alloc:Timer_GetSingleSlot (len=0) at D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_timers\y_timers_impl.inc:375
-[15:10:34] #2 0002a934 in _Timer_B (repeatCount=0) at D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_timers\y_timers_impl.inc:522
-[15:10:34] #3 0003dec4 in _@yTTimer_AutoSave () at D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\gamemodes\gamemode.pwn:173
-[15:10:34] #4 0003d778 in _@yHOnGameModeInit@000 () at D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\gamemodes\gamemode.pwn:126
-[15:10:34] #5 00019ee8 in public OnScriptInit@E () at D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\y_cgen\y_cgen_impl.inc:157
-[15:10:34] #6 native CallLocalFunction () in samp-server.exe
-[15:10:34] #7 00003c64 in public PawnCmd_OnGameModeInit () at D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\..\YSI_Core\y_core\y_scriptinit_impl.inc:1900
-[15:10:34] #8 000013f4 in public SSCANF_OnGameModeInit ()  at D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\Pawn.CMD.inc:131
-[15:10:34] #9 00000b3c in public ScriptInit_OnCodeInit () at D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\sscanf2.inc:1066
-[15:14:04] Server received interrupt signal
-[15:14:04] Native backtrace:
-[15:14:04] #0 773a94dc in ?? () in C:\WINDOWS\SYSTEM32\ntdll.dll
-[15:14:04] #1 76d413b0 in ?? () in C:\WINDOWS\System32\KERNELBASE.dll
-[15:14:04] #2 76d4134f in ?? () in C:\WINDOWS\System32\KERNELBASE.dll
-[15:14:04] #3 0048d53c in ?? () in samp-server.exe
-[15:14:04] #4 0049b531 in ?? () in samp-server.exe
-[15:14:04] #5 0049b541 in ?? () in samp-server.exe
-[15:14:04] #6 06884911 in ?? ()
-[15:14:04] #7 75c08500 in ?? () in C:\WINDOWS\System32\Windows.Storage.dll
-[15:14:04] Long callback execution detected (hang or performance issue)
-[15:14:04] AMX backtrace:
-[15:14:04] #0 00006cb8 in AMX_GetEntryPrefix (E_AMX_TABLE:table=0, idx=8, &buffer=@02828ffc 0, pattern=1601784128) at D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\..\YSI_Core\y_core\y_amx_impl.inc:1165
-[15:14:04] #1 00006e10 in AMX_GetPointerPrefix (E_AMX_TABLE:table=0, idx=0, &buffer=@0282901c 0, pattern=1601784128) at D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\..\YSI_Core\y_core\y_amx_impl.inc:2016
-[15:14:04] #2 0000a9ac in ScriptInit_PreExitFuncs_ () at D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\..\YSI_Core\y_core\y_core_entry.inc:606
-[15:14:04] #3 00003d50 in public OnGameModeExit () at D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\..\YSI_Core\y_core\y_scriptinit_impl.inc:1971
-[17:41:46] Long callback execution detected (hang or performance issue)
-[17:41:46] AMX backtrace:
-[17:41:46] #0 00006c34 in AMX_GetEntryPrefix (E_AMX_TABLE:table=0, idx=75, &buffer=@02777384 0, pattern=1598650688) at D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\..\YSI_Core\y_core\y_amx_impl.inc:1170
-[17:41:46] #1 00006cd4 in AMX_GetPointerPrefix (E_AMX_TABLE:table=0, idx=0, &buffer=@027773a4 0, pattern=1598650688) at D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\..\YSI_Core\y_core\y_amx_impl.inc:2016
-[17:41:46] #2 0000a6c8 in ScriptInit_PreInitFuncs_ () at D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\..\YSI_Core\y_core\y_core_entry.inc:558
-[17:41:46] #3 00003a54 in public PawnCmd_OnGameModeInit () at D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\..\YSI_Core\y_core\y_scriptinit_impl.inc:1867
-[17:41:46] #4 000012b8 in public SSCANF_OnGameModeInit ()  at D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\Pawn.CMD.inc:131
-[17:41:46] #5 00000a00 in public SSCANF_OnPlayerConnect () at D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\sscanf2.inc:1066
-[17:48:09] Server received interrupt signal
-[17:48:09] Native backtrace:
-[17:48:09] #0 779994dc in ?? () in C:\WINDOWS\SYSTEM32\ntdll.dll
-[17:48:09] #1 767513b0 in ?? () in C:\WINDOWS\System32\KERNELBASE.dll
-[17:48:09] #2 7675134f in ?? () in C:\WINDOWS\System32\KERNELBASE.dll
-[17:48:09] #3 0048d53c in ?? () in samp-server.exe
-[17:48:09] #4 0049b531 in ?? () in samp-server.exe
-[17:48:09] #5 0049b541 in ?? () in samp-server.exe
-[17:48:09] Long callback execution detected (hang or performance issue)
-[17:48:09] AMX backtrace:
-[17:48:09] #0 00006b7c in AMX_GetEntryPrefix (E_AMX_TABLE:table=0, idx=43, &buffer=@0277739c 0, pattern=1601784128) at D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\..\YSI_Core\y_core\y_amx_impl.inc:1165
-[17:48:09] #1 00006cd4 in AMX_GetPointerPrefix (E_AMX_TABLE:table=0, idx=0, &buffer=@027773bc 0, pattern=1601784128) at D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\..\YSI_Core\y_core\y_amx_impl.inc:2016
-[17:48:09] #2 0000a870 in ScriptInit_PreExitFuncs_ () at D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\..\YSI_Core\y_core\y_core_entry.inc:606
-[17:48:09] #3 00003c14 in public OnGameModeExit () at D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\..\YSI_Core\y_core\y_scriptinit_impl.inc:1971
-[17:48:21] Long callback execution detected (hang or performance issue)
-[17:48:21] AMX backtrace:
-[17:48:21] #0 00006c34 in AMX_GetEntryPrefix (E_AMX_TABLE:table=0, idx=75, &buffer=@027773ac 0, pattern=1598650688) at D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\..\YSI_Core\y_core\y_amx_impl.inc:1170
-[17:48:21] #1 00006cd4 in AMX_GetPointerPrefix (E_AMX_TABLE:table=0, idx=0, &buffer=@027773cc 0, pattern=1598650688) at D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\..\YSI_Core\y_core\y_amx_impl.inc:2016
-[17:48:21] #2 0000a6c8 in ScriptInit_PreInitFuncs_ () at D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\..\YSI_Core\y_core\y_core_entry.inc:558
-[17:48:21] #3 00003a54 in public PawnCmd_OnGameModeInit () at D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\..\YSI_Core\y_core\y_scriptinit_impl.inc:1867
-[17:48:21] #4 000012b8 in public SSCANF_OnGameModeInit ()  at D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\Pawn.CMD.inc:131
-[17:48:21] #5 00000a00 in public SSCANF_OnPlayerConnect () at D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\sscanf2.inc:1066
-[17:50:17] Long callback execution detected (hang or performance issue)
-[17:50:17] AMX backtrace:
-[17:50:17] #0 00009e10 in public Android_OnPlayerConnect (playerid=0) at D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\..\YSI_Core\y_core\../y_utils/y_utils_ip.inc:101
-[17:50:17] #1 00007c64 in public SSCANF_OnPlayerConnect (0) at D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\..\YSI_Core\y_core\..\..\YSI_Players\y_android\y_android_entry.inc:167
-[17:50:17] #2 00000bbc in public OnPlayerConnect (playerid=0) at D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\sscanf2.inc:1129
-[17:51:49] Server received interrupt signal
-[17:51:49] Native backtrace:
-[17:51:49] #0 779994dc in ?? () in C:\WINDOWS\SYSTEM32\ntdll.dll
-[17:51:49] #1 767513b0 in ?? () in C:\WINDOWS\System32\KERNELBASE.dll
-[17:51:49] #2 7675134f in ?? () in C:\WINDOWS\System32\KERNELBASE.dll
-[17:51:49] #3 0048d53c in ?? () in samp-server.exe
-[17:51:49] #4 0049b531 in ?? () in samp-server.exe
-[17:51:49] #5 0049b541 in ?? () in samp-server.exe
-[17:51:49] #6 06884911 in ?? ()
-[17:51:49] #7 72f13b46 in ?? () in samp-server.exe
-[17:51:49] #8 55c35ef2 in ?? () in samp-server.exe
-[17:51:49] #9 7d83ec8b in ?? () in samp-server.exe
-[17:51:49] #10 458b0a10 in ?? () in samp-server.exe
-[17:51:49] Long callback execution detected (hang or performance issue)
-[17:51:49] AMX backtrace:
-[17:51:49] #0 00006c34 in AMX_GetEntryPrefix (E_AMX_TABLE:table=0, idx=10, &buffer=@027773c4 0, pattern=2034851648) at D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\..\YSI_Core\y_core\y_amx_impl.inc:1170
-[17:51:49] #1 00006cd4 in AMX_GetPointerPrefix (E_AMX_TABLE:table=0, idx=0, &buffer=@027773e4 0, pattern=2034851648) at D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\..\YSI_Core\y_core\y_amx_impl.inc:2016
-[17:51:49] #2 0000a944 in ScriptInit_PostExitFuncs_ () at D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\..\YSI_Core\y_core\y_core_entry.inc:630
-[17:51:49] #3 00003c3c in public OnGameModeExit () at D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\..\YSI_Core\y_core\y_scriptinit_impl.inc:1973
-[19:19:56] Long callback execution detected (hang or performance issue)
-[19:19:56] AMX backtrace:
-[19:19:56] #0 000007c4 in SSCANF_RunInit () at D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\sscanf2.inc:908
-[19:19:56] #1 00000a40 in public OnGameModeInit () at D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\sscanf2.inc:1065
-[19:19:56] Long callback execution detected (hang or performance issue)
-[19:19:56] AMX backtrace:
-[19:19:56] #0 00006c88 in AMX_GetEntryPrefix (E_AMX_TABLE:table=0, idx=81, &buffer=@02786804 0, pattern=1598650688) at D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\..\YSI_Core\y_core\y_amx_impl.inc:1170
-[19:19:56] #1 00006d28 in AMX_GetPointerPrefix (E_AMX_TABLE:table=0, idx=0, &buffer=@02786824 0, pattern=1598650688) at D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\..\YSI_Core\y_core\y_amx_impl.inc:2016
-[19:19:56] #2 0000a71c in ScriptInit_PreInitFuncs_ () at D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\..\YSI_Core\y_core\y_core_entry.inc:558
-[19:19:56] #3 00003aa8 in public PawnCmd_OnGameModeInit () at D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\..\YSI_Core\y_core\y_scriptinit_impl.inc:1867
-[19:19:56] #4 0000130c in public SSCANF_OnGameModeInit ()  at D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\Pawn.CMD.inc:131
-[19:19:56] #5 00000a54 in public ScriptInit_OnGameModeExit () at D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\sscanf2.inc:1066
-[19:19:56] Long callback execution detected (hang or performance issue)
-[19:19:56] AMX backtrace:
-[19:19:56] #0 000300bc in _@yTAutosaveAllPlayers () at modules\session\session.inc:43
-[19:19:56] #1 000304a4 in _@yHOnGameModeInit@Session@000 () at modules\session\session.inc:73
-[19:19:56] #2 00019ec8 in public OnScriptInit@E () at D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\y_cgen\y_cgen_impl.inc:157
-[19:19:56] #3 native CallLocalFunction () in samp-server.exe
-[19:19:56] #4 00003b7c in public PawnCmd_OnGameModeInit () at D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\..\YSI_Core\y_core\y_scriptinit_impl.inc:1900
-[19:19:56] #5 0000130c in public SSCANF_OnGameModeInit ()  at D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\Pawn.CMD.inc:131
-[19:19:56] #6 00000a54 in public ScriptInit_OnGameModeExit () at D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\sscanf2.inc:1066
-[19:20:47] Long callback execution detected (hang or performance issue)
-[19:20:47] AMX backtrace:
-[19:20:47] #0 00033f7c in HUD_Update (playerid=0) at modules\stats\stats_hud.inc:245
-[19:20:47] #1 00034224 in Stats_OnPlayerLogin (playerid=0) at modules\stats\stats.inc:27
-[19:20:47] #2 0002e748 in public OnPlayerDataLoad (playerid=0) at modules\auth\auth_callbacks.inc:207
-[19:25:14] Long callback execution detected (hang or performance issue)
-[19:25:14] AMX backtrace:
-[19:25:14] #0 00030290 in AutosaveAllPlayers () at modules\session\session.inc:50
-[19:25:14] #1 000301b4 in public @Yj:@_yTAutosaveAllPlayers (Timer:__r=1) at modules\session\session.inc:43
-[19:26:41] Server received interrupt signal
-[19:26:41] Native backtrace:
-[19:26:41] #0 779994dc in ?? () in C:\WINDOWS\SYSTEM32\ntdll.dll
-[19:26:41] #1 767513b0 in ?? () in C:\WINDOWS\System32\KERNELBASE.dll
-[19:26:41] #2 7675134f in ?? () in C:\WINDOWS\System32\KERNELBASE.dll
-[19:26:41] #3 0048d53c in ?? () in samp-server.exe
-[19:26:41] #4 0049b531 in ?? () in samp-server.exe
-[19:26:41] #5 0049b541 in ?? () in samp-server.exe
-[19:26:41] #6 06884911 in ?? ()
-[19:26:41] #7 72f13b46 in ?? () in samp-server.exe
-[19:26:41] #8 55c35ef2 in ?? () in samp-server.exe
-[19:26:41] #9 7d83ec8b in ?? () in samp-server.exe
-[19:26:41] #10 458b0a10 in ?? () in samp-server.exe
-[19:26:41] Long callback execution detected (hang or performance issue)
-[19:26:41] AMX backtrace:
-[19:26:41] #0 00006b74 in AMX_GetEntryPrefix (E_AMX_TABLE:table=0, idx=64, &buffer=@0278681c 0, pattern=1601784128) at D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\..\YSI_Core\y_core\y_amx_impl.inc:1156
-[19:26:41] #1 00006d28 in AMX_GetPointerPrefix (E_AMX_TABLE:table=0, idx=0, &buffer=@0278683c 0, pattern=1601784128) at D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\..\YSI_Core\y_core\y_amx_impl.inc:2016
-[19:26:41] #2 0000a8c4 in ScriptInit_PreExitFuncs_ () at D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\..\YSI_Core\y_core\y_core_entry.inc:606
-[19:26:41] #3 00003c68 in public OnGameModeExit () at D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\..\YSI_Core\y_core\y_scriptinit_impl.inc:1971
+[05:53:12] Long callback execution detected (hang or performance issue)
+[05:53:12] AMX backtrace:
+[05:53:12] #0 000255cc in Alloc:Malloc_Allocate (size=17, bool:clear=false) at D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_timers\..\y_malloc\y_malloc_funcs.inc:851
+[05:53:12] #1 0002a2dc in Alloc:Timer_GetSingleSlot (len=0) at D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_timers\y_timers_impl.inc:375
+[05:53:12] #2 0002a860 in _Timer_B (repeatCount=1) at D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_timers\y_timers_impl.inc:522
+[05:53:12] #3 00030e68 in _@yTAutosaveAllPlayers () at modules\session\session.inc:40
+[05:53:12] #4 00031210 in _@yHOnGameModeInit@01 () at modules\session\session.inc:63
+[05:53:12] #5 00019e78 in public OnScriptInit@E () at D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\y_cgen\y_cgen_impl.inc:157
+[05:53:12] #6 native CallLocalFunction () in samp-server.exe
+[05:53:12] #7 00003b7c in public PawnCmd_OnGameModeInit () at D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\..\YSI_Core\y_core\y_scriptinit_impl.inc:1900
+[05:53:12] #8 0000130c in public SSCANF_OnGameModeInit ()  at D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\Pawn.CMD.inc:131
+[05:53:12] #9 00000a54 in public ScriptInit_OnGameModeExit () at D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\sscanf2.inc:1066
+[05:53:24] Server received interrupt signal
+[05:53:24] Native backtrace:
+[05:53:24] #0 773294dc in ?? () in C:\WINDOWS\SYSTEM32\ntdll.dll
+[05:53:24] #1 76c213b0 in ?? () in C:\WINDOWS\System32\KERNELBASE.dll
+[05:53:24] #2 76c2134f in ?? () in C:\WINDOWS\System32\KERNELBASE.dll
+[05:53:24] #3 0048d53c in ?? () in samp-server.exe
+[05:53:24] #4 0049b531 in ?? () in samp-server.exe
+[05:53:24] #5 0049b541 in ?? () in samp-server.exe
+[05:53:24] #6 06884911 in ?? ()
+[05:53:24] #7 72f13b46 in ?? () in samp-server.exe
+[05:53:24] #8 55c35ef2 in ?? () in samp-server.exe
+[05:53:24] #9 7d83ec8b in ?? () in samp-server.exe
+[05:53:24] #10 458b0a10 in ?? () in samp-server.exe
+[05:53:24] Long callback execution detected (hang or performance issue)
+[05:53:24] AMX backtrace:
+[05:53:24] #0 00006af8 in AMX_GetEntryPrefix (E_AMX_TABLE:table=0, idx=0, &buffer=@0278db2c 0, pattern=2034851648) at D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\..\YSI_Core\y_core\y_amx_impl.inc:1146
+[05:53:24] #1 00006d28 in AMX_GetPointerPrefix (E_AMX_TABLE:table=0, idx=0, &buffer=@0278db4c 0, pattern=2034851648) at D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\..\YSI_Core\y_core\y_amx_impl.inc:2016
+[05:53:24] #2 0000a998 in ScriptInit_PostExitFuncs_ () at D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\..\YSI_Core\y_core\y_core_entry.inc:630
+[05:53:24] #3 00003c90 in public OnGameModeExit () at D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\..\YSI_Core\y_core\y_scriptinit_impl.inc:1973
+[05:55:01] Long callback execution detected (hang or performance issue)
+[05:55:01] AMX backtrace:
+[05:55:01] #0 000255cc in Alloc:Malloc_Allocate (size=17, bool:clear=false) at D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_timers\..\y_malloc\y_malloc_funcs.inc:851
+[05:55:01] #1 0002a2dc in Alloc:Timer_GetSingleSlot (len=0) at D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_timers\y_timers_impl.inc:375
+[05:55:01] #2 0002a860 in _Timer_B (repeatCount=1) at D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_timers\y_timers_impl.inc:522
+[05:55:01] #3 00030e68 in _@yTAutosaveAllPlayers () at modules\session\session.inc:40
+[05:55:01] #4 00031210 in _@yHOnGameModeInit@01 () at modules\session\session.inc:63
+[05:55:01] #5 00019e78 in public OnScriptInit@E () at D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\y_cgen\y_cgen_impl.inc:157
+[05:55:01] #6 native CallLocalFunction () in samp-server.exe
+[05:55:01] #7 00003b7c in public PawnCmd_OnGameModeInit () at D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\YSI_Coding\y_hooks\..\..\YSI_Core\y_core\y_scriptinit_impl.inc:1900
+[05:55:01] #8 0000130c in public SSCANF_OnGameModeInit ()  at D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\Pawn.CMD.inc:131
+[05:55:01] #9 00000a54 in public ScriptInit_OnGameModeExit () at D:\Denmas\Gta Samp\Gamemode-SAMP\VibeRoleplay\pawno\include\sscanf2.inc:1066
+[06:00:52] Long callback execution detected (hang or performance issue)
+[06:00:52] AMX backtrace:
+[06:00:52] #0 0002b2e4 in FormatRPName (input[]=@0278d6dc "Bocah_Nyawit", output[]=@0278d67c "Bocah Nyawit", maxsize=24) at utils\name_validator.inc:85
+[06:00:52] #1 00032934 in HUD_Create (playerid=0) at modules\stats\stats_hud.inc:122
+[06:00:52] #2 0003404c in Stats_OnPlayerLogin (playerid=0) at modules\stats\stats.inc:20
+[06:00:52] #3 0002e1e4 in public OnPlayerRegisterInsert (playerid=0) at modules\auth\auth_callbacks.inc:79

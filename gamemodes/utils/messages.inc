@@ -10,42 +10,130 @@
 #endif
 #define _messages_included
 
+// ============================================================================
+//  Constants
+// ============================================================================
+
+#define MAX_MSG_LENGTH          256
+#define MAX_CHAT_LENGTH         144
+
+// ============================================================================
+//  Send Message Functions
+// ============================================================================
+
 stock SendServerMessage(playerid, const message[])
 {
-    new string[256];
-    format(string, sizeof(string), "{5B8CFF}[SERVER]: {FFFFFF}%s", message);
+    if (!IsPlayerConnected(playerid))
+        return 0;
+    
+    if (isnull(message))
+        return 0;
+
+    new string[MAX_MSG_LENGTH];
+    format(string, sizeof(string), "%s[SERVER]: %s%s", EC_PRIMARY, EC_WHITE, message);
     SendClientMessage(playerid, COLOR_WHITE, string);
     return 1;
 }
 
 stock SendErrorMessage(playerid, const message[])
 {
-    new string[256];
-    format(string, sizeof(string), "{E74C3C}[ERROR]: {FFFFFF}%s", message);
+    if (!IsPlayerConnected(playerid))
+        return 0;
+    
+    if (isnull(message))
+        return 0;
+
+    new string[MAX_MSG_LENGTH];
+    format(string, sizeof(string), "%s[ERROR]: %s%s", EC_ERROR, EC_WHITE, message);
     SendClientMessage(playerid, COLOR_WHITE, string);
     return 1;
 }
 
 stock SendSuccessMessage(playerid, const message[])
 {
-    new string[256];
-    format(string, sizeof(string), "{4CAF50}[SUCCESS]: {FFFFFF}%s", message);
+    if (!IsPlayerConnected(playerid))
+        return 0;
+    
+    if (isnull(message))
+        return 0;
+
+    new string[MAX_MSG_LENGTH];
+    format(string, sizeof(string), "%s[SUCCESS]: %s%s", EC_SUCCESS, EC_WHITE, message);
     SendClientMessage(playerid, COLOR_WHITE, string);
     return 1;
 }
 
 stock SendInfoMessage(playerid, const message[])
 {
-    new string[256];
-    format(string, sizeof(string), "{3498DB}[INFO]: {FFFFFF}%s", message);
+    if (!IsPlayerConnected(playerid))
+        return 0;
+    
+    if (isnull(message))
+        return 0;
+
+    new string[MAX_MSG_LENGTH];
+    format(string, sizeof(string), "%s[INFO]: %s%s", EC_INFO, EC_WHITE, message);
     SendClientMessage(playerid, COLOR_WHITE, string);
     return 1;
 }
 
 stock SendWarningMessage(playerid, const message[])
 {
-    new string[256];
-    format(string, sizeof(string), "{F39C12}[WARNING]: {FFFFFF}%s", message);
+    if (!IsPlayerConnected(playerid))
+        return 0;
+    
+    if (isnull(message))
+        return 0;
+
+    new string[MAX_MSG_LENGTH];
+    format(string, sizeof(string), "%s[WARNING]: %s%s", EC_WARNING, EC_WHITE, message);
     SendClientMessage(playerid, COLOR_WHITE, string);
+    return 1;
+}
+
+stock SendActionMessage(playerid, const message[])
+{
+    if (!IsPlayerConnected(playerid))
+        return 0;
+    
+    if (isnull(message))
+        return 0;
+
+    new string[MAX_MSG_LENGTH];
+    format(string, sizeof(string), "%s* %s%s", EC_ACTION, EC_WHITE, message);
+    SendClientMessage(playerid, COLOR_ACTION, string);
+    return 1;
+}
+
+// ============================================================================
+//  Broadcast Messages (ke semua pemain)
+// ============================================================================
+
+stock BroadcastServerMessage(const message[])
+{
+    if (isnull(message))
+        return 0;
+
+    new string[MAX_MSG_LENGTH];
+    format(string, sizeof(string), "%s[SERVER]: %s%s", EC_PRIMARY, EC_WHITE, message);
+    
+    for (new i = 0; i < MAX_PLAYERS; i++)
+    {
+        if (IsPlayerConnected(i))
+            SendClientMessage(i, COLOR_WHITE, string);
+    }
+    return 1;
+}
+
+stock BroadcastMessage(const color[], const message[])
+{
+    if (isnull(message))
+        return 0;
+
+    for (new i = 0; i < MAX_PLAYERS; i++)
+    {
+        if (IsPlayerConnected(i))
+            SendClientMessage(i, COLOR_WHITE, message);
+    }
     return 1;
 }

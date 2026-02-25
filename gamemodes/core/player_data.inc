@@ -4,12 +4,21 @@
  *
  *  Struktur data pemain, fungsi reset, spawn, dan economy wrapper.
  *  Semua modul mengakses data pemain dari sini.
+ *  
+ *  NOTE: samp_bcrypt.inc harus di-include SEBELUM file ini di gamemode.pwn
+ *        karena menggunakan konstanta BCRYPT_HASH_LENGTH
  */
 
 #if defined _player_data_included
     #endinput
 #endif
 #define _player_data_included
+
+// ============================================================================
+//  Constants
+// ============================================================================
+
+#define MAX_PLAYER_PASSWORD     65      // Buffer size untuk password hash (BCRYPT_HASH_LENGTH + padding)
 
 // ============================================================================
 //  Player Data Enum
@@ -19,7 +28,7 @@ enum E_PLAYER_DATA
 {
     // Database
     pID,
-    pPassword[BCRYPT_HASH_LENGTH],
+    pPassword[MAX_PLAYER_PASSWORD],
 
     // Status & State
     bool:pLoggedIn,
@@ -27,6 +36,9 @@ enum E_PLAYER_DATA
     pLoginAttempts,
     pTempPassword[MAX_PASSWORD_LENGTH + 1],
     pState,                     // E_PLAYER_STATE
+
+    // Admin
+    pAdminLevel,
 
     // Stats
     pSkin,
@@ -49,6 +61,10 @@ enum E_PLAYER_DATA
     pDeathTimer
 };
 
+// ============================================================================
+//  Global Variables
+// ============================================================================
+
 new PlayerData[MAX_PLAYERS][E_PLAYER_DATA];
 
 // ============================================================================
@@ -57,6 +73,9 @@ new PlayerData[MAX_PLAYERS][E_PLAYER_DATA];
 
 stock ResetPlayerData(playerid)
 {
+    if (playerid < 0 || playerid >= MAX_PLAYERS)
+        return 0;
+
     PlayerData[playerid][pID]               = 0;
     PlayerData[playerid][pPassword][0]      = EOS;
     PlayerData[playerid][pLoggedIn]         = false;
@@ -64,6 +83,7 @@ stock ResetPlayerData(playerid)
     PlayerData[playerid][pLoginAttempts]    = 0;
     PlayerData[playerid][pTempPassword][0]  = EOS;
     PlayerData[playerid][pState]            = 0;  // STATE_NONE
+    PlayerData[playerid][pAdminLevel]       = 0;
     PlayerData[playerid][pSkin]             = DEFAULT_SPAWN_SKIN;
     PlayerData[playerid][pMoney]            = 0;
     PlayerData[playerid][pLevel]            = 1;
@@ -87,6 +107,9 @@ stock ResetPlayerData(playerid)
 
 stock SpawnPlayerAtSavedPosition(playerid)
 {
+    if (!IsPlayerConnected(playerid))
+        return 0;
+
     // Disable spectating mode (digunakan saat menunggu login)
     TogglePlayerSpectating(playerid, false);
 
@@ -113,6 +136,9 @@ stock SpawnPlayerAtSavedPosition(playerid)
 
 stock VRP_SetPlayerMoney(playerid, amount)
 {
+    if (!IsPlayerConnected(playerid))
+        return 0;
+
     ResetPlayerMoney(playerid);
     GivePlayerMoney(playerid, amount);
     PlayerData[playerid][pMoney] = amount;
@@ -121,13 +147,37 @@ stock VRP_SetPlayerMoney(playerid, amount)
 
 stock VRP_GivePlayerMoney(playerid, amount)
 {
+    if (!IsPlayerConnected(playerid))
+        return 0;
+
     PlayerData[playerid][pMoney] += amount;
     GivePlayerMoney(playerid, amount);
     return 1;
 }
 
+stock VRP_TakePlayerMoney(playerid, amount)
+{
+    if (!IsPlayerConnected(playerid))
+        return 0;
+
+    if (PlayerData[playerid][pMoney] < amount)
+    {
+        PlayerData[playerid][pMoney] = 0;
+        ResetPlayerMoney(playerid);
+        return 0;
+    }
+
+    PlayerData[playerid][pMoney] -= amount;
+    ResetPlayerMoney(playerid);
+    GivePlayerMoney(playerid, PlayerData[playerid][pMoney]);
+    return 1;
+}
+
 stock VRP_GetPlayerMoney(playerid)
 {
+    if (!IsPlayerConnected(playerid))
+        return 0;
+
     return PlayerData[playerid][pMoney];
 }
 
@@ -137,6 +187,9 @@ stock VRP_GetPlayerMoney(playerid)
 
 stock GetPlayerSessionMinutes(playerid)
 {
+    if (!IsPlayerConnected(playerid))
+        return 0;
+
     if (PlayerData[playerid][pSessionStart] == 0)
         return 0;
 
@@ -146,6 +199,9 @@ stock GetPlayerSessionMinutes(playerid)
 
 stock GetPlayerTotalPlaytime(playerid)
 {
+    if (!IsPlayerConnected(playerid))
+        return 0;
+
     return PlayerData[playerid][pPlaytime] + GetPlayerSessionMinutes(playerid);
 }
 
@@ -155,6 +211,9 @@ stock GetPlayerTotalPlaytime(playerid)
 
 stock SavePlayerDataToDB(playerid)
 {
+    if (!IsPlayerConnected(playerid))
+        return 0;
+
     if (!PlayerData[playerid][pLoggedIn])
         return 0;
 

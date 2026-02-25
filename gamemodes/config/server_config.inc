@@ -15,7 +15,7 @@
 // ============================================================================
 
 #define SERVER_NAME             "Vibe Roleplay"
-#define SERVER_VERSION          "1.0.0"
+#define SERVER_VERSION          "1.0.2"
 #define SERVER_WEBSITE          "www.vrp.com"
 #define SERVER_DISCORD          "discord.gg/vrp"
 

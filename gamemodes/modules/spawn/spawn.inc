@@ -1,9 +1,6 @@
 /*
  *  Vibe Roleplay - Spawn & Death System
  *  File: modules/spawn/spawn.inc
- *
- *  Sistem kematian dan respawn.
- *  Anti-spawn-abuse, death timer, hospital cost.
  */
 
 #if defined _spawn_included
@@ -11,9 +8,7 @@
 #endif
 #define _spawn_included
 
-// ============================================================================
-//  Death Timer Callback
-// ============================================================================
+#include <YSI_Coding\y_hooks>
 
 forward OnDeathTimerExpire(playerid);
 public OnDeathTimerExpire(playerid)
@@ -21,31 +16,25 @@ public OnDeathTimerExpire(playerid)
     if (!IsPlayerConnected(playerid))
         return 0;
 
-    if (!IsPlayerDead(playerid))
+    if (PlayerData[playerid][pState] != PLAYER_STATE_DEAD)
         return 0;
 
-    // Respawn di rumah sakit
     PlayerData[playerid][pDeathTimer] = -1;
+    PlayerData[playerid][pState] = PLAYER_STATE_ALIVE;
 
-    SetPlayerState_(playerid, STATE_ALIVE);
-
-    // Potong biaya rumah sakit
     if (VRP_GetPlayerMoney(playerid) >= HOSPITAL_COST)
     {
         VRP_GivePlayerMoney(playerid, -HOSPITAL_COST);
-
         new msg[128];
         format(msg, sizeof(msg), "Kamu dibawa ke rumah sakit. Biaya perawatan: $%d", HOSPITAL_COST);
         SendInfoMessage(playerid, msg);
     }
     else
     {
-        // Uang tidak cukup — gratis tapi beri peringatan
         VRP_SetPlayerMoney(playerid, 0);
         SendWarningMessage(playerid, "Kamu dibawa ke rumah sakit. Uang tidak cukup untuk biaya perawatan.");
     }
 
-    // Spawn di rumah sakit
     SetSpawnInfo(playerid, 0, PlayerData[playerid][pSkin],
         HOSPITAL_SPAWN_X, HOSPITAL_SPAWN_Y, HOSPITAL_SPAWN_Z, HOSPITAL_SPAWN_A,
         0, 0, 0, 0, 0, 0
@@ -53,9 +42,8 @@ public OnDeathTimerExpire(playerid)
     SpawnPlayer(playerid);
     SetPlayerInterior(playerid, HOSPITAL_SPAWN_INT);
     SetPlayerVirtualWorld(playerid, HOSPITAL_SPAWN_VW);
-    SetPlayerHealth(playerid, 50.0); // Respawn dengan HP setengah
+    SetPlayerHealth(playerid, 50.0);
 
-    // Update posisi data
     PlayerData[playerid][pPosX] = HOSPITAL_SPAWN_X;
     PlayerData[playerid][pPosY] = HOSPITAL_SPAWN_Y;
     PlayerData[playerid][pPosZ] = HOSPITAL_SPAWN_Z;
@@ -63,32 +51,22 @@ public OnDeathTimerExpire(playerid)
     PlayerData[playerid][pInterior] = HOSPITAL_SPAWN_INT;
     PlayerData[playerid][pVirtualWorld] = HOSPITAL_SPAWN_VW;
 
-    // Show HUD kembali
     HUD_Show(playerid);
     return 1;
 }
-
-// ============================================================================
-//  Hooks
-// ============================================================================
 
 hook OnPlayerDeath(playerid, killerid, reason)
 {
     if (!PlayerData[playerid][pLoggedIn])
         return 1;
 
-    // Set state ke DEAD
-    SetPlayerState_(playerid, STATE_DEAD);
-
-    // Sembunyikan HUD
+    PlayerData[playerid][pState] = PLAYER_STATE_DEAD;
     HUD_Hide(playerid);
 
-    // Pesan ke pemain
     new msg[128];
     format(msg, sizeof(msg), "Kamu tewas. Kamu akan dibawa ke rumah sakit dalam %d detik...", DEATH_WAIT_TIME);
     SendErrorMessage(playerid, msg);
 
-    // Start death timer
     PlayerData[playerid][pDeathTimer] = SetTimerEx("OnDeathTimerExpire",
         DEATH_WAIT_TIME * 1000, false, "i", playerid);
 
@@ -103,21 +81,14 @@ hook OnPlayerSpawn(playerid)
         return 0;
     }
 
-    // Jika state masih DEAD (spawn dari SA-MP internal), abaikan
-    if (IsPlayerDead(playerid))
+    if (PlayerData[playerid][pState] == PLAYER_STATE_DEAD)
     {
-        // Freeze pemain hingga timer expire
         TogglePlayerControllable(playerid, false);
         return 1;
     }
 
-    // Set state ke ALIVE
-    SetPlayerState_(playerid, STATE_ALIVE);
-
-    // Pastikan pemain bisa bergerak
+    PlayerData[playerid][pState] = PLAYER_STATE_ALIVE;
     TogglePlayerControllable(playerid, true);
-
-    // Show HUD
     HUD_Show(playerid);
 
     return 1;
@@ -130,5 +101,42 @@ hook OnPlayerRequestClass(playerid, classid)
         TogglePlayerSpectating(playerid, true);
         return 0;
     }
+    return 1;
+}
+
+hook OnPlayerRequestSpawn(playerid)
+{
+    if (!PlayerData[playerid][pLoggedIn])
+    {
+        return 0;
+    }
+    return 1;
+}
+
+hook OnPlayerConnect(playerid)
+{
+    if (!PlayerData[playerid][pLoggedIn])
+    {
+        TogglePlayerSpectating(playerid, true);
+        return 0;
+    }
+
+    // Jika state masih DEAD (spawn dari SA-MP internal), abaikan
+    if (IsPlayerDeadState(playerid))
+    {
+        // Freeze pemain hingga timer expire
+        TogglePlayerControllable(playerid, false);
+        return 1;
+    }
+
+    // Set state ke ALIVE
+    GetPlayerState(playerid);
+
+    // Pastikan pemain bisa bergerak
+    TogglePlayerControllable(playerid, true);
+
+    // Show HUD
+    HUD_Show(playerid);
+
     return 1;
 }
