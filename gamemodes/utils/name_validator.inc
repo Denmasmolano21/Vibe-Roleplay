@@ -1,9 +1,6 @@
 /*
  *  Vibe Roleplay - Name Validator
  *  File: utils/name_validator.inc
- *
- *  Validasi nama roleplay menggunakan Pawn.Regex.
- *  Format yang diterima: Nama_Belakang (contoh: Denmas_Molano)
  */
 
 #if defined _name_validator_included
@@ -11,28 +8,13 @@
 #endif
 #define _name_validator_included
 
-// ============================================================================
-//  Constants
-// ============================================================================
-
-#define MIN_RP_NAME_LENGTH      3       // Minimal panjang nama (contoh: A_B)
-#define MAX_RP_NAME_LENGTH      24      // Maksimal panjang nama SA-MP
-
-// ============================================================================
-//  Variables
-// ============================================================================
+#define MIN_RP_NAME_LENGTH      3
+#define MAX_RP_NAME_LENGTH      24
 
 static Regex:g_RegexRPName = Regex:0;
 
-// ============================================================================
-//  Functions
-// ============================================================================
-
 stock NameValidator_Init()
 {
-    // Pattern: Huruf kapital di awal, diikuti huruf kecil, underscore, kapital lagi, huruf kecil.
-    // Contoh valid: Denmas_Molano, John_Smith, Ana_Maria
-    // Contoh invalid: denmas_molano, DENMAS_MOLANO, Denmas, DenmasMolano, D_M
     g_RegexRPName = Regex_New("^[A-Z][a-z]{1,}_{1}[A-Z][a-z]{1,}$");
     
     if (g_RegexRPName == Regex:0)
@@ -71,7 +53,6 @@ stock bool:IsValidRoleplayName(const name[])
 
 stock FormatRPName(const input[], output[], maxsize)
 {
-    // Ganti underscore dengan spasi untuk tampilan
     if (isnull(input))
     {
         output[0] = EOS;

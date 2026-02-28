@@ -8,14 +8,10 @@
 #endif
 #define _auth_included
 
-#include <YSI_Coding\y_hooks>
-#include <YSI_Coding\y_timers>
-#include <YSI_Data\y_iterate>
-#include "auth_callbacks.inc"
-
-// ============================================================================
-//  Dialog Functions
-// ============================================================================
+#include <YSI_Coding/y_hooks>
+#include <YSI_Coding/y_timers>
+#include <YSI_Data/y_iterate>
+#include "modules/auth/auth_callbacks.inc"
 
 ShowRegisterDialog(playerid)
 {
@@ -64,10 +60,6 @@ ShowLoginDialog(playerid)
     
     PlayerData[playerid][pState] = PLAYER_STATE_AUTH;
 }
-
-// ============================================================================
-//  Hooks
-// ============================================================================
 
 hook OnPlayerConnect(playerid)
 {

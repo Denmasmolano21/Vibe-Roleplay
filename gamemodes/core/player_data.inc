@@ -1,12 +1,6 @@
 /*
  *  Vibe Roleplay - Player Data
  *  File: core/player_data.inc
- *
- *  Struktur data pemain, fungsi reset, spawn, dan economy wrapper.
- *  Semua modul mengakses data pemain dari sini.
- *  
- *  NOTE: samp_bcrypt.inc harus di-include SEBELUM file ini di gamemode.pwn
- *        karena menggunakan konstanta BCRYPT_HASH_LENGTH
  */
 
 #if defined _player_data_included
@@ -14,42 +8,30 @@
 #endif
 #define _player_data_included
 
-// ============================================================================
-//  Constants
-// ============================================================================
-
-#define MAX_PLAYER_PASSWORD     65      // Buffer size untuk password hash (BCRYPT_HASH_LENGTH + padding)
-
-// ============================================================================
-//  Player Data Enum
-// ============================================================================
+#define MAX_PLAYER_PASSWORD     65
 
 enum E_PLAYER_DATA
 {
-    // Database
     pID,
     pPassword[MAX_PLAYER_PASSWORD],
 
-    // Status & State
     bool:pLoggedIn,
     bool:pRegistering,
     pLoginAttempts,
     pTempPassword[MAX_PASSWORD_LENGTH + 1],
-    pState,                     // E_PLAYER_STATE
+    pState,
 
-    // Admin
     pAdminLevel,
 
-    // Stats
     pSkin,
     pMoney,
+    pBankMoney,
     pLevel,
     pHunger,
     pThirst,
-    pPlaytime,                  // total menit bermain (persistent)
-    pSessionStart,              // GetTickCount() saat login
+    pPlaytime,
+    pSessionStart,
 
-    // Position
     Float:pPosX,
     Float:pPosY,
     Float:pPosZ,
@@ -57,19 +39,10 @@ enum E_PLAYER_DATA
     pInterior,
     pVirtualWorld,
 
-    // Death
     pDeathTimer
 };
 
-// ============================================================================
-//  Global Variables
-// ============================================================================
-
 new PlayerData[MAX_PLAYERS][E_PLAYER_DATA];
-
-// ============================================================================
-//  Reset Player Data
-// ============================================================================
 
 stock ResetPlayerData(playerid)
 {
@@ -82,7 +55,7 @@ stock ResetPlayerData(playerid)
     PlayerData[playerid][pRegistering]      = false;
     PlayerData[playerid][pLoginAttempts]    = 0;
     PlayerData[playerid][pTempPassword][0]  = EOS;
-    PlayerData[playerid][pState]            = 0;  // STATE_NONE
+    PlayerData[playerid][pState]            = 0;
     PlayerData[playerid][pAdminLevel]       = 0;
     PlayerData[playerid][pSkin]             = DEFAULT_SPAWN_SKIN;
     PlayerData[playerid][pMoney]            = 0;
@@ -101,16 +74,11 @@ stock ResetPlayerData(playerid)
     return 1;
 }
 
-// ============================================================================
-//  Spawn Player
-// ============================================================================
-
 stock SpawnPlayerAtSavedPosition(playerid)
 {
     if (!IsPlayerConnected(playerid))
         return 0;
 
-    // Disable spectating mode (digunakan saat menunggu login)
     TogglePlayerSpectating(playerid, false);
 
     SetSpawnInfo(playerid, 0,
@@ -129,10 +97,6 @@ stock SpawnPlayerAtSavedPosition(playerid)
     SetPlayerScore(playerid, PlayerData[playerid][pLevel]);
     return 1;
 }
-
-// ============================================================================
-//  Economy Wrapper — semua money harus lewat sini
-// ============================================================================
 
 stock VRP_SetPlayerMoney(playerid, amount)
 {
@@ -181,10 +145,6 @@ stock VRP_GetPlayerMoney(playerid)
     return PlayerData[playerid][pMoney];
 }
 
-// ============================================================================
-//  Playtime Helper
-// ============================================================================
-
 stock GetPlayerSessionMinutes(playerid)
 {
     if (!IsPlayerConnected(playerid))
@@ -205,9 +165,13 @@ stock GetPlayerTotalPlaytime(playerid)
     return PlayerData[playerid][pPlaytime] + GetPlayerSessionMinutes(playerid);
 }
 
-// ============================================================================
-//  Save Player Data to DB (shared oleh disconnect & autosave)
-// ============================================================================
+stock GetPlayerSessionTime(playerid)
+{
+    if (!IsPlayerConnected(playerid))
+        return 0;
+
+    return GetPlayerSessionMinutes(playerid) * 60;
+}
 
 stock SavePlayerDataToDB(playerid)
 {
@@ -217,7 +181,6 @@ stock SavePlayerDataToDB(playerid)
     if (!PlayerData[playerid][pLoggedIn])
         return 0;
 
-    // Update posisi terakhir
     GetPlayerPos(playerid,
         PlayerData[playerid][pPosX],
         PlayerData[playerid][pPosY],
@@ -229,7 +192,6 @@ stock SavePlayerDataToDB(playerid)
     PlayerData[playerid][pMoney] = GetPlayerMoney(playerid);
     PlayerData[playerid][pSkin] = GetPlayerSkin(playerid);
 
-    // Hitung playtime total
     new totalPlaytime = GetPlayerTotalPlaytime(playerid);
 
     new query[768];
@@ -237,6 +199,7 @@ stock SavePlayerDataToDB(playerid)
         "UPDATE `players` SET \
             `skin` = %d, \
             `money` = %d, \
+            `bank_money` = %d, \
             `level` = %d, \
             `hunger` = %d, \
             `thirst` = %d, \
@@ -250,6 +213,7 @@ stock SavePlayerDataToDB(playerid)
         WHERE `id` = %d",
         PlayerData[playerid][pSkin],
         PlayerData[playerid][pMoney],
+        PlayerData[playerid][pBankMoney],
         PlayerData[playerid][pLevel],
         PlayerData[playerid][pHunger],
         PlayerData[playerid][pThirst],

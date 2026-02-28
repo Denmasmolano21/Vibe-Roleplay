@@ -8,9 +8,9 @@
 #endif
 #define _database_included
 
-#include <YSI_Coding\y_hooks>
-#include <YSI_Coding\y_timers>
-#include <YSI_Data\y_iterate>
+#include <YSI_Coding/y_hooks>
+#include <YSI_Coding/y_timers>
+#include <YSI_Data/y_iterate>
 
 new MySQL:g_MySQL = MYSQL_INVALID_HANDLE;
 new bool:g_DatabaseConnected = false;
@@ -50,6 +50,7 @@ stock Database_CreateTables()
             `admin_level`   INT(2)          NOT NULL DEFAULT '0',\
             `skin`          INT(5)          NOT NULL DEFAULT '299',\
             `money`         INT(11)         NOT NULL DEFAULT '0',\
+            `bank_money`    INT(11)         NOT NULL DEFAULT '5000',\
             `level`         INT(5)          NOT NULL DEFAULT '1',\
             `hunger`        INT(3)          NOT NULL DEFAULT '100',\
             `thirst`        INT(3)          NOT NULL DEFAULT '100',\

@@ -9,23 +9,9 @@
  *  Vibe Roleplay — SA-MP 0.3.7 ( Gamemode )
  *  Version: 1.0.3
  *  Author: Denmasmolano
- *
- *  Changelog:
- *  - v1.0.3: Simplified code - use direct variables instead of wrapper functions
- *  - v1.0.2: Fixed include order, improved code quality
- *  - v1.0.1: Initial release with auth system
- *  - v1.0.0: Base gamemode
  */
 
-// ============================================================================
-//  SA-MP Native Includes (Harus pertama)
-// ============================================================================
-
 #include <a_samp>
-
-// ============================================================================
-//  Plugin Includes
-// ============================================================================
 
 #include <a_mysql>
 #include <sscanf2>
@@ -36,57 +22,55 @@
 #include <textdraw-streamer>
 #include <Pawn.Regex>
 
-// ============================================================================
-//  YSI Libraries
-// ============================================================================
-
 #define YSI_NO_HEAP_MALLOC
-#include <YSI_Coding\y_hooks>
-#include <YSI_Coding\y_timers>
-#include <YSI_Data\y_iterate>
+#include <YSI_Coding/y_hooks>
+#include <YSI_Coding/y_timers>
+#include <YSI_Data/y_iterate>
 
-// ============================================================================
-//  Config
-// ============================================================================
+#include "config/server_config.inc"
+#include "config/dialog_ids.inc"
+#include "config/colors.inc"
+#include "config/admin_levels.inc"
 
-#include "config\server_config.inc"
-#include "config\dialog_ids.inc"
-#include "config\colors.inc"
+#include "utils/name_validator.inc"
+#include "utils/messages.inc"
+#include "utils/command_guard.inc"
+#include "utils/admin_log.inc"
+#include "utils/report_system.inc"
+#include "utils/player_utils.inc"
 
-// ============================================================================
-//  Utils
-// ============================================================================
+#include "core/database.inc"
+#include "core/player_data.inc"
+#include "core/player_state.inc"
 
-#include "utils\name_validator.inc"
-#include "utils\messages.inc"
-#include "utils\command_guard.inc"
+#include "modules/auth/auth.inc"
+#include "modules/session/session.inc"
+#include "modules/stats/stats.inc"
+#include "modules/spawn/spawn.inc"
+#include "modules/mapping/mapping.inc"
+#include "modules/vehicle/vehicle_core.inc"
+#include "modules/inventory/inventory.inc"
+#include "modules/phone/phone.inc"
+#include "modules/house/house.inc"
+#include "modules/business/business.inc"
+#include "modules/job/job.inc"
+#include "modules/faction/faction.inc"
+#include "modules/banking/banking.inc"
+#include "modules/payday/payday.inc"
 
-// ============================================================================
-//  Core
-// ============================================================================
+#include "utils/dialog_handler.inc"
 
-#include "core\database.inc"
-#include "core\player_data.inc"
-#include "core\player_state.inc"
-
-// ============================================================================
-//  Modules
-// ============================================================================
-
-#include "modules\auth\auth.inc"
-#include "modules\session\session.inc"
-#include "modules\stats\stats.inc"
-#include "modules\spawn\spawn.inc"
-
-// ============================================================================
-//  Commands
-// ============================================================================
-
-#include "commands\cmd_general.inc"
-
-// ============================================================================
-//  Entry Point
-// ============================================================================
+#include "commands/cmd_general.inc"
+#include "commands/cmd_admin.inc"
+#include "commands/cmd_vehicle.inc"
+#include "commands/cmd_inventory.inc"
+#include "commands/cmd_phone.inc"
+#include "commands/cmd_house.inc"
+#include "commands/cmd_business.inc"
+#include "commands/cmd_job.inc"
+#include "commands/cmd_faction.inc"
+#include "commands/cmd_banking.inc"
+#include "commands/cmd_payday.inc"
 
 main()
 {
@@ -96,10 +80,6 @@ main()
     print("  Author: Denmasmolano");
     print("==============================================");
 }
-
-// ============================================================================
-//  GameMode Init
-// ============================================================================
 
 public OnGameModeInit()
 {
@@ -120,10 +100,6 @@ public OnGameModeInit()
     printf("[GAMEMODE] %s v%s berhasil dimuat.", SERVER_NAME, SERVER_VERSION);
     return 1;
 }
-
-// ============================================================================
-//  GameMode Exit
-// ============================================================================
 
 public OnGameModeExit()
 {

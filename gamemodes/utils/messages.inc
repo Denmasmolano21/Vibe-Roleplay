@@ -1,8 +1,6 @@
 /*
  *  Vibe Roleplay - Message Utilities
  *  File: utils/messages.inc
- *
- *  Fungsi-fungsi untuk mengirim pesan terformat ke pemain.
  */
 
 #if defined _messages_included
@@ -10,16 +8,8 @@
 #endif
 #define _messages_included
 
-// ============================================================================
-//  Constants
-// ============================================================================
-
 #define MAX_MSG_LENGTH          256
 #define MAX_CHAT_LENGTH         144
-
-// ============================================================================
-//  Send Message Functions
-// ============================================================================
 
 stock SendServerMessage(playerid, const message[])
 {
@@ -104,10 +94,6 @@ stock SendActionMessage(playerid, const message[])
     SendClientMessage(playerid, COLOR_ACTION, string);
     return 1;
 }
-
-// ============================================================================
-//  Broadcast Messages (ke semua pemain)
-// ============================================================================
 
 stock BroadcastServerMessage(const message[])
 {

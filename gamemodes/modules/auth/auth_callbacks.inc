@@ -133,6 +133,7 @@ public OnPlayerDataLoad(playerid)
     cache_get_value_name_int(0, "admin_level", PlayerData[playerid][pAdminLevel]);
     cache_get_value_name_int(0, "skin", PlayerData[playerid][pSkin]);
     cache_get_value_name_int(0, "money", PlayerData[playerid][pMoney]);
+    cache_get_value_name_int(0, "bank_money", PlayerData[playerid][pBankMoney]);
     cache_get_value_name_int(0, "level", PlayerData[playerid][pLevel]);
     cache_get_value_name_int(0, "hunger", PlayerData[playerid][pHunger]);
     cache_get_value_name_int(0, "thirst", PlayerData[playerid][pThirst]);

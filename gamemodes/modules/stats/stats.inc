@@ -8,10 +8,10 @@
 #endif
 #define _stats_included
 
-#include <YSI_Coding\y_hooks>
-#include <YSI_Coding\y_timers>
-#include <YSI_Data\y_iterate>
-#include "stats_hud.inc"
+#include <YSI_Coding/y_hooks>
+#include <YSI_Coding/y_timers>
+#include <YSI_Data/y_iterate>
+#include "modules/stats/stats_hud.inc"
 
 stock Stats_OnPlayerLogin(playerid)
 {
@@ -164,7 +164,7 @@ stock Stats_GetThirst(playerid)
 
 hook OnGameModeInit()
 {
-    defer StatsDecayTimer();
+    repeat StatsDecayTimer();
     printf("[STATS] Stats decay timer aktif (interval: %d detik).", STATS_DECAY_INTERVAL / 1000);
     return 1;
 }
