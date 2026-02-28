@@ -9,6 +9,8 @@
 #define _stats_included
 
 #include <YSI_Coding\y_hooks>
+#include <YSI_Coding\y_timers>
+#include <YSI_Data\y_iterate>
 #include "stats_hud.inc"
 
 stock Stats_OnPlayerLogin(playerid)

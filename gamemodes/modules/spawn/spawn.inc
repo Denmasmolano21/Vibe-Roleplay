@@ -9,6 +9,8 @@
 #define _spawn_included
 
 #include <YSI_Coding\y_hooks>
+#include <YSI_Coding\y_timers>
+#include <YSI_Data\y_iterate>
 
 forward OnDeathTimerExpire(playerid);
 public OnDeathTimerExpire(playerid)

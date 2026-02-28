@@ -9,6 +9,8 @@
 #define _stats_hud_included
 
 #include <YSI_Coding\y_hooks>
+#include <YSI_Coding\y_timers>
+#include <YSI_Data\y_iterate>
 
 new Text:g_KOMA;
 new Text:g_TITIK;
